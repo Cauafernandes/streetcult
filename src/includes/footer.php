@@ -3,10 +3,14 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="dr-Fo">
-                            <h5>© Copyright 2018 - StreetCult - http://www.streetcult.com.br/</h5>
+                            <h5>© Copyright 2018 - StreetCult - http://www.streetcult.com.br/</h5>                          
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="scrlltp" id="scrlltp">
+                <i class="fas fa-angle-up"></i>
+                <p>VOLTAR AO TOPO</p>
             </div>
             <link rel="stylesheet" href="../plugin/slick-1.8.0/slick/slick.css">
             <link rel="stylesheet" href="../plugin/slick-1.8.0/slick/slick-theme.css">

@@ -140,5 +140,23 @@ FB.getLoginStatus(function(response){
 });
 
 //---------------------------------------------
+$('.scrlltp').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+});
 
+$(window).on("scroll", function(){
+    var article = document.getElementById('scrlltp');
+
+    if(window.pageYOffset > 500){
+    $('.scrlltp').css('display', 'table');
+    console.log('MAIOR');
+    } 
+    
+    if(window.pageYOffset < 0){
+    $('.scrlltp').css('display', 'none');
+    console.log('MENOR');
+    }
+});
+  
 

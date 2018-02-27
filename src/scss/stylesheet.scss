@@ -760,14 +760,19 @@ header{
       max-width:300px;
       width:100%;
       float:left;
-      margin: 30px 0.4%;
+      margin: 30px 0.3%;
+      border-right:1px solid #ccc;
+      min-height:230px;
   
       h3{
         display:table;
         margin:10px auto 0;
-        font-size:20px;
+        font-size:12px;
         color:#000;
         text-align:center;
+        font-weight: 100;
+        line-height: 15px;
+        font-family: 'Montserrat', sans-serif;
       }
   
       figure{
@@ -788,6 +793,7 @@ header{
 
     .lancamento:nth-child(4n+4){
       margin-right:0;
+      border:0;
     }
   }
 }
@@ -799,16 +805,54 @@ header{
 
 footer{
   background-color:#000;
-  margin: 30px 0 0;
+  padding:3px;
+  color:#9a9a9a;
 
   h5{
+    display:table;
     margin:0 auto;
     font-size:11px;
-    color:#fff;
-    display:table;
-    padding:3px;
     font-weight:100;
     font-family: "Lato",sans-serif;
+  }
+}
+
+.scrlltp{
+  display: table;
+  position: fixed;
+  padding: 5px 10px;
+  z-index: 2;
+  bottom: 25px;
+  right: -95px;
+  background-color:#b51919;
+  box-sizing: border-box;
+  cursor: pointer;
+  max-width: 130px;
+  width: 100%;
+  border-radius: 6px;
+  -webkit-transition: right .5s;
+  color:#fff;
+
+  svg{
+    font-size:30px;
+    margin-right:8px;
+    display:table;
+    float:left;
+  }
+
+  p{
+    font-size: 15px;
+    max-width: 80px;
+    width: 100%;
+    display: table;
+    margin: 7px 0px 0px 0px;
+    color: #fff;
+  }
+
+  &:hover{
+    background-color: #e62626;
+    transition: 1s all;
+    right: -10px;
   }
 }
 
