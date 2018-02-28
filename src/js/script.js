@@ -63,23 +63,23 @@ $.get({
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO CUPONS
 
-$(document).ready(function() {
-    if ($(".cupom-pR").length <= 6){
-        $('#vmr').hide();
-    } else {
-        $('#vmr').show();
-    }
-});
+// $(document).ready(function() {
+//     if ($(".cupom-pR").length <= 6){
+//         $('#vmr').hide();
+//     } else {
+//         $('#vmr').show();
+//     }
+// });
 
 //---------------------------------------------
 // MOSTRAR OS CUPONS
 
-$(document).ready(function() {
-    $('#vmr').on('click', function(){
-        $('.cupom-pR:nth-child(1n+7)').css('display', 'table');
-        $(this).parent().hide();
-    });
-});
+// $(document).ready(function() {
+//     $('#vmr').on('click', function(){
+//         $('.cupom-pR:nth-child(1n+7)').css('display', 'table');
+//         $(this).parent().hide();
+//     });
+// });
 
 //---------------------------------------------
 // JANELA DO FACEBOOK
@@ -105,58 +105,54 @@ var cupomoft = function(){
 
 // FACEBOOK SCRIPT
 
-FB.init({
-    appId: '504091833259869',
-    xfbml: true,
-    version: 'v2.5'
-  });
+// FB.init({
+//     appId: '504091833259869',
+//     xfbml: true,
+//     version: 'v2.5'
+//   });
 
-(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/pt_BR/all.js#xfbml=1&version=v2.5&appId=504091833259869&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+// (function(d, s, id) {
+//     var js, fjs = d.getElementsByTagName(s)[0];
+//     if (d.getElementById(id)) return;
+//     js = d.createElement(s); js.id = id;
+//     js.src = 'https://connect.facebook.net/pt_BR/all.js#xfbml=1&version=v2.5&appId=504091833259869&autoLogAppEvents=1';
+//     fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
 
-function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-        console.log(response)
-    });
-}
+// function checkLoginState() {
+//     FB.getLoginStatus(function(response) {
+//         statusChangeCallback(response);
+//         console.log(response)
+//     });
+// }
 
-// PEGANDO USUÁRIO NO LOAD DA PAGE
-FB.getLoginStatus(function(response){
-    console.log('Verificando conexão');
-    if (response.authResponse) {
-        FB.api('/me', function(response) {
-            console.log('Bem vindo, ' + response.name + '.')
-        }); 
-    } else {
-        console.log('Não houve uma conexão.')
-        return;
-    }
-});
+// // PEGANDO USUÁRIO NO LOAD DA PAGE
+// FB.getLoginStatus(function(response){
+//     console.log('Verificando conexão');
+//     if (response.authResponse) {
+//         FB.api('/me', function(response) {
+//             console.log('Bem vindo, ' + response.name + '.')
+//         }); 
+//     } else {
+//         console.log('Não houve uma conexão.')
+//         return;
+//     }
+// });
 
 //---------------------------------------------
+// ROLAGEM PARA O TOPO
+
 $('.scrlltp').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 600);
     return false;
 });
 
 $(window).on("scroll", function(){
-    var article = document.getElementById('scrlltp');
-
-    if(window.pageYOffset > 500){
-    $('.scrlltp').css('display', 'table');
-    console.log('MAIOR');
+    if(window.pageYOffset > 400){
+    $('.scrlltp').show();
     } 
     
-    if(window.pageYOffset < 0){
-    $('.scrlltp').css('display', 'none');
-    console.log('MENOR');
+    if(window.pageYOffset < 400){
+    $('.scrlltp').hide();
     }
 });
-  
-

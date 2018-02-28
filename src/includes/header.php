@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="menu-pR">
                 <div class="container">
-                    <div class="lgomn-pR">
+                    <div class="lgomn-pR" onClick="window.location.reload()">
                         <figure>
                             <img src="assets/img/logomenu.png" alt="Logo" title="StreetCult"/>
                         </figure>

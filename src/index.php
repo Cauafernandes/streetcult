@@ -30,16 +30,57 @@
                         <p>10% DE DESCONTO NAS COMPRAS POR BOLETO OU TRANSFERÊNCIA BANCÁRIA</p>
                     </li>
                 </ul>
-                <div class="mn-pR">
-                    <div class="catpr">
-                        <i class="fas fa-chess-king"></i>
-                        <h2>LANÇAMENTOS</h2>
+                <div class="inst-pR">
+                    <div class="insta">
+                        <a href="https://www.instagram.com/streetcult013/" title="Instagram StreetCult" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <p>Acompanhe nosso instagram <span>@streetcult013</span></p>
                     </div>
-                    <ul class="lancamentos">
-                    </ul>
+                    <div class="instpht">
+                        <figure>
+                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
+                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
+                            </a>
+                        </figure>
+                        <figure>
+                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
+                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
+                            </a>                        
+                        </figure>
+                        <figure>
+                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
+                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
+                            </a>                        
+                        </figure>
+                        <figure>
+                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
+                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
+                            </a>                        
+                        </figure>
+                        <figure>
+                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
+                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
+                            </a>                        
+                        </figure>
+                    </div>
                 </div>
             </div>
          </div>
       </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mn-pR">
+                        <div class="catpr">
+                            <i class="fas fa-chess-king"></i>
+                            <h2>LANÇAMENTOS</h2>
+                        </div>
+                        <ul class="lancamentos">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
    </main>
    <?php include("includes/footer.php"); ?>

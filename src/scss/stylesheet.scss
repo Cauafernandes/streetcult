@@ -848,6 +848,61 @@ header{
   }
 }
 
+.inst-pR{
+  width:100%;
+  max-width:1230px;
+  margin:5% 0;
+  position:relative;
+
+  .insta{
+    display:table;
+    max-width:450px;
+    width:100%;
+    border:1px dashed #ccc;
+    border-left:none;
+    padding:80px 15px;
+
+    a{
+      float:left;
+      display:table;
+
+      svg{
+        font-size:75px;
+        color:#f92e98;
+        margin:0 15px 0 0;
+      }
+    }
+
+    p{
+      display:table;
+      color:#000;
+      margin: 30px 0 0;
+      font-size:20px;
+
+      span{
+        color:#f92e98;
+        font-weight:bold;
+      }
+    }
+  }
+
+  .instpht{
+    position:absolute;
+    width:65%;
+    top:50px;
+    left:35%;
+
+    figure{
+      float:left;
+      margin: 0 0 0 4.2%;
+
+      &:first-child{
+        margin:0;
+      }
+    }
+  }
+}
+
 // [MAIN] INDEX
 //-----------------------------------------------
 // [MAIN] FOOTER
@@ -867,7 +922,7 @@ footer{
 }
 
 .scrlltp{
-  display: table;
+  display: none;
   position: fixed;
   padding: 5px 10px;
   z-index: 2;
@@ -879,7 +934,7 @@ footer{
   max-width: 130px;
   width: 100%;
   border-radius: 6px;
-  -webkit-transition: right .5s;
+  -webkit-transition: right .8s;
   color:#fff;
 
   svg{
@@ -900,7 +955,7 @@ footer{
 
   &:hover{
     background-color: #e62626;
-    transition: 1s all;
+    transition: 0.5s all;
     right: -10px;
   }
 }
