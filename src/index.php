@@ -31,37 +31,18 @@
                     </li>
                 </ul>
                 <div class="inst-pR">
-                    <div class="insta">
-                        <a href="https://www.instagram.com/streetcult013/" title="Instagram StreetCult" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <p>Acompanhe nosso instagram <span>@streetcult013</span></p>
-                    </div>
-                    <div class="instpht">
+                    <div class="phtinst">
                         <figure>
-                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
-                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
-                            </a>
+                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
                         </figure>
                         <figure>
-                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
-                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
-                            </a>                        
+                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
                         </figure>
                         <figure>
-                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
-                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
-                            </a>                        
+                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
                         </figure>
                         <figure>
-                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
-                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
-                            </a>                        
-                        </figure>
-                        <figure>
-                            <a href="https://www.instagram.com/streetcult013/" target="_blank">
-                                <img src="assets/img/insta.jpg" alt="Instagram Photo" title="StreetCult"/>
-                            </a>                        
+                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
                         </figure>
                     </div>
                 </div>

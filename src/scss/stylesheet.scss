@@ -800,6 +800,7 @@ header{
 
     .lancamento:nth-child(4n+1){
       margin-left:0;
+      clear:both;
     }
 
     .lancamento:nth-child(4n+4){
@@ -849,55 +850,41 @@ header{
 }
 
 .inst-pR{
-  width:100%;
   max-width:1230px;
-  margin:5% 0;
-  position:relative;
+  width:100%;
 
-  .insta{
-    display:table;
-    max-width:450px;
+  .phtinst{
+    position:relative;
+    max-width:408px;
     width:100%;
-    border:1px dashed #ccc;
-    border-left:none;
-    padding:80px 15px;
 
-    a{
-      float:left;
-      display:table;
+    figure:nth-child(4n+1){
+      position:absolute;
+      top:0;
+      left:0;
+      max-width: 235px;
+      width: 100%;
+      height: 295px;
 
-      svg{
-        font-size:75px;
-        color:#f92e98;
-        margin:0 15px 0 0;
+      img{
+        max-width: 235px;
+        width: 100%;
+        height: 295px;
       }
     }
 
-    p{
-      display:table;
-      color:#000;
-      margin: 30px 0 0;
-      font-size:20px;
+    figure:nth-child(4n+2){
+      position:absolute;
+      top:0;
+      left:0;
+      max-width: 235px;
+      width: 100%;
+      height: 295px;
 
-      span{
-        color:#f92e98;
-        font-weight:bold;
-      }
-    }
-  }
-
-  .instpht{
-    position:absolute;
-    width:65%;
-    top:50px;
-    left:35%;
-
-    figure{
-      float:left;
-      margin: 0 0 0 4.2%;
-
-      &:first-child{
-        margin:0;
+      img{
+        max-width: 235px;
+        width: 100%;
+        height: 295px;
       }
     }
   }
