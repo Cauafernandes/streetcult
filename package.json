@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/Cauafernandes/streetcult#readme",
   "dependencies": {
+    "grunt": "^1.0.2",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.9.2",
     "gulp-concat": "^2.6.1",

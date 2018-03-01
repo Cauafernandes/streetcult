@@ -156,3 +156,15 @@ $(window).on("scroll", function(){
     $('.scrlltp').hide();
     }
 });
+
+// THUMBNAIL
+
+require(['./lightgallery.js'], function() {
+    require(["./lg-zoom.js", "./lg-thumbnail.js"], function(){
+        $("#lightgallery").lightGallery(); 
+    });
+});
+
+lightGallery(document.getElementById('aniimated-thumbnials'), {
+    thumbnail:true
+}); 
