@@ -852,58 +852,96 @@ header{
 .inst-pR{
   max-width:1230px;
   width:100%;
+  margin:30px 0 15px;
 
   .phtinst{
     position:relative;
     width:100%;
-    height:500px;
+    height:600px;
 
-    figure{
-      cursor:pointer;
-    }
-
-    figure:nth-child(4n+1){
-      position:absolute;
-      top:0;
-      left:0;
-      max-width: 235px;
+    a{
+      position:relative;
+      display:table;
+      float:left;
+      max-width: 200px;
       width: 100%;
-      height: 295px;
+      height: 200px;
 
       img{
-        max-width: 235px;
+        max-width: 200px;
         width: 100%;
-        height: 295px;
+        height: 200px;
+        display: table;
+      }
+
+      span{
+        max-width: 200px;
+        width: 100%;
+        height: 200px;
+        position:absolute;
+        background-color:#000;
+        opacity:0.5;
+        display:table;
+        top:0;
+        left:0;
+        -webkit-transition:0.8s all;
+
+        &:hover{
+          opacity:0;
+          transition:0.8s all;
+        }
       }
     }
 
-    figure:nth-child(4n+2){
+    .lkinst{
       position:absolute;
-      top:0;
-      left:19%;
-      max-width: 195px;
-      width: 100%;
-      height: 175px;
+      display:table;
+      background-color:#fff;
+      border-radius:15px; 
+      max-width:500px;
+      width:100%;
+      left: 27%;
+      top:125px;
+      margin: auto;
+      z-index:3;
+      padding:30px;
+      box-shadow:0px 0px 30px #000;
 
-      img{
-        max-width: 180px;
-        width: 100%;
-        height: 175px;
+      h2{
+        margin:0 auto 30px;
+        display:table;
+        color:#000;
       }
-    }
 
-    figure:nth-child(4n+3){
-      position:absolute;
-      top:175px;
-      left:19%;
-      max-width: 195px;
-      width: 100%;
-      height: 175px;
+      a{
+        font-size:25px;
+        color:#fff;
+        padding:10px 20px;
+        border-radius:8px;
+        background-color:#f92e98;
+        margin:30px auto 0;
+        display:table;
+        font-weight:bold;
+        -webkit-transition:0.5s all;
+        max-width:450px;
+        text-align:center;
+        width:100%;
+        height:20px;
 
-      img{
-        max-width: 180px;
-        width: 100%;
-        height: 175px;
+        &:hover{
+          background-color:#ff74bd;
+          transition: 0.3s all;
+          cursor:pointer;
+        }
+      }
+
+      figure{
+        display:table;
+        margin:0 auto;
+        img{
+          max-width: 215px;
+          height: 150px;
+        }
       }
     }
   }

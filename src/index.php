@@ -32,18 +32,13 @@
                 </ul>
                 <div class="inst-pR">
                     <div class="phtinst">
-                        <figure>
-                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
-                        </figure>
-                        <figure>
-                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
-                        </figure>
-                        <figure>
-                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
-                        </figure>
-                        <figure>
-                            <img src="assets/img/insta.jpg" title="StreetCult" alt="Instagram Photo"/>
-                        </figure>
+                        <div class="lkinst">
+                            <h2>Curta nossa página no Instagram</h2>
+                            <figure>
+                                <img src="assets/img/instagram.png" title="Instagram" alt="Instagram"/>
+                            </figure>
+                            <a href="https://www.instagram.com/streetcult013/">@streetcult013</a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -159,12 +159,25 @@ $(window).on("scroll", function(){
 
 // THUMBNAIL
 
-require(['./lightgallery.js'], function() {
-    require(["./lg-zoom.js", "./lg-thumbnail.js"], function(){
-        $("#lightgallery").lightGallery(); 
-    });
-});
-
-lightGallery(document.getElementById('aniimated-thumbnials'), {
-    thumbnail:true
-}); 
+initInstagramFeed = (function(){
+    var igID = '6139852857'; // StreetCult013 \\
+    var igClientID = '1aaecad4dc7a4e65b2c9e85dcfdb4fbb';
+    var igClientSecret = '6c50e0ca84ff49eea9452eef0f1c9241';
+    var count = 18; // Número de fotos || MÁX: 20 \\
+    var accessToken = '6139852857.1aaecad.2f3878b935de435dba34b99d675c189d';
+ $.ajax({
+     type: "GET",
+     dataType: "jsonp",
+     cache: false,
+     url: "https://api.instagram.com/v1/users/" + igID + "/media/recent/?access_token=" + accessToken + '&count=' + count,
+     success: function(data) {
+         for (var i = 0; i < count; i++) {
+             $(".phtinst").append("<a target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a>");
+         }
+         console.log(data);
+     },
+     error: function(){
+         console.log('Something went wrong', data);
+     }
+ });
+}());
