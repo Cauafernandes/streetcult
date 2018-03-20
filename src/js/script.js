@@ -22,9 +22,9 @@ $.get({
     url: "produtos.json",
     dataType: "json",
     success:function(data) {
-        var lancamento = $(".lancamentos");
+        var novidades = $(".novidades");
         $.each(data, function(idx, obj) {
-            $("<li class='lancamento' data-type=" + obj.type + "><figure><img src='" + obj.image + "'/></figure><h3>" + obj.nome + "</h3></li>").appendTo(lancamento);
+            $("<li class='novidade' data-type=" + obj.type + "><figure><img src='" + obj.image + "'/></figure><h3>" + obj.nome + "</h3></li>").appendTo(novidades);
         });
 
         $('.filtro-es[data-action]').on("click", function(){
@@ -174,10 +174,33 @@ initInstagramFeed = (function(){
          for (var i = 0; i < count; i++) {
              $(".phtinst").append("<a target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a>");
          }
-         console.log(data);
      },
      error: function(){
          console.log('Something went wrong', data);
      }
  });
 }());
+
+// SLICK NOVIDADES
+
+$(document).ready(function(){
+    if(('.novidade').lenght != 0){
+        $('.novpdslk').slick({
+            //infinite: true,
+            arrows:true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            autoplay: true,
+            prevArrow: $('.prevnv'),
+            nextArrow: $('.nextnv')
+        });
+    } else{
+        $('.novidades').remove();
+    }
+})
+
+
+
+// MASK
+
+$('#cpf').mask('000.000.000-00', {reverse: true});

@@ -49,10 +49,19 @@
                 <div class="col-12">
                     <div class="mn-pR">
                         <div class="catpr">
-                            <i class="fas fa-chess-king"></i>
-                            <h2>LANÇAMENTOS</h2>
+                            <!-- <h2>LANÇAMENTOS<span></span></h2> -->
+                            <figure>
+                                <img src="assets/img/icon.png" title="Logo" alt="Logo"/>
+                            </figure>
+                            <h3>NOVIDADES</h3>
+                            <span class="nextnv">
+                                <i class="fas fa-chevron-right"></i>
+                            </span>
+                            <span class="prevnv">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
                         </div>
-                        <ul class="lancamentos">
+                        <ul class="novidades novpdslk">
                         </ul>
                     </div>
                 </div>
