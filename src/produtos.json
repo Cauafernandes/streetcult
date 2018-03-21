@@ -1,74 +1,102 @@
 [
     {
-        "nome": "Camisa Chronic The Real MR. White Lá das arábias saudita da cidade do arabe",
-        "cor": "Branca",
+        "nome": "Boné Chronic Floral Azul",
+        "cor": "Azul",
         "tamanho": "GG",
-        "produto": "camisa",
+        "produto": "bone",
         "type": "chronic",
         "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "image": "assets/img/bonechronic.jpeg",
+        "imagecostas": "assets/img/bonechroniclado.jpeg"
     },
     {
-        "nome": "Camisa Chronic The Real MR. White Lá das arábias saudita da cidade do arabe",
-        "cor": "Branca",
+        "nome": "Boné Chronic Floral Azul",
+        "cor": "Azul",
         "tamanho": "GG",
-        "produto": "camisa",
+        "produto": "bone",
         "type": "chronic",
-        "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "lancamento": "true",
+        "image": "assets/img/bonechronic2.jpeg",
+        "imagecostas": "assets/img/bonechronic2lado.jpeg"
     },
     {
-        "nome": "Camisa Chronic The Real MR. White",
-        "cor": "Branca",
+        "nome": "Camisa Chronic AK Ninguem Guenta",
+        "cor": "Bege",
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
         "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "image": "assets/img/camisachronic7.jpeg",
+        "imagecostas": "assets/img/camisachronic7costas.jpeg"
     },
     {
-        "nome": "Camisa Chronic The Real MR. White",
-        "cor": "Branca",
+        "nome": "Camisa Chronic Sem Vacilo",
+        "cor": "Preta",
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
         "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "image": "assets/img/camisachronic.jpeg",
+        "imagecostas": "assets/img/camisachroniccostas.jpeg"
     },
     {
-        "nome": "Camisa Chronic The Real MR. White Lá das arábias saudita da cidade do arabe",
-        "cor": "Branca",
+        "nome": "Camisa Chronic Biggie Skull",
+        "cor": "Preta",
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
         "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "image": "assets/img/camisachronic2.jpeg",
+        "imagecostas": "assets/img/camisachronic2costas.jpeg"
     },
     {
-        "nome": "Camisa Chronic The Real MR. White Lá das arábias saudita da cidade do arabe",
+        "nome": "Meia Chronic Head Shop",
         "cor": "Branca",
         "tamanho": "GG",
-        "produto": "camisa",
+        "produto": "meia",
         "type": "chronic",
-        "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "lancamento": "true",
+        "image": "assets/img/meiachronic.png",
+        "imagecostas": "assets/img/meiachronic.png"
     },
     {
-        "nome": "Camisa Chronic The Real MR. White",
-        "cor": "Branca",
+        "nome": "Camisa Chronic All Gathered",
+        "cor": "Preta",
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
-        "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "lancamento": true,
+        "image": "assets/img/camisachronic3.jpeg",
+        "imagecostas": "assets/img/camisachronic3costas.jpeg"
     },
     {
-        "nome": "Camisa Chronic The Real MR. White",
-        "cor": "Branca",
+        "nome": "Camisa Chronic Benjamin Money",
+        "cor": "Preta",
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
-        "lancamento": "false",
-        "image": "assets/img/camisachronic.png"
+        "lancamento": true,
+        "image": "assets/img/camisachronic5.jpeg",
+        "imagecostas": "assets/img/camisachronic5costas.jpeg"
+    },
+    {
+        "nome": "Camisa Chronic Arm Chronic",
+        "cor": "Preta",
+        "tamanho": "GG",
+        "produto": "camisa",
+        "type": "chronic",
+        "lancamento": true,
+        "image": "assets/img/camisachronic4.jpeg",
+        "imagecostas": "assets/img/camisachronic4costas.jpeg"
+    },
+    {
+        "nome": "Chronic Shouder Bag Camuflado",
+        "cor": "Camuflado",
+        "tamanho": "GG",
+        "produto": "pochete",
+        "type": "chronic",
+        "lancamento": false,
+        "image": "assets/img/pochetechronic.jpeg",
+        "imagecostas": "assets/img/pochetechronic.jpeg"
     }
 ]

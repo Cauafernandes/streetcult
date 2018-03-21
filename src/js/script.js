@@ -16,49 +16,66 @@ $('.autoplay').slick({
 });
 
 //---------------------------------------------
-// JSON CUPONS + FILTROS
+// LANÇAMENTOS
 
 $.get({
     url: "produtos.json",
     dataType: "json",
     success:function(data) {
         var novidades = $(".novidades");
+        var produtos = $(".produtos");
         $.each(data, function(idx, obj) {
-            $("<li class='novidade' data-type=" + obj.type + "><figure><img src='" + obj.image + "'/></figure><h3>" + obj.nome + "</h3></li>").appendTo(novidades);
-        });
+            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(novidades);
+            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
 
-        $('.filtro-es[data-action]').on("click", function(){
-            var type = $(this).prop('id');
-            $('#rmvflt').show();
+            $('.view').mouseenter(function(){
+                $(this).find('.frente').css('display', 'none')
+                $(this).find('.costas').css('display', 'block')
+            });
+            
+            $('.view').mouseleave(function(){
+                $(this).find('.frente').css('display', 'block')
+                $(this).find('.costas').css('display', 'none')
+            });
 
-            if (this.id == type) {
-                $('.fltnt').hide();
-                $('#vmr').parent().hide();
-                $(".cupom-pR").hide();
-                $(".cupom-pR[data-type='" + type + "']").show();
-                $(".cupom-pR:nth-child(3n+1)").css("clear", "none");
-
-                if($("li.cupom-pR").is(":visible") == false){
-                    $('.fltnt').show();
-                    $('.fltnt').html('Nenhum cupom foi encontrado.');
-                }
+            if(obj.lancamento != 'true'){
+                $(novidades).find(".produto[data-type='" + obj.lancamento + "']").remove();
             } else{
-                $("li").show();
-                console.log('ERROR');
+                $(".produto[data-type='" + obj.lancamento + "']").addClass('lancamento')
             }
         });
-
-        $('#rmvflt').on("click", function(){
-                $('.fltnt').hide();
-                $('#vmr').parent().show();
-                $(".cupom-pR").show();
-                $(".cupom-pR:nth-child(1n+7)").hide();
-                $(".cupom-pR:nth-child(3n+1)").css("clear", "both");
-                $('#rmvflt').hide();
-        });
-        cupomoft();
     }
 });
+
+
+// $.get({
+//     url: "produtos.json",
+//     dataType: "json",
+//     success:function(data) {
+//         var novidades = $(".novidades");
+//         var produtos = $(".produtos");
+//         $.each(data, function(idx, obj) {
+//             $("<li class='novidade view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3></li>").appendTo(novidades);
+//             $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3></li>").appendTo(produtos);
+
+//             $('.view').mouseenter(function(){
+//                 $(this).find('.frente').css('display', 'none')
+//                 $(this).find('.costas').css('display', 'block')
+//             });
+            
+//             $('.view').mouseleave(function(){
+//                 $(this).find('.frente').css('display', 'block')
+//                 $(this).find('.costas').css('display', 'none')
+//             });
+
+//             if(obj.lancamento != 'true'){
+//                 $(".novidade[data-type='" + obj.lancamento + "']").remove();
+//             } else{
+//                 $(".novidade[data-type='" + obj.lancamento + "']").addClass('lancamento')
+//             }
+//         });
+//     }
+// });
 
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO CUPONS
@@ -82,27 +99,6 @@ $.get({
 // });
 
 //---------------------------------------------
-// JANELA DO FACEBOOK
-
-var cupomoft = function(){
-    $('.vroft').on('click', function(){
-        var timer = setInterval(function(){
-            FB.getLoginStatus(function(response){
-                if($('#fblgn').hasClass('fblgn-active') && response.authResponse || response.authResponse){
-                    window.location.replace("http://www.graodegente.com.br/?utm_source=cupomgraodegente");
-                    clearInterval(timer);
-                } else {
-                    $('.fblgn').addClass('fblgn-active');
-                    $('.closelgn').on('click',function(){
-                        $('.fblgn').removeClass('fblgn-active');
-                        clearInterval(timer);
-                    });
-                }
-            });
-        }, 500);
-    });
-}
-
 // FACEBOOK SCRIPT
 
 // FB.init({
@@ -189,17 +185,16 @@ $(document).ready(function(){
             //infinite: true,
             arrows:true,
             slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToScroll: 2,
             autoplay: true,
             prevArrow: $('.prevnv'),
             nextArrow: $('.nextnv')
         });
     } else{
         $('.novidades').remove();
+        $('.catpr').remove();
     }
 })
-
-
 
 // MASK
 

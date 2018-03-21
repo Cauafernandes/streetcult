@@ -544,7 +544,6 @@ header{
     z-index:5;
     width:100%;
     background-color:rgba(0, 0, 0, 0.61);
-    box-shadow:-1px 2px 7px #000;
 
     .lgomn-pR{
       float:left;
@@ -737,6 +736,7 @@ header{
 // [MAIN] INDEX
 
 .mn-pR{
+  margin:30px 0 0;
   width:100%;
 
   .catpr{
@@ -760,8 +760,6 @@ header{
       margin: 10px auto 0;
       color: #000;
       font-size: 30px;
-      border-bottom: 1px solid #ccc;
-      padding: 0 45px 5px;
     }
 
     .prevnv, .nextnv{
@@ -770,6 +768,12 @@ header{
       font-size: 21px;
       color:#b51919;
       cursor:pointer;
+      -webkit-transition: all .2s;
+
+      &:hover{
+        color: #e62626;
+        transition: 0.2s all;
+      }
     }
 
     .prevnv{
@@ -781,15 +785,17 @@ header{
     }
   }
 
-  .novidades{
-    .novidade{
+  .novidades, .produtos{
+    .produto{
       max-width:300px;
       width:100%;
       float:left;
       padding:0 15px;
-      border-right:1px solid #ccc;
       min-height:230px;
-  
+      position:relative;
+      margin: 30px 10px;
+      cursor:pointer;
+
       h3{
         display:table;
         margin:10px auto 0;
@@ -800,14 +806,18 @@ header{
         line-height: 15px;
         font-family: 'Montserrat', sans-serif;
       }
-  
-      figure{
+
+      figure, .frente, .costas{
         max-width:200px;
+        min-height:225px;
+        max-height: 225px!important;
         width:100%;
         margin:0 auto;
-  
+
         img{
           max-width:200px;
+          min-height:225px;
+          max-height: 225px!important;
           width:100%;
         }
       }
@@ -815,55 +825,103 @@ header{
       &:focus{
         outline:none;
       }
+
+      .lnc{
+        display:none;
+      }
+
+      &:nth-child(-n+4){
+        margin-top:0;
+      }
     }
 
-    // .novidade:nth-child(4n+1){
-    //   margin-left:0;
-    //   clear:both;
-    // }
+    .lancamento{
+      .lnc{
+        display:block;
+        position:absolute;
+        top:0;
+        left:0;
+        background-color:#b51919;
+        color:#fff;
+        padding:3px 10px;
+      }
+    }
+  }
 
-    // .novidade:nth-child(4n+4){
-    //   margin-right:0;
-    //   border:0;
-    // }
+  .produtos{
+    display:table;
+
+    .produto{
+      max-width: 257px!important;
+    }
+  }
+
+  .prdts{
+    width:100%;
+    margin-bottom:30px;
+    position:relative;
+    display:table;
+
+    figure{
+      margin:0 auto;
+      display:table;
+      max-width: 80px;
+
+      img{
+        max-width: 80px;
+      }
+    }
+
+    h3{
+      display: table;
+      margin: 10px auto 0;
+      color: #000;
+      font-size: 30px;
+    }
   }
 }
 
-.frms-pR{
-  max-width:1230px;
-  width:100%;
-  display:table;
-  margin:20px 0 0;
+.full-frms{
+  background-color:#e4e4e4;
+  border-bottom: 1px solid #d0d0d0;
+  border-top: 1px solid #d0d0d0;
 
-  li{
-    float:left;
-    width:408px;
-    color:#000;
+  .frms-pR{
+    max-width:1230px;
+    width:100%;
+    display:table;
+    margin:0 auto;
     padding:15px 0;
-
-    p{
-      text-align:center;
-      font-size:14px;
-      margin:5px 0 0;
-    }
-
-    h4{
-      display:table;
-      margin:0 auto;
-      color:#b51919;
-      font-size:20px;
-    }
-
-    svg{
-      display:table;
-      margin:0 auto 15px;
-      font-size:35px;
-    }
-
-    &:nth-child(3n+2){
-      border-right:2px dashed #ccc;
-      border-left:2px dashed #ccc;
-      width:410px;
+  
+    li{
+      float:left;
+      width:408px;
+      color:#000;
+  
+      p{
+        text-align:center;
+        font-size:9px;
+        font-family: 'Arial';
+      }
+  
+      h4{
+        display:table;
+        margin:0 auto;
+        color:#b51919;
+        font-size:17px;
+      }
+  
+      svg{
+        display:table;
+        margin:0 auto 15px;
+        font-size:25px;
+      }
+  
+      &:nth-child(3n+2){
+        border-right:2px dashed #b51919;
+        border-left:2px dashed #b51919;
+        width:410px;
+      }
     }
   }
 }
@@ -974,6 +1032,7 @@ footer{
   background-color:#000;
   padding:3px;
   color:#9a9a9a;
+  margin-top:100px;
 
   h5{
     display:table;
@@ -997,7 +1056,7 @@ footer{
   max-width: 130px;
   width: 100%;
   border-radius: 6px;
-  -webkit-transition: right .8s;
+  -webkit-transition: right .84s;
   color:#fff;
 
   svg{
@@ -1018,7 +1077,7 @@ footer{
 
   &:hover{
     background-color: #e62626;
-    transition: 0.5s all;
+    transition: 0.54s all;
     right: -10px;
   }
 }
