@@ -5,7 +5,7 @@
         "tamanho": "GG",
         "produto": "bone",
         "type": "chronic",
-        "lancamento": "false",
+        "lancamento": false,
         "image": "assets/img/bonechronic.jpeg",
         "imagecostas": "assets/img/bonechroniclado.jpeg"
     },
@@ -15,7 +15,7 @@
         "tamanho": "GG",
         "produto": "bone",
         "type": "chronic",
-        "lancamento": "true",
+        "lancamento": true,
         "image": "assets/img/bonechronic2.jpeg",
         "imagecostas": "assets/img/bonechronic2lado.jpeg"
     },
@@ -25,7 +25,7 @@
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
-        "lancamento": "false",
+        "lancamento": false,
         "image": "assets/img/camisachronic7.jpeg",
         "imagecostas": "assets/img/camisachronic7costas.jpeg"
     },
@@ -35,7 +35,7 @@
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
-        "lancamento": "false",
+        "lancamento": false,
         "image": "assets/img/camisachronic.jpeg",
         "imagecostas": "assets/img/camisachroniccostas.jpeg"
     },
@@ -45,7 +45,7 @@
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
-        "lancamento": "false",
+        "lancamento": false,
         "image": "assets/img/camisachronic2.jpeg",
         "imagecostas": "assets/img/camisachronic2costas.jpeg"
     },
@@ -55,9 +55,9 @@
         "tamanho": "GG",
         "produto": "meia",
         "type": "chronic",
-        "lancamento": "true",
+        "lancamento": true,
         "image": "assets/img/meiachronic.png",
-        "imagecostas": "assets/img/meiachronic.png"
+        "imagecostas": ""
     },
     {
         "nome": "Camisa Chronic All Gathered",
@@ -71,7 +71,7 @@
     },
     {
         "nome": "Camisa Chronic Benjamin Money",
-        "cor": "Preta",
+        "cor": "Preta,Branco",
         "tamanho": "GG",
         "produto": "camisa",
         "type": "chronic",
@@ -97,6 +97,6 @@
         "type": "chronic",
         "lancamento": false,
         "image": "assets/img/pochetechronic.jpeg",
-        "imagecostas": "assets/img/pochetechronic.jpeg"
+        "imagecostas": ""
     }
 ]

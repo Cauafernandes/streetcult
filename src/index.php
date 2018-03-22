@@ -37,7 +37,7 @@
                         <figure>
                             <img src="assets/img/icon.png" title="Logo" alt="Logo"/>
                         </figure>
-                        <h3>NOVIDADES</h3>
+                        <h3>LANÇAMENTOS</h3>
                         <span class="nextnv">
                             <i class="fas fa-chevron-right"></i>
                         </span>
@@ -45,7 +45,7 @@
                             <i class="fas fa-chevron-left"></i>
                         </span>
                     </div>
-                    <ul class="novidades novpdslk">
+                    <ul class="lancamentos novpdslk">
                     </ul>
                 </div>
                 <div class="mn-pR">
@@ -53,7 +53,19 @@
                         <figure>
                             <img src="assets/img/icon.png" title="Logo" alt="Logo"/>
                         </figure>
-                        <h3>PRODUTOS</h3>
+                        <h3 id="category">PRODUTOS</h3>
+                        <span class="lmpflt">LIMPAR FILTRO</span>
+                        <div class="telaproduto">
+                            <div class="produtoinfo">
+                                <h4 class="nomeproduto"></h4>
+                                <p class="coresproduto">Cores:</p>
+                                <p class="tamanhoproduto">Tamanho:</p>
+                                <p class="marcaproduto">Marca:</p>
+                                <span class="close">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                     <ul class="produtos">
                     </ul>

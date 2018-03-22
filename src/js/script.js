@@ -22,60 +22,114 @@ $.get({
     url: "produtos.json",
     dataType: "json",
     success:function(data) {
-        var novidades = $(".novidades");
+        var lancamentos = $(".lancamentos");
         var produtos = $(".produtos");
         $.each(data, function(idx, obj) {
-            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(novidades);
-            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3 class='nmprdt'>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(lancamentos);
+            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3 class='nmprdt'>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
 
-            $('.view').mouseenter(function(){
-                $(this).find('.frente').css('display', 'none')
-                $(this).find('.costas').css('display', 'block')
-            });
-            
-            $('.view').mouseleave(function(){
-                $(this).find('.frente').css('display', 'block')
-                $(this).find('.costas').css('display', 'none')
+            $('.type').on('click', function(){
+                var classe = $(this).attr('class').split(/\s+/)[0];
+                var menu = $(this).find('p').html();
+
+                $('#category').html(menu).addClass('filtro');
+                $('.lmpflt').fadeIn("slow");
+
+                switch(classe){
+                    case 'camisas':
+                        if(obj.produto == 'camisa'){
+                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            photosNew();
+                        }
+                    break;
+
+                    case 'bermudas':
+                        if(obj.produto == 'bermuda'){
+                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            photosNew();
+                            console.log('esse é o length')
+                        }
+                    break;
+
+                    case 'mochilas':
+                        if(obj.produto == 'mochila' || obj.produto == 'pochete'){
+                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            photosNew();
+                        }
+                    break;
+
+                    case 'acessorios':
+                        if(obj.produto == 'pochete' || obj.produto == 'bone'){
+                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            photosNew();
+                        }
+                    break;
+                }
             });
 
-            if(obj.lancamento != 'true'){
-                $(novidades).find(".produto[data-type='" + obj.lancamento + "']").remove();
-            } else{
-                $(".produto[data-type='" + obj.lancamento + "']").addClass('lancamento')
+            $('.lmpflt').on('click', function(){
+                $('.lmpflt').css("display", "none");
+                $('#category').html('PRODUTOS').removeClass('filtro');
+                $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                photosNew();
+            });
+
+            function photosNew(){
+                $('.view').mouseenter(function(){
+                    $(this).find('.frente').css('display', 'none')
+                    $(this).find('.costas').css('display', 'block')
+    
+                    if($(this).find('.costas').find('img').attr('src') == ''){
+                        $(this).find('.frente').css('display', 'block')
+                        $(this).find('.costas').css('display', 'none')
+                    }
+                }).mouseleave(function(){
+                    $(this).find('.frente').css('display', 'block')
+                    $(this).find('.costas').css('display', 'none')
+                });
+    
+                if(!obj.lancamento){
+                    $(lancamentos).find(".produto[data-type='" + obj.lancamento + "']").remove();
+                } else{
+                    $(".produto[data-type='" + obj.lancamento + "']").addClass('lancamento')
+                }
             }
+            photosNew();
+        });
+
+        $('.produto').on('click', function(){
+            $('.telaproduto').css('left', '0');
         });
     }
 });
 
+// REMOVER PRODUTOS
 
-// $.get({
-//     url: "produtos.json",
-//     dataType: "json",
-//     success:function(data) {
-//         var novidades = $(".novidades");
-//         var produtos = $(".produtos");
-//         $.each(data, function(idx, obj) {
-//             $("<li class='novidade view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3></li>").appendTo(novidades);
-//             $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3></li>").appendTo(produtos);
+$('.type').on('click', function(){
+    $('.produtos').find('li').remove();
+});
 
-//             $('.view').mouseenter(function(){
-//                 $(this).find('.frente').css('display', 'none')
-//                 $(this).find('.costas').css('display', 'block')
-//             });
-            
-//             $('.view').mouseleave(function(){
-//                 $(this).find('.frente').css('display', 'block')
-//                 $(this).find('.costas').css('display', 'none')
-//             });
+$('.lmpflt').on('click', function(){
+    $('.produtos').find('.produto').remove();
+});
 
-//             if(obj.lancamento != 'true'){
-//                 $(".novidade[data-type='" + obj.lancamento + "']").remove();
-//             } else{
-//                 $(".novidade[data-type='" + obj.lancamento + "']").addClass('lancamento')
-//             }
-//         });
-//     }
-// });
+// ROLAGEM
+
+$('.scroll').on('click', function(){
+    $("html, body").animate({ scrollTop: 1400 }, 600);
+    return false;
+});
+
+$('.scrolllnc').on('click', function(){
+    $("html, body").animate({ scrollTop: 800 }, 600);
+    return false;
+});
+
+// JANELA DO PRODUTO
+
+$('.close').on('click', function(){
+    $('.telaproduto').css('left', '-120%');
+});
 
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO CUPONS

@@ -11,12 +11,13 @@
                     </div>
                     <span class="ln"></span>
                     <nav>
-                        <ul>
-                            <li><p>CAMISAS</p></li>
-                            <li><p>BERMUDAS</p></li>
-                            <li><p>MOCHILAS</p></li>
-                            <li><p>LANÇAMENTOS</p></li>
-                            <li><p>CONTATO</p></li>
+                        <ul class="testenav">
+                            <li class="camisas type scroll"><p>CAMISAS</p></li>
+                            <li class="bermudas type scroll"><p>BERMUDAS</p></li>
+                            <li class="mochilas type scroll"><p>MOCHILAS</p></li>
+                            <li class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
+                            <li class="lncmentos scrolllnc"><p>LANÇAMENTOS</p></li>
+                            <li class="contato"><p>CONTATO</p></li>
                         </ul>
                     </nav>
                     <div class="sclhdr">
