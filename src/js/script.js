@@ -40,6 +40,10 @@ $.get({
                         if(obj.produto == 'camisa'){
                             $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
+
+                            if($('.produtos').find('.produto').length == 0){
+                                $('.produtos').html('<li>Não foi encontrado nenhum produto.</li>');
+                            }
                         }
                     break;
 
@@ -47,7 +51,6 @@ $.get({
                         if(obj.produto == 'bermuda'){
                             $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
-                            console.log('esse é o length')
                         }
                     break;
 
@@ -98,7 +101,7 @@ $.get({
         });
 
         $('.produto').on('click', function(){
-            $('.telaproduto').css('left', '0');
+            $('.telaproduto').addClass('open');
         });
     }
 });
@@ -128,7 +131,7 @@ $('.scrolllnc').on('click', function(){
 // JANELA DO PRODUTO
 
 $('.close').on('click', function(){
-    $('.telaproduto').css('left', '-120%');
+    $('.telaproduto').removeClass('open');
 });
 
 //---------------------------------------------
