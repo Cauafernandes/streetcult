@@ -57,10 +57,19 @@
                         <span class="lmpflt">LIMPAR FILTRO</span>
                         <div class="telaproduto">
                             <div class="produtoinfo">
-                                <h4 class="nomeproduto"></h4>
-                                <p class="coresproduto">Cores:</p>
-                                <p class="tamanhoproduto">Tamanho:</p>
-                                <p class="marcaproduto">Marca:</p>
+                                <h4 class="nomeproduto">Camisa Chronic Arm Forter</h4>
+                                <figure>
+                                    <img class="imageproduto" src="assets/img/camisachronic.jpeg" alt="Produto"/>
+                                </figure>
+                                <div class="infos">
+                                    <span>Cor:</span><p class="coresproduto"></p>
+                                </div>
+                                <div class="infos">
+                                    <span>Tamanho:</span><p class="tamanhoproduto"></p>
+                                </div>
+                                <div class="infos">
+                                    <span>Marca:</span><p class="marcaproduto"></p>
+                                </div>
                                 <span class="close">
                                     <i class="fas fa-times"></i>
                                 </span>

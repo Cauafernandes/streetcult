@@ -102,7 +102,7 @@ return gulp.src(paths.srcJS + '*.js')
 
 .pipe(concat('script.js'))
 
-.pipe(uglify())
+// .pipe(uglify())
 
 .pipe(gulp.dest(paths.tmpJS));
 

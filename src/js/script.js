@@ -18,91 +18,128 @@ $('.autoplay').slick({
 //---------------------------------------------
 // LANÇAMENTOS
 
+var lista;
+function Disponibility(obj1) {
+    console.log('THIS PRODUTO: ', this.tag)
+    return obj1.tag === this.produto;
+}
+
 $.get({
     url: "produtos.json",
     dataType: "json",
     success:function(data) {
         var lancamentos = $(".lancamentos");
         var produtos = $(".produtos");
+        lista = data;
         $.each(data, function(idx, obj) {
-            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3 class='nmprdt'>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(lancamentos);
-            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3 class='nmprdt'>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+            $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3 class='nmprdt'>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(lancamentos);
+            $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3 class='nmprdt'>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+        });
 
             $('.type').on('click', function(){
                 var classe = $(this).attr('class').split(/\s+/)[0];
+                var tag = $(this).attr('data-tag').split(',');
                 var menu = $(this).find('p').html();
-
+    
+                $(produtos).find('li').remove();
                 $('#category').html(menu).addClass('filtro');
                 $('.lmpflt').fadeIn("slow");
 
+                let doc = lista.find(Disponibility, {produto: tag});
+                console.log(tag);
+
+                if(doc == undefined){
+                    $(produtos).html('<li>Nenhum produto encontrado.</li>');
+                }
+
+                lista.forEach((obj, idx) => {
                 switch(classe){
-                    case 'camisas':
+                    case 'camisa':
                         if(obj.produto == 'camisa'){
-                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
-
-                            if($('.produtos').find('.produto').length == 0){
-                                $('.produtos').html('<li>Não foi encontrado nenhum produto.</li>');
-                            }
+                            ProdutoInfo();
                         }
                     break;
-
-                    case 'bermudas':
+    
+                    case 'bermuda':
                         if(obj.produto == 'bermuda'){
-                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
+                            ProdutoInfo();
                         }
                     break;
-
-                    case 'mochilas':
+    
+                    case 'mochila':
                         if(obj.produto == 'mochila' || obj.produto == 'pochete'){
-                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
+                            ProdutoInfo();
                         }
                     break;
-
+    
                     case 'acessorios':
                         if(obj.produto == 'pochete' || obj.produto == 'bone'){
-                            $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+                            $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
+                            ProdutoInfo();
                         }
                     break;
                 }
             });
+        });
 
-            $('.lmpflt').on('click', function(){
-                $('.lmpflt').css("display", "none");
-                $('#category').html('PRODUTOS').removeClass('filtro');
-                $("<li class='produto view' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
-                photosNew();
+        $('.lmpflt').unbind('click').bind('click', function(){
+            $(produtos).find('li').remove();
+            $('.lmpflt').css("display", "none");
+            $('#category').html('PRODUTOS').removeClass('filtro');
+            
+            lista.forEach((obj, idx) => {
+                $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
+            });
+            photosNew();
+            ProdutoInfo();
+        });
+
+        // FUNCTIONS
+
+        function photosNew(){
+            $('.view').mouseenter(function(){
+                $(this).find('.frente').css('display', 'none');
+                $(this).find('.costas').css('display', 'block');
+
+                if($(this).find('.costas').find('img').attr('src') == ''){
+                    $(this).find('.frente').css('display', 'block');
+                    $(this).find('.costas').css('display', 'none');
+                }
+            }).mouseleave(function(){
+                $(this).find('.frente').css('display', 'block');
+                $(this).find('.costas').css('display', 'none');
             });
 
-            function photosNew(){
-                $('.view').mouseenter(function(){
-                    $(this).find('.frente').css('display', 'none')
-                    $(this).find('.costas').css('display', 'block')
-    
-                    if($(this).find('.costas').find('img').attr('src') == ''){
-                        $(this).find('.frente').css('display', 'block')
-                        $(this).find('.costas').css('display', 'none')
-                    }
-                }).mouseleave(function(){
-                    $(this).find('.frente').css('display', 'block')
-                    $(this).find('.costas').css('display', 'none')
-                });
-    
+            lista.forEach((obj, idx) => {
                 if(!obj.lancamento){
                     $(lancamentos).find(".produto[data-type='" + obj.lancamento + "']").remove();
                 } else{
                     $(".produto[data-type='" + obj.lancamento + "']").addClass('lancamento')
                 }
-            }
-            photosNew();
-        });
+            });
+        }
+        photosNew();
 
-        $('.produto').on('click', function(){
-            $('.telaproduto').addClass('open');
-        });
+        function ProdutoInfo(){
+            $('.produto').unbind('click').bind('click', function(){
+                var id = $(this).attr('data-id');
+    
+                $('.telaproduto').addClass('open');
+                $('.nomeproduto').html(lista[id].nome);
+                $('.coresproduto').html(lista[id].cor);
+                $('.tamanhoproduto').html(lista[id].tamanho);
+                $('.marcaproduto').html(lista[id].type);
+                $('.imageproduto').prop('src', lista[id].image);
+            });
+        }
+        ProdutoInfo();
     }
 });
 

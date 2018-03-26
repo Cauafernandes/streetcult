@@ -1,10 +1,11 @@
 [
     {
         "nome": "Boné Chronic Floral Azul",
-        "cor": "Azul",
+        "cor": "azul",
         "tamanho": "GG",
         "produto": "bone",
-        "type": "chronic",
+        "tag": "acessorios",
+        "type": "Chronic",
         "lancamento": false,
         "image": "assets/img/bonechronic.jpeg",
         "imagecostas": "assets/img/bonechroniclado.jpeg"
@@ -14,7 +15,8 @@
         "cor": "Azul",
         "tamanho": "GG",
         "produto": "bone",
-        "type": "chronic",
+        "tag": "acessorios",
+        "type": "Chronic",
         "lancamento": true,
         "image": "assets/img/bonechronic2.jpeg",
         "imagecostas": "assets/img/bonechronic2lado.jpeg"
@@ -24,17 +26,19 @@
         "cor": "Bege",
         "tamanho": "GG",
         "produto": "camisa",
-        "type": "chronic",
+        "tag": "camisa",
+        "type": "Chronic",
         "lancamento": false,
         "image": "assets/img/camisachronic7.jpeg",
         "imagecostas": "assets/img/camisachronic7costas.jpeg"
     },
     {
         "nome": "Camisa Chronic Sem Vacilo",
-        "cor": "Preta",
+        "cor": "preto",
         "tamanho": "GG",
         "produto": "camisa",
-        "type": "chronic",
+        "tag": "camisa",
+        "type": "Chronic",
         "lancamento": false,
         "image": "assets/img/camisachronic.jpeg",
         "imagecostas": "assets/img/camisachroniccostas.jpeg"
@@ -44,7 +48,8 @@
         "cor": "Preta",
         "tamanho": "GG",
         "produto": "camisa",
-        "type": "chronic",
+        "tag": "camisa",
+        "type": "Chronic",
         "lancamento": false,
         "image": "assets/img/camisachronic2.jpeg",
         "imagecostas": "assets/img/camisachronic2costas.jpeg"
@@ -54,7 +59,8 @@
         "cor": "Branca",
         "tamanho": "GG",
         "produto": "meia",
-        "type": "chronic",
+        "tag": "acessorios",
+        "type": "Chronic",
         "lancamento": true,
         "image": "assets/img/meiachronic.png",
         "imagecostas": ""
@@ -64,7 +70,8 @@
         "cor": "Preta",
         "tamanho": "GG",
         "produto": "camisa",
-        "type": "chronic",
+        "tag": "camisa",
+        "type": "Chronic",
         "lancamento": true,
         "image": "assets/img/camisachronic3.jpeg",
         "imagecostas": "assets/img/camisachronic3costas.jpeg"
@@ -74,7 +81,8 @@
         "cor": "Preta,Branco",
         "tamanho": "GG",
         "produto": "camisa",
-        "type": "chronic",
+        "tag": "camisa",
+        "type": "Chronic",
         "lancamento": true,
         "image": "assets/img/camisachronic5.jpeg",
         "imagecostas": "assets/img/camisachronic5costas.jpeg"
@@ -84,7 +92,8 @@
         "cor": "Preta",
         "tamanho": "GG",
         "produto": "camisa",
-        "type": "chronic",
+        "tag": "camisa",
+        "type": "Chronic",
         "lancamento": true,
         "image": "assets/img/camisachronic4.jpeg",
         "imagecostas": "assets/img/camisachronic4costas.jpeg"
@@ -94,9 +103,21 @@
         "cor": "Camuflado",
         "tamanho": "GG",
         "produto": "pochete",
-        "type": "chronic",
+        "tag": "mochilas, acessorios",
+        "type": "Chronic",
         "lancamento": false,
         "image": "assets/img/pochetechronic.jpeg",
         "imagecostas": ""
+    },
+    {
+        "nome": "Bermuda Chronic Bob Faces",
+        "cor": "Branca",
+        "tamanho": "GG",
+        "produto": "bermuda",
+        "tag": "bermuda",
+        "type": "Chronic",
+        "lancamento": false,
+        "image": "assets/img/bermudachronic1.jpeg",
+        "imagecostas": "assets/img/bermudachronic1costas.jpeg"
     }
 ]

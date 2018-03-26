@@ -916,6 +916,7 @@ header{
       position:fixed;
       top:0;
       left:-120%;
+      // left:0;
       display:block;
       width:100%;
       height:100%;
@@ -932,6 +933,7 @@ header{
         margin:8% auto;
         border-radius:8px;
         position:relative;
+        box-shadow: 1px 1px 35px #000;
 
         h4{
           text-align:center;
@@ -944,10 +946,39 @@ header{
           border-radius:8px 8px 0 0;
         }
 
-        p{
-          border-bottom:1px solid #000;
-          font-size:28px;
-          padding:15px 0;
+        .infos{
+          margin:5px 10px;
+
+          span{
+            float:left;
+            display:initial;
+            color:#000;
+            font-size:23px;
+          }
+  
+          p{
+            font-size:23px;
+            display:table;
+            margin: 0 0 0 5px;
+          }
+        }
+
+        figure{
+          float:left;
+          max-width:initial;
+          max-width:300px;
+          width:100%;
+          height:433px;
+          
+
+          img{
+            max-width:300px;
+            width:100%;
+            height:433px;
+            border-radius: 0 0 0 8px;
+            background-color:#fff;
+            border-right:1px solid #000;
+          }
         }
 
         .close{
