@@ -6,8 +6,8 @@
        <div class="container">
            <div class="row">
                <div class="col-12">
-                    <div class="carshow">
-                    </div>
+                    <ul class="carrinhoprodutos">
+                    </ul>
                 </div>
             </div>
         </div>

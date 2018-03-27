@@ -91,10 +91,14 @@
                                     <img class="imageproduto" src="assets/img/camisachronic.jpeg" alt="Produto"/>
                                 </figure>
                                 <div class="infos">
-                                    <span>Cor:</span><p class="coresproduto"></p>
+                                    <span>Cor:</span>
+                                    <select class="coresproduto">
+                                    </select>
                                 </div>
                                 <div class="infos">
-                                    <span>Tamanho:</span><p class="tamanhoproduto"></p>
+                                    <span>Tamanho:</span>
+                                    <select class="tamanhoproduto">
+                                    </select>
                                 </div>
                                 <div class="infos">
                                     <span>Marca:</span><p class="marcaproduto"></p>

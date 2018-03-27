@@ -1,8 +1,8 @@
 [
     {
         "nome": "Boné Chronic Floral Azul",
-        "cor": "azul",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "U",
         "produto": "bone",
         "tag": "acessorios",
         "type": "Chronic",
@@ -12,8 +12,8 @@
     },
     {
         "nome": "Boné Chronic Floral Azul",
-        "cor": "Azul",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "U",
         "produto": "bone",
         "tag": "acessorios",
         "type": "Chronic",
@@ -23,8 +23,8 @@
     },
     {
         "nome": "Camisa Chronic AK Ninguem Guenta",
-        "cor": "Bege",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
@@ -34,8 +34,8 @@
     },
     {
         "nome": "Camisa Chronic Sem Vacilo",
-        "cor": "preto",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
@@ -45,8 +45,8 @@
     },
     {
         "nome": "Camisa Chronic Biggie Skull",
-        "cor": "Preta",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
@@ -56,8 +56,8 @@
     },
     {
         "nome": "Meia Chronic Head Shop",
-        "cor": "Branca",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "U",
         "produto": "meia",
         "tag": "acessorios",
         "type": "Chronic",
@@ -67,8 +67,8 @@
     },
     {
         "nome": "Camisa Chronic All Gathered",
-        "cor": "Preta",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
@@ -78,8 +78,8 @@
     },
     {
         "nome": "Camisa Chronic Benjamin Money",
-        "cor": "Preta,Branco",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
@@ -89,8 +89,8 @@
     },
     {
         "nome": "Camisa Chronic Arm Chronic",
-        "cor": "Preta",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
@@ -101,7 +101,7 @@
     {
         "nome": "Chronic Shouder Bag Camuflado",
         "cor": "Camuflado",
-        "tamanho": "GG",
+        "tamanho": "U",
         "produto": "pochete",
         "tag": "mochilas, acessorios",
         "type": "Chronic",
@@ -111,8 +111,8 @@
     },
     {
         "nome": "Bermuda Chronic Bob Faces",
-        "cor": "Branca",
-        "tamanho": "GG",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "42, 41, 40, 39, 38",
         "produto": "bermuda",
         "tag": "bermuda",
         "type": "Chronic",

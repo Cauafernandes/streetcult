@@ -130,12 +130,22 @@ $.get({
         function ProdutoInfo(){
             $('.produto').unbind('click').bind('click', function(){
                 var id = $(this).attr('data-id');
+                var tamanho = lista[id].tamanho.split(',');
+                var cores = lista[id].cor.split(',');
                 
-                console.log(lista[id]);
+                // REMOVES
+                $('.opcaopdt').remove();
+
+                tamanho.forEach((tamanho) => {
+                    $('.tamanhoproduto').append('<option class="opcaopdt" value="' + tamanho + '">' + tamanho + '</option>');
+                });
+
+                cores.forEach((cor) => {
+                    $('.coresproduto').append('<option class="opcaopdt" value="' + cor + '">' + cor + '</option>');
+                });
+
                 $('.telaproduto').addClass('open');
                 $('.nomeproduto').html(lista[id].nome);
-                $('.coresproduto').html(lista[id].cor);
-                $('.tamanhoproduto').html(lista[id].tamanho);
                 $('.marcaproduto').html(lista[id].type);
                 $('.imageproduto').prop('src', lista[id].image);
                 $('.btncomprar').attr('data-id', id);
@@ -187,10 +197,13 @@ $('.close').on('click', function(){
 
 $(document).ready(function(){
     if(window.location.href == "http://localhost:9090/streetcult/src/carrinho.php"){
-        var produtos = sessionStorage.getItem('Shopping');
-        //var produtos = $(idprodutos).split(',');
-        console.log('TESTE:', produtos.length);
-        $('.carshow').html(produtos);
+        var idprodutos = sessionStorage.getItem('Shopping');
+        var ids = idprodutos.split(',');
+        var carrinho = $('.carrinhoprodutos');
+
+        ids.forEach((id) => {
+            $('<li class="carproduto"><figure><img src=' + lista[id].image + ' alt=""/></figure><h3>' + lista[id].nome + '</h3></li>').appendTo(carrinho);
+        });
     }
 });
 
