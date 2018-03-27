@@ -151,6 +151,7 @@ $.get({
                 $('.btncomprar').attr('data-id', id);
 
                 $('.btncomprar').unbind('click').bind('click', function(){
+                    console.log('ESSA É A COR SELECIONADA:', $('.coresproduto').value);
                     var carrinho = sessionStorage.getItem('Shopping');
 
                     if(carrinho == null){
