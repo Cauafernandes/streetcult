@@ -49,7 +49,8 @@ $.get({
                 console.log(tag);
 
                 if(doc == undefined){
-                    $(produtos).html('<li>Nenhum produto encontrado.</li>');
+                    // $(produtos).html('<li>Nenhum produto encontrado.</li>');
+                    console.log('Nenhum produto encontrado.');
                 }
 
                 lista.forEach((obj, idx) => {
@@ -130,13 +131,20 @@ $.get({
         function ProdutoInfo(){
             $('.produto').unbind('click').bind('click', function(){
                 var id = $(this).attr('data-id');
-    
+                
+                console.log(lista[id]);
                 $('.telaproduto').addClass('open');
                 $('.nomeproduto').html(lista[id].nome);
                 $('.coresproduto').html(lista[id].cor);
                 $('.tamanhoproduto').html(lista[id].tamanho);
                 $('.marcaproduto').html(lista[id].type);
                 $('.imageproduto').prop('src', lista[id].image);
+                $('.btncomprar').attr('data-id', id);
+
+                $('.btncomprar').unbind('click').bind('click', function(){
+                    var carrinho = localStorage.getItem('Shopping');
+                    sessionStorage.setItem("Shopping", id);
+                });
             });
         }
         ProdutoInfo();

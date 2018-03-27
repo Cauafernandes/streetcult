@@ -676,6 +676,26 @@ header{
         }
       }
     }
+
+    .carshop{
+      background-color: #b51919;
+      position: absolute;
+      top: 55px;
+      left: 15%;
+      border-radius: 0px 0px 15px 15px;
+      cursor:pointer;
+      transition:0.3s all;
+
+      svg{
+        color: #fff;
+        padding: 2px 10px;
+        font-size:16px;
+      }
+
+      &:hover{
+        background-color: #e62626;
+      }
+    }
   }
 
   .bnrshd{

@@ -35,6 +35,9 @@
                         </ul>
                     </div>
                 </div>
+                <div class="carshop">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
             </div>
         </div>
     </div>
