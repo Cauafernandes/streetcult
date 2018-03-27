@@ -3,13 +3,19 @@
         <div class="col-12">
             <div class="menu-pR">
                 <div class="container">
-                    <div class="lgomn-pR" onClick="window.location.reload()">
-                        <figure>
-                            <img src="assets/img/logomenu.png" alt="Logo" title="StreetCult"/>
-                        </figure>
-                        <h1 title="StreetCult">StreetCult</h1>
-                    </div>
-                    <span class="ln"></span>
+                    <a href="index.php">
+                        <div class="lgomn-pR" title="StreetCult">
+                            <figure>
+                                <img src="assets/img/logomenu.png" alt="Logo" title="StreetCult"/>
+                            </figure>
+                            <h1 title="StreetCult">StreetCult</h1>
+                        </div>
+                    </a>
+                    <span class="ln">
+                        <a href="carrinho.php" class="carshop">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </span>
                     <nav>
                         <ul class="testenav">
                             <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
@@ -35,38 +41,6 @@
                         </ul>
                     </div>
                 </div>
-                <div class="carshop">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="bnrshd">
-                <span class="btnsbnrshd btnleft prev">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <ul class="autoplay">
-                    <li>
-                        <figure>
-                            <img src="assets/img/banner1.png" title="StreetCult" alt="Publicidade"/>
-                        </figure>
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="assets/img/banner2.png" title="Chronic" alt="Publicidade"/>
-                        </figure>    
-                    </li>
-                    <li>
-                        <figure>
-                            <img src="assets/img/banner3.png" title="Wanted" alt="Publicidade"/>
-                        </figure>
-                    </li>
-                </ul>
-                <span class="btnsbnrshd btnright next">
-                    <i class="fas fa-chevron-right"></i>
-                </span>
             </div>
         </div>
     </div>

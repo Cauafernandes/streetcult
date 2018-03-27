@@ -3,6 +3,35 @@
    <?php include("includes/head.php"); ?>
    <?php include("includes/header.php"); ?>
    <main>
+   <div class="row">
+        <div class="col-12">
+            <div class="bnrshd">
+                <span class="btnsbnrshd btnleft prev">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <ul class="autoplay">
+                    <li>
+                        <figure>
+                            <img src="assets/img/banner1.png" title="StreetCult" alt="Publicidade"/>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="assets/img/banner2.png" title="Chronic" alt="Publicidade"/>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="assets/img/banner3.png" title="Wanted" alt="Publicidade"/>
+                        </figure>
+                    </li>
+                </ul>
+                <span class="btnsbnrshd btnright next">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+            </div>
+        </div>
+    </div>
       <div class="container">
          <div class="row">
             <div class="col-12">

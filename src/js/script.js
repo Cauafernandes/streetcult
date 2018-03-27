@@ -20,7 +20,6 @@ $('.autoplay').slick({
 
 var lista;
 function Disponibility(obj1) {
-    console.log('THIS PRODUTO: ', this.tag)
     return obj1.tag === this.produto;
 }
 
@@ -178,6 +177,10 @@ $('.scrolllnc').on('click', function(){
 $('.close').on('click', function(){
     $('.telaproduto').removeClass('open');
 });
+
+// BOTÃO DO CARRINHO
+
+
 
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO CUPONS
