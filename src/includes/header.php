@@ -11,11 +11,7 @@
                             <h1 title="StreetCult">StreetCult</h1>
                         </div>
                     </a>
-                    <span class="ln">
-                        <a href="carrinho.php" class="carshop">
-                            <i class="fas fa-shopping-cart"></i>
-                        </a>
-                    </span>
+                    <span class="ln"></span>
                     <nav>
                         <ul class="testenav">
                             <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
@@ -40,6 +36,9 @@
                             </li>
                         </ul>
                     </div>
+                    <a href="carrinho.php" class="carshop">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
                 </div>
             </div>
         </div>

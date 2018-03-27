@@ -141,8 +141,13 @@ $.get({
                 $('.btncomprar').attr('data-id', id);
 
                 $('.btncomprar').unbind('click').bind('click', function(){
-                    var carrinho = localStorage.getItem('Shopping');
-                    sessionStorage.setItem("Shopping", id);
+                    var carrinho = sessionStorage.getItem('Shopping');
+
+                    if(carrinho == null){
+                        sessionStorage.setItem("Shopping", id);
+                    } else{
+                        sessionStorage.setItem("Shopping", carrinho + ',' + id);
+                    }
                 });
             });
         }
@@ -180,7 +185,14 @@ $('.close').on('click', function(){
 
 // BOTÃO DO CARRINHO
 
-
+$(document).ready(function(){
+    if(window.location.href == "http://localhost:9090/streetcult/src/carrinho.php"){
+        var produtos = sessionStorage.getItem('Shopping');
+        //var produtos = $(idprodutos).split(',');
+        console.log('TESTE:', produtos.length);
+        $('.carshow').html(produtos);
+    }
+});
 
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO CUPONS
