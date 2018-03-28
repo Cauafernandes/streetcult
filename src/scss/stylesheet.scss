@@ -1317,6 +1317,18 @@ footer{
       font-size:22px;
     }
 
+    p{
+      float:left;
+      margin:55px 0 0 45px;
+      color:#000;
+      font-size:22px;
+      width:10%;
+    }
+
+    span{
+      margin:55px 0 0 45px
+    }
+
     &:last-child{
       border-bottom:none;
     }

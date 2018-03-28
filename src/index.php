@@ -103,6 +103,9 @@
                                 <div class="infos">
                                     <span>Marca:</span><p class="marcaproduto"></p>
                                 </div>
+                                <div class="infos">
+                                    <span>Quantidade:</span><p class="quantidadeproduto"></p>
+                                </div>
                                 <button class="btncomprar" data-id=""><i class="fas fa-shopping-cart"></i>COMPRAR</button>
                                 <span class="close">
                                     <i class="fas fa-times"></i>

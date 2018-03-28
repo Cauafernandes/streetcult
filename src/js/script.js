@@ -151,13 +151,17 @@ $.get({
                 $('.btncomprar').attr('data-id', id);
 
                 $('.btncomprar').unbind('click').bind('click', function(){
-                    console.log('ESSA É A COR SELECIONADA:', $(".coresproduto option:selected").val());
                     var carrinho = sessionStorage.getItem('Shopping');
+                    var selcorprod = $(".coresproduto option:selected").val();
+                    var seltamprod = $(".tamanhoproduto option:selected").val();
+
+                    var produtocliente = {id: id, nome: lista[id].nome, cor: selcorprod, tamanho: seltamprod};
+                    var produtofinal = JSON.stringify(produtocliente);
 
                     if(carrinho == null){
-                        sessionStorage.setItem("Shopping", id);
+                        sessionStorage.setItem("Shopping", produtofinal);
                     } else{
-                        sessionStorage.setItem("Shopping", carrinho + ',' + id);
+                        sessionStorage.setItem("Shopping", carrinho + ',' + produtofinal);
                     }
                 });
             });
@@ -198,12 +202,13 @@ $('.close').on('click', function(){
 
 $(document).ready(function(){
     if(window.location.href == "http://localhost:9090/streetcult/src/carrinho.php"){
-        var idprodutos = sessionStorage.getItem('Shopping');
-        var ids = idprodutos.split(',');
-        var carrinho = $('.carrinhoprodutos');
+        var listaprodutos = sessionStorage.getItem('Shopping');
+        listaprodutos = JSON.parse("["+listaprodutos+"]");
+        // console.log(listaprodutos);
 
-        ids.forEach((id) => {
-            $('<li class="carproduto"><figure><img src=' + lista[id].image + ' alt=""/></figure><h3>' + lista[id].nome + '</h3></li>').appendTo(carrinho);
+        listaprodutos.forEach((idprodsel) => {
+            console.log(idprodsel.cor);
+            $('<li class="carproduto"><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><span class="quantidadeproduto">1</span></li>').appendTo($('.carrinhoprodutos'));
         });
     }
 });

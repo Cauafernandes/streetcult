@@ -6,6 +6,7 @@
         "produto": "bone",
         "tag": "acessorios",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": false,
         "image": "assets/img/bonechronic.jpeg",
         "imagecostas": "assets/img/bonechroniclado.jpeg"
@@ -17,6 +18,7 @@
         "produto": "bone",
         "tag": "acessorios",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": true,
         "image": "assets/img/bonechronic2.jpeg",
         "imagecostas": "assets/img/bonechronic2lado.jpeg"
@@ -28,6 +30,7 @@
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": false,
         "image": "assets/img/camisachronic7.jpeg",
         "imagecostas": "assets/img/camisachronic7costas.jpeg"
@@ -39,6 +42,7 @@
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": false,
         "image": "assets/img/camisachronic.jpeg",
         "imagecostas": "assets/img/camisachroniccostas.jpeg"
@@ -50,6 +54,7 @@
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": false,
         "image": "assets/img/camisachronic2.jpeg",
         "imagecostas": "assets/img/camisachronic2costas.jpeg"
@@ -61,6 +66,7 @@
         "produto": "meia",
         "tag": "acessorios",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": true,
         "image": "assets/img/meiachronic.png",
         "imagecostas": ""
@@ -72,6 +78,7 @@
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": true,
         "image": "assets/img/camisachronic3.jpeg",
         "imagecostas": "assets/img/camisachronic3costas.jpeg"
@@ -83,6 +90,7 @@
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": true,
         "image": "assets/img/camisachronic5.jpeg",
         "imagecostas": "assets/img/camisachronic5costas.jpeg"
@@ -94,6 +102,7 @@
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": true,
         "image": "assets/img/camisachronic4.jpeg",
         "imagecostas": "assets/img/camisachronic4costas.jpeg"
@@ -105,6 +114,7 @@
         "produto": "pochete",
         "tag": "mochilas, acessorios",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": false,
         "image": "assets/img/pochetechronic.jpeg",
         "imagecostas": ""
@@ -116,6 +126,7 @@
         "produto": "bermuda",
         "tag": "bermuda",
         "type": "Chronic",
+        "quantidade": "5",
         "lancamento": false,
         "image": "assets/img/bermudachronic1.jpeg",
         "imagecostas": "assets/img/bermudachronic1costas.jpeg"
