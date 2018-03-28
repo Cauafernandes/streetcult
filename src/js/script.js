@@ -201,13 +201,11 @@ $('.close').on('click', function(){
 // BOTÃO DO CARRINHO
 
 $(document).ready(function(){
-    if(window.location.href == "http://localhost:9090/streetcult/src/carrinho.php"){
+    if(window.location.href.indexOf('/carrinho.php') != "-1"){
         var listaprodutos = sessionStorage.getItem('Shopping');
         listaprodutos = JSON.parse("["+listaprodutos+"]");
-        // console.log(listaprodutos);
 
         listaprodutos.forEach((idprodsel) => {
-            console.log(idprodsel.cor);
             $('<li class="carproduto"><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><span class="quantidadeproduto">1</span></li>').appendTo($('.carrinhoprodutos'));
         });
     }

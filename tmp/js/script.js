@@ -20,7 +20,6 @@ $('.autoplay').slick({
 
 var lista;
 function Disponibility(obj1) {
-    console.log('THIS PRODUTO: ', this.tag)
     return obj1.tag === this.produto;
 }
 
@@ -49,7 +48,8 @@ $.get({
                 console.log(tag);
 
                 if(doc == undefined){
-                    $(produtos).html('<li>Nenhum produto encontrado.</li>');
+                    // $(produtos).html('<li>Nenhum produto encontrado.</li>');
+                    console.log('Nenhum produto encontrado.');
                 }
 
                 lista.forEach((obj, idx) => {
@@ -130,13 +130,40 @@ $.get({
         function ProdutoInfo(){
             $('.produto').unbind('click').bind('click', function(){
                 var id = $(this).attr('data-id');
-    
+                var tamanho = lista[id].tamanho.split(',');
+                var cores = lista[id].cor.split(',');
+                
+                // REMOVES
+                $('.opcaopdt').remove();
+
+                tamanho.forEach((tamanho) => {
+                    $('.tamanhoproduto').append('<option class="opcaopdt" value="' + tamanho + '">' + tamanho + '</option>');
+                });
+
+                cores.forEach((cor) => {
+                    $('.coresproduto').append('<option class="opcaopdt" value="' + cor + '">' + cor + '</option>');
+                });
+
                 $('.telaproduto').addClass('open');
                 $('.nomeproduto').html(lista[id].nome);
-                $('.coresproduto').html(lista[id].cor);
-                $('.tamanhoproduto').html(lista[id].tamanho);
                 $('.marcaproduto').html(lista[id].type);
                 $('.imageproduto').prop('src', lista[id].image);
+                $('.btncomprar').attr('data-id', id);
+
+                $('.btncomprar').unbind('click').bind('click', function(){
+                    var carrinho = sessionStorage.getItem('Shopping');
+                    var selcorprod = $(".coresproduto option:selected").val();
+                    var seltamprod = $(".tamanhoproduto option:selected").val();
+
+                    var produtocliente = {id: id, nome: lista[id].nome, cor: selcorprod, tamanho: seltamprod};
+                    var produtofinal = JSON.stringify(produtocliente);
+
+                    if(carrinho == null){
+                        sessionStorage.setItem("Shopping", produtofinal);
+                    } else{
+                        sessionStorage.setItem("Shopping", carrinho + ',' + produtofinal);
+                    }
+                });
             });
         }
         ProdutoInfo();
@@ -169,6 +196,22 @@ $('.scrolllnc').on('click', function(){
 
 $('.close').on('click', function(){
     $('.telaproduto').removeClass('open');
+});
+
+// BOTÃO DO CARRINHO
+
+$(document).ready(function(){
+    if(window.location.href.indexOf('/carrinho.php') != "-1"){
+        console.log('PÁGINA DE CARRINHO');
+        var listaprodutos = sessionStorage.getItem('Shopping');
+        listaprodutos = JSON.parse("["+listaprodutos+"]");
+        // console.log(listaprodutos);
+
+        listaprodutos.forEach((idprodsel) => {
+            console.log(idprodsel.cor);
+            $('<li class="carproduto"><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><span class="quantidadeproduto">1</span></li>').appendTo($('.carrinhoprodutos'));
+        });
+    }
 });
 
 //---------------------------------------------
