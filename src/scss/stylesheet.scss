@@ -939,11 +939,10 @@ header{
       position:fixed;
       top:0;
       left:-120%;
-      // left:0;
       display:block;
       width:100%;
       height:100%;
-      background-color:rgba(0, 0, 0, 0.53);
+      background-color:rgba(0, 0, 0, 0.71);
       z-index:6;
       transition: 0.3s all;
 
@@ -1019,6 +1018,24 @@ header{
             color:#fff;
           }
         }
+      }
+
+      .prodadd{
+        position:absolute;
+        display:none;
+        max-width: 710px;
+        width: 100%;
+        color: #155724;
+        text-align:center;
+        font-size:22px;
+        background-color:#D4EDDA;
+        border-color: #c3e6cb;
+        border-radius: .25rem;
+        padding: .75rem 1.25rem;
+        top:50px;
+        right:0;
+        left:0;
+        margin: auto;
       }
     }
   }
@@ -1379,6 +1396,24 @@ footer{
       border-bottom:none;
     }
   }
+}
+
+.proddel{
+  position:fixed;
+  display:none;
+  max-width: 710px;
+  width: 100%;
+  color: #721c24;
+  text-align:center;
+  font-size:22px;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: .25rem;
+  padding: .75rem 1.25rem;
+  top:70px;
+  right:0;
+  left:0;
+  margin: auto;
 }
 
 // [CARRINHO] FIM

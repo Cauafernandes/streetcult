@@ -85,6 +85,9 @@
                         <h3 id="category">PRODUTOS</h3>
                         <span class="lmpflt">LIMPAR FILTRO</span>
                         <div class="telaproduto">
+                            <div class="prodadd">
+                                <p>Produto adicionado ao carrinho com sucesso.</p>
+                            </div>
                             <div class="produtoinfo">
                                 <h4 class="nomeproduto">Camisa Chronic Arm Forter</h4>
                                 <figure>

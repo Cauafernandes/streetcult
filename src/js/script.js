@@ -160,11 +160,19 @@ $.get({
                     if(carrinho == null){
                         produtocliente = JSON.stringify(produtocliente);
                         sessionStorage.setItem("Shopping", "[" + produtocliente + "]");
+                        $('.prodadd').fadeIn("fast");
+                        setTimeout(function(){
+                            $('.prodadd').fadeOut("slow");
+                        }, 1500);
                     } else{
                         carrinho = JSON.parse(carrinho);
                         carrinho.push(produtocliente);
                         carrinho = JSON.stringify(carrinho);
                         sessionStorage.setItem("Shopping", carrinho);
+                        $('.prodadd').fadeIn("fast");
+                        setTimeout(function(){
+                            $('.prodadd').fadeOut("slow");
+                        }, 1500);
                     }
                 });
             });
@@ -216,13 +224,13 @@ $(document).ready(function(){
                 var idprodcar = $(this).parent().attr('data-id');
 
                 if(idprodcar == idprodsel.id){
-                    console.log('ANTES DE QQ COISA', listaprodutos);
                     var deleteproduct = listaprodutos.splice(idx, 1);
                     var productlist = JSON.stringify(listaprodutos);
-
-                    console.log('DEPOIS', productlist);
-
                     sessionStorage.setItem("Shopping", productlist);
+                    $('.proddel').fadeIn("fast");
+                    setTimeout(function(){
+                        $('.proddel').fadeOut("slow");
+                    }, 1500);
                 }
             });
         });

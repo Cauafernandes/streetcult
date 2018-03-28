@@ -8,6 +8,9 @@
                <div class="col-12">
                     <ul class="carrinhoprodutos">
                     </ul>
+                    <div class="proddel">
+                        <p>Produto removido.</p>
+                    </div>
                 </div>
             </div>
         </div>
