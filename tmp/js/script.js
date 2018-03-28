@@ -61,7 +61,7 @@ $.get({
                             ProdutoInfo();
                         }
                     break;
-    
+
                     case 'bermuda':
                         if(obj.produto == 'bermuda'){
                             $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
@@ -69,7 +69,7 @@ $.get({
                             ProdutoInfo();
                         }
                     break;
-    
+
                     case 'mochila':
                         if(obj.produto == 'mochila' || obj.produto == 'pochete'){
                             $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
@@ -77,7 +77,7 @@ $.get({
                             ProdutoInfo();
                         }
                     break;
-    
+
                     case 'acessorios':
                         if(obj.produto == 'pochete' || obj.produto == 'bone'){
                             $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
@@ -93,7 +93,7 @@ $.get({
             $(produtos).find('li').remove();
             $('.lmpflt').css("display", "none");
             $('#category').html('PRODUTOS').removeClass('filtro');
-            
+
             lista.forEach((obj, idx) => {
                 $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
             });
@@ -156,12 +156,15 @@ $.get({
                     var seltamprod = $(".tamanhoproduto option:selected").val();
 
                     var produtocliente = {id: id, nome: lista[id].nome, cor: selcorprod, tamanho: seltamprod};
-                    var produtofinal = JSON.stringify(produtocliente);
 
                     if(carrinho == null){
-                        sessionStorage.setItem("Shopping", produtofinal);
+                        produtocliente = JSON.stringify(produtocliente);
+                        sessionStorage.setItem("Shopping", "[" + produtocliente + "]");
                     } else{
-                        sessionStorage.setItem("Shopping", carrinho + ',' + produtofinal);
+                        carrinho = JSON.parse(carrinho);
+                        carrinho.push(produtocliente);
+                        carrinho = JSON.stringify(carrinho);
+                        sessionStorage.setItem("Shopping", carrinho);
                     }
                 });
             });
@@ -202,14 +205,47 @@ $('.close').on('click', function(){
 
 $(document).ready(function(){
     if(window.location.href.indexOf('/carrinho.php') != "-1"){
-        console.log('PÁGINA DE CARRINHO');
         var listaprodutos = sessionStorage.getItem('Shopping');
-        listaprodutos = JSON.parse("["+listaprodutos+"]");
-        // console.log(listaprodutos);
+        console.log(listaprodutos);
+        listaprodutos = JSON.parse(listaprodutos);
 
-        listaprodutos.forEach((idprodsel) => {
-            console.log(idprodsel.cor);
-            $('<li class="carproduto"><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><span class="quantidadeproduto">1</span></li>').appendTo($('.carrinhoprodutos'));
+        listaprodutos.forEach((idprodsel, idx) => {
+            $('<li class="carproduto" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">1</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
+
+            $('.removeproduct').on('click', function(){
+                var idprodcar = $(this).parent().attr('data-id');
+
+                if(idprodcar == idprodsel.id){
+                    console.log('ANTES DE QQ COISA', listaprodutos);
+                    var deleteproduct = listaprodutos.splice(idx, 1);
+                    var productlist = JSON.stringify(listaprodutos);
+
+                    console.log('DEPOIS', productlist);
+
+                    sessionStorage.setItem("Shopping", productlist);
+                }
+            });
+        });
+
+        $('.removeproduct').on('click', function(){
+            $(this).parent().remove();
+
+        });
+
+        // CARRINHO QUANTIDADE
+
+        $(".add, .remove").on("click", function() {
+            var qtd = parseInt($(this).parent().parent().find('.quantidadeproduto').text());
+      
+            if($(this).attr('data-orientation')=='plus'){
+              qtd++;
+            }else{
+              qtd--;
+            }
+    
+            if(qtd<1) qtd = 1;
+                    
+            $(this).parent().parent().find('.quantidadeproduto').text(qtd);
         });
     }
 });
