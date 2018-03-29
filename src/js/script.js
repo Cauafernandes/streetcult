@@ -1,7 +1,7 @@
 console.log('Javascript Iniciado.');
 
 //---------------------------------------------
-// SLICK DOS FILTROS
+// [FILTROS] SLICK
 
 $('.autoplay').slick({
     dots: false,
@@ -154,12 +154,15 @@ $.get({
                     var carrinho = sessionStorage.getItem('Shopping');
                     var selcorprod = $(".coresproduto option:selected").val();
                     var seltamprod = $(".tamanhoproduto option:selected").val();
+                    var qtd = 1;
 
-                    var produtocliente = {id: id, nome: lista[id].nome, cor: selcorprod, tamanho: seltamprod};
+                    var produtocliente = {id: id, nome: lista[id].nome, cor: selcorprod, tamanho: seltamprod, quantidade: qtd};
 
-                    if(carrinho == null){
+                    if(carrinho == null || carrinho == undefined){
                         produtocliente = JSON.stringify(produtocliente);
                         sessionStorage.setItem("Shopping", "[" + produtocliente + "]");
+                        var listaprodutos = sessionStorage.getItem('Shopping');
+                        listaprodutos = JSON.parse(listaprodutos);
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
@@ -169,6 +172,18 @@ $.get({
                         carrinho.push(produtocliente);
                         carrinho = JSON.stringify(carrinho);
                         sessionStorage.setItem("Shopping", carrinho);
+                        carrinho = JSON.parse(carrinho);
+
+                        carrinho.forEach((prodatualizar, idx) => {
+                            if(idx != idx && prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
+                                prodatualizar = prodatualizar.quantidade++;
+                                var attprod = carrinho.slice(idx, carrinho);
+
+                                carrinho = JSON.stringify(attprod);
+                                sessionStorage.setItem("Shopping", carrinho);
+                            }
+                        });
+                        
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
@@ -181,18 +196,41 @@ $.get({
     }
 });
 
-// REMOVER PRODUTOS
 
-$('.type').on('click', function(){
-    $('.produtos').find('li').remove();
-});
 
-$('.lmpflt').on('click', function(){
-    $('.produtos').find('.produto').remove();
-});
 
-// ROLAGEM
+// carrinho.forEach((prodatualizar, idx) => {
+//     if(idx != idx && prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
+//         prodatualizar = prodatualizar.quantidade++;
+//         var attprod = carrinho.slice(idx, carrinho);
+//         carrinho = JSON.stringify(attprod);
+//         console.log('PRODUCTLIST: ', carrinho);
+//         sessionStorage.setItem("Shopping", carrinho);
+//     }
 
+
+//     // listaprodutos.forEach((prodduplicado, index) => {
+
+//     //     if(idprodsel.id === prodduplicado.id && idprodsel.cor === prodduplicado.cor && idprodsel.tamanho === prodduplicado.tamanho){
+//     //         prodduplicado = idprodsel.quantidade++;
+//     //         var attprod = listaprodutos.slice(idx);
+//     //         var productlist = JSON.stringify(attprod);
+//     //         console.log('PRODUCTLIST: ', productlist);
+//     //         sessionStorage.setItem("Shopping", productlist);
+//     //     }
+//     // });
+// });
+
+
+
+
+
+
+
+
+
+
+// [MENU] ROLAGEM
 $('.scroll').on('click', function(){
     $("html, body").animate({ scrollTop: 1400 }, 600);
     return false;
@@ -203,28 +241,40 @@ $('.scrolllnc').on('click', function(){
     return false;
 });
 
-// JANELA DO PRODUTO
-
+// [PRODUTO] INFORMAÇÕES
 $('.close').on('click', function(){
     $('.telaproduto').removeClass('open');
 });
 
-// BOTÃO DO CARRINHO
+// [PRODUTO] LIMPAR FILTRO
+$('.type').on('click', function(){
+    $('.produtos').find('li').remove();
+});
 
+$('.lmpflt').on('click', function(){
+    $('.produtos').find('.produto').remove();
+});
+
+// [CARRINHO] BOTÃO 
 $(document).ready(function(){
     if(window.location.href.indexOf('/carrinho.php') != "-1"){
         var listaprodutos = sessionStorage.getItem('Shopping');
-        console.log(listaprodutos);
         listaprodutos = JSON.parse(listaprodutos);
 
         listaprodutos.forEach((idprodsel, idx) => {
-            $('<li class="carproduto" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">1</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
+            $('<li class="carproduto" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
+            $('<li class="carslick" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
+        });
 
-            $('.removeproduct').on('click', function(){
+        // [CARRINHO] REMOVER PRODUTO
+        $('.removeproduct').on('click', function(){
+            $(this).parent().remove();
+            listaprodutos.forEach((prodsel, idx) => {
                 var idprodcar = $(this).parent().attr('data-id');
 
-                if(idprodcar == idprodsel.id){
+                if(idprodcar == prodsel.id && idx != index){
                     var deleteproduct = listaprodutos.splice(idx, 1);
+                    console.log('DELETE:', deleteproduct);
                     var productlist = JSON.stringify(listaprodutos);
                     sessionStorage.setItem("Shopping", productlist);
                     $('.proddel').fadeIn("fast");
@@ -235,13 +285,7 @@ $(document).ready(function(){
             });
         });
 
-        $('.removeproduct').on('click', function(){
-            $(this).parent().remove();
-
-        });
-
-        // CARRINHO QUANTIDADE
-
+        // [CARRINHO] AUMENTAR/DIMINUIR QUANTIDADE
         $(".add, .remove").on("click", function() {
             var qtd = parseInt($(this).parent().parent().find('.quantidadeproduto').text());
       
@@ -375,6 +419,16 @@ $(document).ready(function(){
         $('.novidades').remove();
         $('.catpr').remove();
     }
+
+    $('.slickpedido').slick({
+        infinite: true,
+        arrows:true,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        autoplay: true,
+        prevArrow: $('.prevnv'),
+        nextArrow: $('.nextnv')
+    });
 })
 
 // MASK
