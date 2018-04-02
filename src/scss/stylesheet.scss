@@ -688,6 +688,18 @@ header{
       transition: .3s all;
       box-shadow: 1px 1px 8px #676767;
 
+      .carqntd{
+        position: absolute;
+        top: -8px;
+        right: -7px;
+        background-color: #fff;
+        border: 1px solid #b51919;
+        color: #b51919;
+        border-radius: 8px;
+        padding: 0px 5px;
+        box-shadow: 1px 1px 3px #717171;
+      }
+
       svg{
         color: #fff;
         padding: 10px 10px 7px 10px;

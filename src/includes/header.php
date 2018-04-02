@@ -37,6 +37,7 @@
                         </ul>
                     </div>
                     <a href="carrinho.php" class="carshop">
+                        <span class="carqntd"></span>
                         <i class="fas fa-shopping-cart"></i>
                     </a>
                 </div>

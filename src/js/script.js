@@ -163,27 +163,37 @@ $.get({
                         sessionStorage.setItem("Shopping", "[" + produtocliente + "]");
                         var listaprodutos = sessionStorage.getItem('Shopping');
                         listaprodutos = JSON.parse(listaprodutos);
+                        $('.carqntd').show();
+                        $('.carqntd').html(carrinho.length);
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
                         }, 1500);
                     } else{
                         carrinho = JSON.parse(carrinho);
+                        carrinho.forEach((prodatualizar, idx) => {
+                            if(prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
+                                console.log('Achei outro igual.');
+                                prodatualizar.quantidade++;
+                            }
+                        });
+                        $('.carqntd').show();
+                        $('.carqntd').html(carrinho.length);
                         carrinho.push(produtocliente);
                         carrinho = JSON.stringify(carrinho);
                         sessionStorage.setItem("Shopping", carrinho);
                         carrinho = JSON.parse(carrinho);
 
-                        carrinho.forEach((prodatualizar, idx) => {
-                            if(idx != idx && prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
-                                prodatualizar = prodatualizar.quantidade++;
-                                var attprod = carrinho.slice(idx, carrinho);
+                        // carrinho.forEach((prodatualizar, idx) => {
+                        //     if(idx != idx && prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
+                        //         console.log('Achei outro igual.');
+                        //         prodatualizar = prodatualizar.quantidade++;
+                        //         var attprod = carrinho.slice(idx, carrinho);
 
-                                carrinho = JSON.stringify(attprod);
-                                sessionStorage.setItem("Shopping", carrinho);
-                            }
-                        });
-                        
+                        //         carrinho = JSON.stringify(attprod);
+                        //         sessionStorage.setItem("Shopping", carrinho);
+                        //     }
+                        // });
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
@@ -196,7 +206,16 @@ $.get({
     }
 });
 
+$(document).ready(function(){
+    var carrinho = sessionStorage.getItem('Shopping');
 
+    if(carrinho != null || carrinho != undefined){
+        $('.carqntd').show();
+        $('.carqntd').html(carrinho.length);
+    } else{
+        $('.carqntd').hide();
+    }
+});
 
 
 // carrinho.forEach((prodatualizar, idx) => {
@@ -261,6 +280,10 @@ $(document).ready(function(){
         var listaprodutos = sessionStorage.getItem('Shopping');
         listaprodutos = JSON.parse(listaprodutos);
 
+        if(listaprodutos == null || listaprodutos == ''){
+            $('.carrinhoprodutos,.slickpedido').html('Nenhum produto encontrado.');
+        }
+
         listaprodutos.forEach((idprodsel, idx) => {
             $('<li class="carproduto" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
             $('<li class="carslick" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
@@ -272,7 +295,7 @@ $(document).ready(function(){
             listaprodutos.forEach((prodsel, idx) => {
                 var idprodcar = $(this).parent().attr('data-id');
 
-                if(idprodcar == prodsel.id && idx != index){
+                if(idprodcar == prodsel.id && idx == idx){
                     var deleteproduct = listaprodutos.splice(idx, 1);
                     console.log('DELETE:', deleteproduct);
                     var productlist = JSON.stringify(listaprodutos);
