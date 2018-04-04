@@ -428,7 +428,9 @@ initInstagramFeed = (function(){
 // SLICK NOVIDADES
 
 $(document).ready(function(){
-    if(('.novidade').lenght != 0){
+    var lancamentosver = $('.lancamentos').find('.lancamento').length;
+
+    if(lancamentosver != 0){
         $('.novpdslk').slick({
             //infinite: true,
             arrows:true,
@@ -439,7 +441,7 @@ $(document).ready(function(){
             nextArrow: $('.nextnv')
         });
     } else{
-        $('.novidades').remove();
+        $('.lancamentos').remove();
         $('.catpr').remove();
     }
 
