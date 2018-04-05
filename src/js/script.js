@@ -187,19 +187,20 @@ $.get({
                             }
                         });
 
-                        console.log('Prod a excluir - ', deletarIdx,carrinho[deletarIdx-1]);
-                        
-                        //if(deletarProd && deletarProd.id === produtocliente.id && deletarProd.cor === produtocliente.cor && deletarProd.tamanho === produtocliente.tamanho){
+
+                        console.log(deletarIdx)
                         if(!isNaN(deletarIdx)){
-                            console.log('carrinho0 - ', carrinho);
-                            carrinho = carrinho.slice(1,deletarIdx);
-                            console.log('carrinho1 - ', carrinho);
-                        } 
+                            carrinho = carrinho.slice(0, deletarIdx);
+                            produtocliente.quantidade = qtdNova;
+                            carrinho.push(produtocliente);
+                        } else{
+                            carrinho.push(produtocliente);
+                        }
+
+                        console.log(carrinho)
                         
                         $('.carqntd').show();
                         $('.carqntd').html(carrinho.length);
-                        produtocliente.quantidade = qtdNova;
-                        carrinho.push(produtocliente);
                         carrinho = JSON.stringify(carrinho);
                         sessionStorage.setItem("Shopping", carrinho);
                         carrinho = JSON.parse(carrinho);
@@ -220,6 +221,8 @@ $(document).ready(function(){
     var carrinho = sessionStorage.getItem('Shopping');
 
     if(carrinho != null || carrinho != undefined){
+        carrinho = JSON.parse(carrinho);
+
         $('.carqntd').show();
         $('.carqntd').html(carrinho.length);
     } else{
