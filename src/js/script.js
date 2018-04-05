@@ -133,7 +133,12 @@ $.get({
                 var tamanho = lista[id].tamanho.split(',');
                 var cores = lista[id].cor.split(',');
                 
-                // REMOVES
+                // [PRODUTO] INFORMAÇÕES
+                $('.close').on('click', function(){
+                    $('.telaproduto').removeClass('open');
+                });
+
+                // [PRODUTO] ADD/REMOVE COR & TAMANHO
                 $('.opcaopdt').remove();
 
                 tamanho.forEach((tamanho) => {
@@ -164,36 +169,41 @@ $.get({
                         var listaprodutos = sessionStorage.getItem('Shopping');
                         listaprodutos = JSON.parse(listaprodutos);
                         $('.carqntd').show();
-                        $('.carqntd').html(carrinho.length);
+                        // $('.carqntd').html(carrinho.length);
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
                         }, 1500);
                     } else{
                         carrinho = JSON.parse(carrinho);
+                        var deletarIdx = undefined;
+                        var deletarProd = undefined;
+                        var qtdNova = 1;
                         carrinho.forEach((prodatualizar, idx) => {
-                            if(prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
-                                console.log('Achei outro igual.');
+                            if(prodatualizar.id === produtocliente.id && prodatualizar.cor === produtocliente.cor && prodatualizar.tamanho === produtocliente.tamanho){
                                 prodatualizar.quantidade++;
+                                deletarIdx = idx;
+                                qtdNova = prodatualizar.quantidade;
                             }
                         });
+
+                        console.log('Prod a excluir - ', deletarIdx,carrinho[deletarIdx-1]);
+                        
+                        //if(deletarProd && deletarProd.id === produtocliente.id && deletarProd.cor === produtocliente.cor && deletarProd.tamanho === produtocliente.tamanho){
+                        if(!isNaN(deletarIdx)){
+                            console.log('carrinho0 - ', carrinho);
+                            carrinho = carrinho.slice(1,deletarIdx);
+                            console.log('carrinho1 - ', carrinho);
+                        } 
+                        
                         $('.carqntd').show();
                         $('.carqntd').html(carrinho.length);
+                        produtocliente.quantidade = qtdNova;
                         carrinho.push(produtocliente);
                         carrinho = JSON.stringify(carrinho);
                         sessionStorage.setItem("Shopping", carrinho);
                         carrinho = JSON.parse(carrinho);
 
-                        // carrinho.forEach((prodatualizar, idx) => {
-                        //     if(idx != idx && prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
-                        //         console.log('Achei outro igual.');
-                        //         prodatualizar = prodatualizar.quantidade++;
-                        //         var attprod = carrinho.slice(idx, carrinho);
-
-                        //         carrinho = JSON.stringify(attprod);
-                        //         sessionStorage.setItem("Shopping", carrinho);
-                        //     }
-                        // });
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
@@ -258,11 +268,6 @@ $('.scroll').on('click', function(){
 $('.scrolllnc').on('click', function(){
     $("html, body").animate({ scrollTop: 800 }, 600);
     return false;
-});
-
-// [PRODUTO] INFORMAÇÕES
-$('.close').on('click', function(){
-    $('.telaproduto').removeClass('open');
 });
 
 // [PRODUTO] LIMPAR FILTRO
@@ -432,7 +437,6 @@ $(document).ready(function(){
 
     if(lancamentosver != 0){
         $('.novpdslk').slick({
-            //infinite: true,
             arrows:true,
             slidesToShow: 4,
             slidesToScroll: 2,
