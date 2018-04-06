@@ -187,7 +187,6 @@ $.get({
                             }
                         });
 
-
                         console.log(deletarIdx);
                         if(!isNaN(deletarIdx)){
                             carrinho = carrinho.slice(0, deletarIdx);
