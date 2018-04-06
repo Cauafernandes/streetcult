@@ -188,7 +188,7 @@ $.get({
                         });
 
 
-                        console.log(deletarIdx)
+                        console.log(deletarIdx);
                         if(!isNaN(deletarIdx)){
                             carrinho = carrinho.slice(0, deletarIdx);
                             produtocliente.quantidade = qtdNova;
@@ -217,6 +217,8 @@ $.get({
     }
 });
 
+
+// [CARRINHO] QUANTIDADE
 $(document).ready(function(){
     var carrinho = sessionStorage.getItem('Shopping');
 
@@ -229,38 +231,6 @@ $(document).ready(function(){
         $('.carqntd').hide();
     }
 });
-
-
-// carrinho.forEach((prodatualizar, idx) => {
-//     if(idx != idx && prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
-//         prodatualizar = prodatualizar.quantidade++;
-//         var attprod = carrinho.slice(idx, carrinho);
-//         carrinho = JSON.stringify(attprod);
-//         console.log('PRODUCTLIST: ', carrinho);
-//         sessionStorage.setItem("Shopping", carrinho);
-//     }
-
-
-//     // listaprodutos.forEach((prodduplicado, index) => {
-
-//     //     if(idprodsel.id === prodduplicado.id && idprodsel.cor === prodduplicado.cor && idprodsel.tamanho === prodduplicado.tamanho){
-//     //         prodduplicado = idprodsel.quantidade++;
-//     //         var attprod = listaprodutos.slice(idx);
-//     //         var productlist = JSON.stringify(attprod);
-//     //         console.log('PRODUCTLIST: ', productlist);
-//     //         sessionStorage.setItem("Shopping", productlist);
-//     //     }
-//     // });
-// });
-
-
-
-
-
-
-
-
-
 
 // [MENU] ROLAGEM
 $('.scroll').on('click', function(){
