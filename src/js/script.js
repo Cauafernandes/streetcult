@@ -179,6 +179,7 @@ $.get({
                         var deletarIdx = undefined;
                         var deletarProd = undefined;
                         var qtdNova = 1;
+
                         carrinho.forEach((prodatualizar, idx) => {
                             if(prodatualizar.id === produtocliente.id && prodatualizar.cor === produtocliente.cor && prodatualizar.tamanho === produtocliente.tamanho){
                                 prodatualizar.quantidade++;
@@ -187,16 +188,12 @@ $.get({
                             }
                         });
 
-                        console.log(deletarIdx);
                         if(!isNaN(deletarIdx)){
-                            carrinho = carrinho.slice(0, deletarIdx);
+                            carrinho = carrinho.splice(deletarIdx[0]);
                             produtocliente.quantidade = qtdNova;
-                            carrinho.push(produtocliente);
                         } else{
                             carrinho.push(produtocliente);
                         }
-
-                        console.log(carrinho)
                         
                         $('.carqntd').show();
                         $('.carqntd').html(carrinho.length);
@@ -256,6 +253,7 @@ $(document).ready(function(){
     if(window.location.href.indexOf('/carrinho.php') != "-1"){
         var listaprodutos = sessionStorage.getItem('Shopping');
         listaprodutos = JSON.parse(listaprodutos);
+        $('.carshop').hide();
 
         if(listaprodutos == null || listaprodutos == ''){
             $('.carrinhoprodutos,.slickpedido').html('Nenhum produto encontrado.');
@@ -274,9 +272,9 @@ $(document).ready(function(){
 
                 if(idprodcar == prodsel.id && idx == idx){
                     var deleteproduct = listaprodutos.splice(idx, 1);
-                    console.log('DELETE:', deleteproduct);
                     var productlist = JSON.stringify(listaprodutos);
                     sessionStorage.setItem("Shopping", productlist);
+                    
                     $('.proddel').fadeIn("fast");
                     setTimeout(function(){
                         $('.proddel').fadeOut("slow");
