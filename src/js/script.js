@@ -168,8 +168,6 @@ $.get({
                         sessionStorage.setItem("Shopping", "[" + produtocliente + "]");
                         var listaprodutos = sessionStorage.getItem('Shopping');
                         listaprodutos = JSON.parse(listaprodutos);
-                        $('.carqntd').show();
-                        // $('.carqntd').html(carrinho.length);
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
