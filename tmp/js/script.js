@@ -258,8 +258,8 @@ $(document).ready(function(){
         }
 
         listaprodutos.forEach((idprodsel, idx) => {
-            $('<li class="carproduto" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
-            $('<li class="carslick" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
+            $('<li class="carproduto" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
+            $('<li class="carslick" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
         });
 
         // [CARRINHO] REMOVER PRODUTO
@@ -267,32 +267,57 @@ $(document).ready(function(){
             $(this).parent().remove();
             listaprodutos.forEach((prodsel, idx) => {
                 var idprodcar = $(this).parent().attr('data-id');
+                var prodIdx = $(this).parent().attr('data-idx');
 
-                if(idprodcar == prodsel.id && idx == idx){
-                    var deleteproduct = listaprodutos.splice(idx, 1);
+                if(idprodcar == prodsel.id && prodIdx == idx){
+                    var deleteproduct = listaprodutos.splice(prodIdx, 1);
                     var productlist = JSON.stringify(listaprodutos);
                     sessionStorage.setItem("Shopping", productlist);
+                    $('.carproduto').attr('data-idx', prodsel.idx);
                     
                     $('.proddel').fadeIn("fast");
                     setTimeout(function(){
                         $('.proddel').fadeOut("slow");
                     }, 1500);
+                } else{
+                    return;
                 }
             });
+            location.reload();
         });
 
         // [CARRINHO] AUMENTAR/DIMINUIR QUANTIDADE
         $(".add, .remove").on("click", function() {
             var qtd = parseInt($(this).parent().parent().find('.quantidadeproduto').text());
+            var carrinho = sessionStorage.getItem('Shopping');
+            var carIdx = $(this).parent().parent().attr('data-idx');
+            carrinho = JSON.parse(carrinho);
       
             if($(this).attr('data-orientation')=='plus'){
-              qtd++;
+                carrinho.forEach((prodatualizar, idx) => {
+                    if(carIdx == idx){
+                        qtd++;
+                        prodatualizar.quantidade++
+                        carrinho = JSON.stringify(carrinho);
+                        sessionStorage.setItem('Shopping', carrinho);
+                    }
+                });
             }else{
-              qtd--;
+                carrinho.forEach((prodatualizar, idx) => {
+                    if(carIdx == idx){
+                        qtd--;
+                        if(qtd<1){
+                            qtd = 1;
+                            prodatualizar.quantidade = 2;
+                        } 
+                        prodatualizar.quantidade--;
+                        carrinho = JSON.stringify(carrinho);
+                        sessionStorage.setItem('Shopping', carrinho);
+                    }
+                });
             }
     
-            if(qtd<1) qtd = 1;
-                    
+            if(qtd<1) qtd = 1;                    
             $(this).parent().parent().find('.quantidadeproduto').text(qtd);
         });
     }

@@ -584,7 +584,7 @@ header{
 
     nav{
       display:table;
-      max-width: 945px;
+      max-width: 820px;
       width:100%;
       float:left;
 
@@ -678,36 +678,64 @@ header{
       }
     }
 
-    .carshop{
-      background-color: #b51919;
-      position: fixed;
-      bottom: 90px;
-      right: 15px;
-      border-radius: 55px;
-      cursor: pointer;
-      transition: .3s all;
-      box-shadow: 1px 1px 8px #676767;
+    .carrinho{
+      position:relative;
+      float:left;
+      margin: 23px 1% 0;
+      max-width: 100px;
+      width: 100%;
 
       .carqntd{
-        position: absolute;
-        top: -8px;
-        right: -7px;
-        background-color: #fff;
-        border: 1px solid #b51919;
-        color: #b51919;
-        border-radius: 8px;
-        padding: 0px 5px;
-        box-shadow: 1px 1px 3px #717171;
+        position:absolute;
+        top: -15px;
+        left: 7px;
       }
 
-      svg{
-        color: #fff;
-        padding: 10px 10px 7px 10px;
-        font-size: 19px;
+      .carshp{
+        color:#fff;
+
+        .caricon{
+          float:left;
+        }
+
+        p{
+          margin: 0 0 0 25px;
+          -webkit-transform: perspective(1px) translateZ(0);
+          transform: perspective(1px) translateZ(0);
+          box-shadow: 0 0 1px transparent;
+          position: relative;
+          overflow: hidden;
+
+          &:before{
+            content: "";
+            position: absolute;
+            z-index: -1;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            background: #c1c1c1;
+            height: 1px;
+            -webkit-transition-property: left, right;
+            transition-property: left, right;
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+          }
+    
+          &:hover:before, &:focus:before, &:active:before {
+            left: 0;
+            right: 0;
+          }
+        }
       }
 
       &:hover{
-        background-color: #e62626;
+
+        span, svg{
+          transition:all 0.5s;
+          color:#f15959;
+        }
       }
     }
   }
@@ -895,6 +923,10 @@ header{
 
     .produto{
       max-width: 257px!important;
+
+      &:nth-child(1n+13){
+        display:none;
+      }
     }
   }
 
@@ -1051,6 +1083,50 @@ header{
       }
     }
   }
+
+  #vmr{
+    display:table;
+    margin:30px auto 80px;
+    background-color: #b51919;
+    border:1px solid #b51919;
+    border-radius: 6px;
+    padding:8px 30px;
+    font-size:22px;
+    color:#fff;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    cursor:pointer;
+    -webkit-transition:0.5s all;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
+    svg{
+      color:#fff;
+      font-size:22px;
+      margin:0 10px 0 0;
+      display: inline-block;
+      -webkit-transition-duration: 1s;
+      transition-duration: 1s;
+      -webkit-transition-property: transform;
+      transition-property: transform;
+      -webkit-transition-timing-function: ease-in-out;
+      transition-timing-function: ease-in-out;
+    }
+
+    &:hover{
+      background-color:transparent;
+      border:1px solid #b51919;
+      color:#b51919;
+      transition:0.3s all;
+
+      svg{
+        color:#b51919;
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+  }
 }
 
 .open{
@@ -1113,7 +1189,7 @@ header{
     width:100%;
     height:600px;
 
-    a{
+    .fotoinst{
       position:relative;
       display:table;
       float:left;
@@ -1160,41 +1236,21 @@ header{
       z-index:3;
       padding:30px;
       box-shadow:0px 0px 30px #000;
+      background-image: url('../assets/img/monkey2.png');
+      background-size: 5%;
+      background-repeat: repeat;
 
-      h2{
-        margin:0 auto 30px;
+      .strtlnk{
         display:table;
-        color:#000;
-      }
-
-      a{
-        font-size:25px;
-        color:#fff;
+        border:2px dashed #ccc;
+        margin:0 auto;
+        background-color:#fff;
         padding:10px 20px;
-        border-radius:8px;
-        background-color:#f92e98;
-        margin:30px auto 0;
-        display:table;
-        font-weight:bold;
-        -webkit-transition:0.5s all;
-        max-width:450px;
-        text-align:center;
-        width:100%;
-        height:20px;
 
         &:hover{
-          background-color:#ff74bd;
+          background-color:#ccc;
           transition: 0.3s all;
           cursor:pointer;
-        }
-      }
-
-      figure{
-        display:table;
-        margin:0 auto;
-        img{
-          max-width: 215px;
-          height: 150px;
         }
       }
     }
@@ -1325,7 +1381,7 @@ footer{
     position: absolute;
     bottom: -30px;
     left: 0;
-    padding: 20px;
+    padding: 20px 20px 20px 0px;
     background-color: #fff;
   }
 
@@ -1364,6 +1420,7 @@ footer{
 
 .carrinhoprodutos{
   padding-top:90px;
+  min-height:372px;
   float:left;
   width:100%;
 
