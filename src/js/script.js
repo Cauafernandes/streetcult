@@ -47,11 +47,6 @@ $.get({
                 let doc = lista.find(Disponibility, {produto: tag});
                 console.log(tag);
 
-                if(doc == undefined){
-                    // $(produtos).html('<li>Nenhum produto encontrado.</li>');
-                    console.log('Nenhum produto encontrado.');
-                }
-
                 lista.forEach((obj, idx) => {
                 switch(classe){
                     case 'camisa':
@@ -87,11 +82,16 @@ $.get({
                     break;
                 }
             });
+
+            if($(".produtos").find('.produto').is(':visible') == false){
+                $(produtos).html('<li>Nenhum produto encontrado.</li>');
+            }
         });
 
         $('.lmpflt').unbind('click').bind('click', function(){
             $(produtos).find('li').remove();
             $('.lmpflt').css("display", "none");
+            $('#vmr').show();
             $('#category').html('PRODUTOS').removeClass('filtro');
 
             lista.forEach((obj, idx) => {
@@ -240,6 +240,7 @@ $('.scrolllnc').on('click', function(){
 // [PRODUTO] LIMPAR FILTRO
 $('.type').on('click', function(){
     $('.produtos').find('li').remove();
+    $('#vmr').hide();
 });
 
 $('.lmpflt').on('click', function(){
@@ -434,6 +435,7 @@ $(document).ready(function(){
             slidesToShow: 4,
             slidesToScroll: 2,
             autoplay: true,
+            infinite:false,
             prevArrow: $('.prevnv'),
             nextArrow: $('.nextnv')
         });
