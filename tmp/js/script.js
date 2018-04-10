@@ -251,7 +251,7 @@ $(document).ready(function(){
     if(window.location.href.indexOf('/carrinho.php') != "-1"){
         var listaprodutos = sessionStorage.getItem('Shopping');
         listaprodutos = JSON.parse(listaprodutos);
-        $('.carshop').hide();
+        $('.carshop').remove();
 
         if(listaprodutos == null || listaprodutos == ''){
             $('.carrinhoprodutos,.slickpedido').html('Nenhum produto encontrado.');
@@ -324,25 +324,25 @@ $(document).ready(function(){
 });
 
 //---------------------------------------------
-// VERIFICAÇÃO BOTÃO CUPONS
+// VERIFICAÇÃO BOTÃO PRODUTOS
 
-// $(document).ready(function() {
-//     if ($(".cupom-pR").length <= 6){
-//         $('#vmr').hide();
-//     } else {
-//         $('#vmr').show();
-//     }
-// });
+$(document).ready(function() {
+    if ($('.produtos').find(".produto").length <= 11){
+        $('#vmr').hide();
+    } else {
+        $('#vmr').show();
+    }
+});
 
 //---------------------------------------------
-// MOSTRAR OS CUPONS
+// MOSTRAR OS PRODUTOS
 
-// $(document).ready(function() {
-//     $('#vmr').on('click', function(){
-//         $('.cupom-pR:nth-child(1n+7)').css('display', 'table');
-//         $(this).parent().hide();
-//     });
-// });
+$(document).ready(function() {
+    $('#vmr').on('click', function(){
+        $('.produtos').find('.produto:nth-child(1n+13)').css('display', 'table');
+        $(this).hide();
+    });
+});
 
 //---------------------------------------------
 // FACEBOOK SCRIPT
@@ -391,11 +391,11 @@ $('.scrlltp').click(function(){
 
 $(window).on("scroll", function(){
     if(window.pageYOffset > 400){
-    $('.scrlltp').show();
+    $('.scrlltp').fadeIn('fast');
     } 
     
     if(window.pageYOffset < 400){
-    $('.scrlltp').hide();
+    $('.scrlltp').fadeOut('fast');
     }
 });
 
@@ -414,7 +414,7 @@ initInstagramFeed = (function(){
      url: "https://api.instagram.com/v1/users/" + igID + "/media/recent/?access_token=" + accessToken + '&count=' + count,
      success: function(data) {
          for (var i = 0; i < count; i++) {
-             $(".phtinst").append("<a target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a>");
+             $(".phtinst").append("<a class='fotoinst' target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a>");
          }
      },
      error: function(){

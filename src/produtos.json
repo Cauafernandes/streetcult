@@ -130,5 +130,29 @@
         "lancamento": false,
         "image": "assets/img/bermudachronic1.jpeg",
         "imagecostas": "assets/img/bermudachronic1costas.jpeg"
+    },
+    {
+        "nome": "Camisa Chronic Sweet Girl",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG,G,M,P",
+        "produto": "camisa",
+        "tag": "camisa",
+        "type": "Chronic",
+        "quantidade": "5",
+        "lancamento": true,
+        "image": "assets/img/camisachronic8.jpeg",
+        "imagecostas": "assets/img/camisachronic8costas.jpeg"
+    },
+    {
+        "nome": "Camisa Chronic NGT Big",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG,G,M,P",
+        "produto": "camisa",
+        "tag": "camisa",
+        "type": "Chronic",
+        "quantidade": "5",
+        "lancamento": false,
+        "image": "assets/img/camisachronic9.jpeg",
+        "imagecostas": "assets/img/camisachronic9costas.jpeg"
     }
 ]

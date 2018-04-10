@@ -324,7 +324,7 @@ $(document).ready(function(){
 });
 
 //---------------------------------------------
-// VERIFICAÇÃO BOTÃO CUPONS
+// VERIFICAÇÃO BOTÃO PRODUTOS
 
 $(document).ready(function() {
     if ($('.produtos').find(".produto").length <= 11){
@@ -335,7 +335,7 @@ $(document).ready(function() {
 });
 
 //---------------------------------------------
-// MOSTRAR OS CUPONS
+// MOSTRAR OS PRODUTOS
 
 $(document).ready(function() {
     $('#vmr').on('click', function(){
