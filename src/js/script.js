@@ -256,6 +256,7 @@ $(document).ready(function(){
 
         if(listaprodutos == null || listaprodutos == ''){
             $('.carrinhoprodutos,.slickpedido').html('Nenhum produto encontrado.');
+            $('.carfnz').remove();
         }
 
         listaprodutos.forEach((idprodsel, idx) => {
@@ -323,6 +324,23 @@ $(document).ready(function(){
         });
     }
 });
+
+// [CARRINHO] FINALIZAR COMPRA
+$(document).ready(function(){
+    var carrinho = sessionStorage.getItem('Shopping');
+    // console.log(carrinho.length);
+    console.log(carrinho);
+
+    if(window.location.href.indexOf('finalizar') != "-1"){
+        if(carrinho == null){
+            window.location.replace("/streetcult/src/carrinho.php");
+            console.log('Não achou nenhum produto e fez o redirect');
+        } else{
+            console.log('Tem produto e ta no finalizar');
+        }
+    }
+});
+
 
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO PRODUTOS
@@ -457,4 +475,4 @@ $(document).ready(function(){
 
 // MASK
 
-$('#cpf').mask('000.000.000-00', {reverse: true});
+// $('#cpf').mask('000.000.000-00', {reverse: true});

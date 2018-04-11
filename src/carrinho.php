@@ -17,6 +17,9 @@
                     <div class="proddel">
                         <p>Produto removido.</p>
                     </div>
+                    <div class="carfnz">
+                        <a href="finalizar.php"><i class="fas fa-check"></i>FINALIZAR COMPRA</a>
+                    </div>
                 </div>
             </div>
         </div>
