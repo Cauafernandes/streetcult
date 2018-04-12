@@ -1547,7 +1547,10 @@ footer{
 }
 
 .carfnz{
-  a{
+  display:none;
+
+  button{
+    cursor:pointer;
     display:table;
     margin:0 auto;
     background-color:#b51919;
@@ -1556,6 +1559,7 @@ footer{
     padding:8px 20px;
     color:#fff;
     font-size:22px;
+    font-family: 'Yanone Kaffeesatz',sans-serif;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
@@ -1574,6 +1578,8 @@ footer{
       -webkit-transition-timing-function: ease-out;
       transition-timing-function: ease-out;
     }
+
+    &:focus{ outline:none }
 
     &:hover svg, &:focus svg, &:active svg {
       color:#b51919;
@@ -1597,7 +1603,144 @@ footer{
 // [CARRINHO] FINALIZAR COMPRA
 
 .infoscliente{
+  form{
+    width:100%;
 
+
+    ul{
+      width:100%;
+      display:table;
+
+      label{
+        width:100%;
+        display:block;
+        color:#000;
+        font-size:19px;
+      }
+
+      input{
+        margin:5px 0 0;
+        padding:5px 5px;
+        border:1px solid #dedede;
+        border-radius:3px;
+        width:100%;
+
+        &:focus{ outline:none }
+      }
+  
+      li{
+        max-width:280px;
+        width:100%;
+        margin:0 15px;
+        float:left;
+
+        &:nth-child(1){
+          margin-left:0;
+        }
+      }
+    }
+
+    .userinfos{
+      li:last-child{
+        margin: 30px 0;
+      }
+    }
+
+    .sendped{
+      background-color:#b51919;
+      border:1px solid #b51919;
+      border-radius:5px;
+      padding:5px 20px;
+      color:#fff;
+      display:table;
+      margin:0 auto;
+      font-size:22px;
+      font-family: 'Yanone Kaffeesatz',sans-serif;
+      cursor:pointer;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+      -webkit-transition-duration: 0.3s;
+      transition-duration: 0.3s;
+
+      svg{
+        margin-left:10px;
+        font-size:18px;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+      }
+
+      &:hover{
+        background-color:#fff;
+        color:#b51919;
+      }
+    }
+
+    .sendped:hover svg, .sendped:focus svg, .sendped:active svg {
+      -webkit-animation-name: sendped;
+      animation-name: sendped;
+      -webkit-animation-duration: 1s;
+      animation-duration: 1s;
+      -webkit-animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in-out;
+      -webkit-animation-iteration-count: 1;
+      animation-iteration-count: 1;
+    }
+
+    @-webkit-keyframes sendped {
+      16.65% {
+        -webkit-transform: translateX(6px);
+        transform: translateX(6px);
+      }
+      33.3% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+      }
+      49.95% {
+        -webkit-transform: translateX(4px);
+        transform: translateX(4px);
+      }
+      66.6% {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+      }
+      83.25% {
+        -webkit-transform: translateX(1px);
+        transform: translateX(1px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes sendped {
+      16.65% {
+        -webkit-transform: translateX(6px);
+        transform: translateX(6px);
+      }
+      33.3% {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+      }
+      49.95% {
+        -webkit-transform: translateX(4px);
+        transform: translateX(4px);
+      }
+      66.6% {
+        -webkit-transform: translateX(-2px);
+        transform: translateX(-2px);
+      }
+      83.25% {
+        -webkit-transform: translateX(1px);
+        transform: translateX(1px);
+      }
+      100% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+    }
+  }
 }
 
 // [CARRINHO] FINALIZAR COMPRA FIM

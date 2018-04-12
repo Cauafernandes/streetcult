@@ -15,18 +15,55 @@
                         <span></span>
                     </div>
                     <div class="infoscliente">
-                    <form id="myform" method="post">
-                        <label>E-Mail</label>
-                        <input type="text" name="reply_to" />
-                        <label>Nome Completo</label>
-                        <input type="text" name="from_name" />
+                    <form id="infoscliente" method="post">
+                        <ul class="userinfos">
+                            <li>
+                                <label>Nome</label>
+                                <input type="text" name="user_nome"/>
+                            </li>
+                            <li>
+                                <label>Sobrenome</label>
+                                <input type="text" name="user_sobrenome"/>
+                            </li>
+                            <li>
+                                <label>E-Mail</label>
+                                <input type="email" name="mail"/>
+                            </li>
+                            <li>
+                                <label>CPF</label>
+                                <input type="number" id="cpf" name="user_cpf"/>
+                            </li>
+                            <li>
+                                <label>Celular</label>
+                                <input type="number" name="user_cel"/>
+                            </li>
+                        </ul>
+                        <ul class="userend">
+                            <li>
+                                <label>Endereço</label>
+                                <input type="text" name="end_rua"/>
+                            </li>
+                            <li>
+                                <label>Número</label>
+                                <input type="text" name="end_num"/>
+                            </li>
+                            <li>
+                                <label>Complemento</label>
+                                <input type="text" name="end_comp"/>
+                            </li>
+                            <li>
+                                <label>CEP</label>
+                                <input type="number" name="cep"/>
+                            </li>
+                        </ul>
                         <label>Pedido</label>
                         <ul class="caruser">
                         </ul>
+                        <input type="text" name="numero_pedido" value="8924776310002">
                         <br><br>
-                        <button>Send</button>
+                        <button class="sendped">ENVIAR PEDIDO<i class="fas fa-arrow-right"></i></button>
                     </form>
-                    <!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+                    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
                     <script type="text/javascript">
                     (function(){

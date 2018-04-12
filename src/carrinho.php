@@ -18,7 +18,7 @@
                         <p>Produto removido.</p>
                     </div>
                     <div class="carfnz">
-                        <a href="finalizar.php"><i class="fas fa-check"></i>FINALIZAR COMPRA</a>
+                        <button><i class="fas fa-check"></i>FINALIZAR COMPRA</button>
                     </div>
                 </div>
             </div>

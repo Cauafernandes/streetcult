@@ -256,6 +256,7 @@ $(document).ready(function(){
 
         if(listaprodutos == null || listaprodutos == ''){
             $('.carrinhoprodutos,.slickpedido').html('Nenhum produto encontrado.');
+            $('.carfnz').remove();
         }
 
         listaprodutos.forEach((idprodsel, idx) => {
@@ -323,6 +324,44 @@ $(document).ready(function(){
         });
     }
 });
+
+// [CARRINHO] FINALIZAR COMPRA
+$(document).ready(function(){
+    var carrinho = sessionStorage.getItem('Shopping');
+    // console.log(carrinho.length);
+    console.log(carrinho);
+
+    if(window.location.href.indexOf('finalizar') != "-1"){
+        if(carrinho == null){
+            window.location.replace("/streetcult/src/carrinho.php");
+            console.log('Não achou nenhum produto e fez o redirect');
+        } else{
+            console.log('Tem produto e ta no finalizar');
+        }
+
+        
+        var myform = $("form#infoscliente");
+        myform.submit(function(event){
+            event.preventDefault();
+
+        // Change to your service ID, or keep using the default service
+        var service_id = "caua_fernandes";
+        var template_id = "streetcultcompras";
+
+        myform.find("button").text("Enviando...");
+        emailjs.sendForm(service_id,template_id,"infoscliente")
+            .then(function(){ 
+                alert("Pedido enviado!");
+            myform.find("button").text("Enviar");
+            }, function(err) {
+            alert("Erro ao enviar pedido!\r\n Response:\n " + JSON.stringify(err));
+            myform.find("button").text("Enviar");
+            });
+        return false;
+        });
+    }
+});
+
 
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO PRODUTOS
@@ -457,4 +496,4 @@ $(document).ready(function(){
 
 // MASK
 
-$('#cpf').mask('000.000.000-00', {reverse: true});
+// $('#cpf').mask('000.000.000-00', {reverse: true});
