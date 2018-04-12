@@ -58,10 +58,13 @@
                         </ul>
                         <label>Pedido</label>
                         <ul class="caruser">
+                            <input type="hidden" class="pedido" name="pedido"/>
                         </ul>
-                        <input type="text" name="numero_pedido" value="8924776310002">
+                        <input type="hidden" class="numpedido" name="numero_pedido">
                         <br><br>
-                        <button class="sendped">ENVIAR PEDIDO<i class="fas fa-arrow-right"></i></button>
+                        <div class="envped">
+                            <button class="sendped">ENVIAR PEDIDO<i class="fas fa-arrow-right"></i></button>
+                        </div>
                     </form>
                     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
                     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>

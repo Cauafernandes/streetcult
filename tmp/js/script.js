@@ -256,13 +256,14 @@ $(document).ready(function(){
 
         if(listaprodutos == null || listaprodutos == ''){
             $('.carrinhoprodutos,.slickpedido').html('Nenhum produto encontrado.');
-            $('.carfnz').remove();
+            $('.carrinhoprodutos').css('min-height','457px');
+        } else{
+            listaprodutos.forEach((idprodsel, idx) => {
+                $('<li class="carproduto" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
+                $('<li class="carslick" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
+            });    
+            $('.carfnz').show();
         }
-
-        listaprodutos.forEach((idprodsel, idx) => {
-            $('<li class="carproduto" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
-            $('<li class="carslick" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
-        });
 
         // [CARRINHO] REMOVER PRODUTO
         $('.removeproduct').on('click', function(){
@@ -281,11 +282,18 @@ $(document).ready(function(){
                     setTimeout(function(){
                         $('.proddel').fadeOut("slow");
                     }, 1500);
+
+                    if(listaprodutos.length == 0){
+                        sessionStorage.clear();
+                    }
+
                 } else{
                     return;
                 }
             });
-            location.reload();
+            setTimeout(function(){
+                location.reload();
+            }, 800);
         });
 
         // [CARRINHO] AUMENTAR/DIMINUIR QUANTIDADE
@@ -328,40 +336,57 @@ $(document).ready(function(){
 // [CARRINHO] FINALIZAR COMPRA
 $(document).ready(function(){
     var carrinho = sessionStorage.getItem('Shopping');
-    // console.log(carrinho.length);
-    console.log(carrinho);
-
+    carrinho = JSON.parse(carrinho);
     if(window.location.href.indexOf('finalizar') != "-1"){
+        var numped = Math.floor((Math.random() * 100000) + 1);
+        var pedidocar;
+        $('.numpedido').val(numped);
+
+
         if(carrinho == null){
             window.location.replace("/streetcult/src/carrinho.php");
             console.log('Não achou nenhum produto e fez o redirect');
         } else{
-            console.log('Tem produto e ta no finalizar');
+            var pedidos = "";
+            carrinho.forEach((obj, idx) => {
+                pedidos+= "<li><b style='color:#b51919'>Produto:</b> " + obj.nome + " <br><b style='color:#b51919'>Cor:</b> " + obj.cor + " <br><b style='color:#b51919'>Tamanho:</b> " + obj.tamanho  + " <br><b style='color:#b51919'>Quantidade:</b> " + obj.quantidade + "</li><br>";
+            });
+
+            $('.pedido').val("<ul style='padding:15px 30px;color:#000000;background-color:#efefef'>" + pedidos + "</ul>");
         }
 
         
+
         var myform = $("form#infoscliente");
         myform.submit(function(event){
-            event.preventDefault();
-
-        // Change to your service ID, or keep using the default service
+        event.preventDefault();
         var service_id = "caua_fernandes";
         var template_id = "streetcultcompras";
 
-        myform.find("button").text("Enviando...");
+        myform.find(".sendped").text("Enviando...");
         emailjs.sendForm(service_id,template_id,"infoscliente")
             .then(function(){ 
                 alert("Pedido enviado!");
-            myform.find("button").text("Enviar");
+            myform.find(".sendped").remove();
+            $('.envped').html("<a class='sendped' href='index.php'>VOLTAR PARA HOME</a>")
             }, function(err) {
             alert("Erro ao enviar pedido!\r\n Response:\n " + JSON.stringify(err));
-            myform.find("button").text("Enviar");
+            myform.find("button").text("ENVIAR NOVAMENTE");
             });
         return false;
         });
     }
 });
 
+$('.carfnz').find("button").on('click', function(){
+    var carrinho = sessionStorage.getItem('Shopping');
+
+    if(carrinho == null){
+        alert('Adicione um item ao carrinho');
+    } else{
+        window.location.replace("finalizar.php")
+    }
+});
 
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO PRODUTOS
@@ -492,8 +517,4 @@ $(document).ready(function(){
         prevArrow: $('.prevnv'),
         nextArrow: $('.nextnv')
     });
-})
-
-// MASK
-
-// $('#cpf').mask('000.000.000-00', {reverse: true});
+});
