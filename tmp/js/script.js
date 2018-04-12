@@ -156,7 +156,7 @@ $.get({
                 $('.btncomprar').attr('data-id', id);
 
                 $('.btncomprar').unbind('click').bind('click', function(){
-                    var carrinho = sessionStorage.getItem('Shopping');
+                    var carrinho = localStorage.getItem('Shopping');
                     var selcorprod = $(".coresproduto option:selected").val();
                     var seltamprod = $(".tamanhoproduto option:selected").val();
                     var qtd = 1;
@@ -165,8 +165,8 @@ $.get({
 
                     if(carrinho == null || carrinho == undefined){
                         produtocliente = JSON.stringify(produtocliente);
-                        sessionStorage.setItem("Shopping", "[" + produtocliente + "]");
-                        var listaprodutos = sessionStorage.getItem('Shopping');
+                        localStorage.setItem("Shopping", "[" + produtocliente + "]");
+                        var listaprodutos = localStorage.getItem('Shopping');
                         listaprodutos = JSON.parse(listaprodutos);
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
@@ -196,7 +196,7 @@ $.get({
                         $('.carqntd').show();
                         $('.carqntd').html(carrinho.length);
                         carrinho = JSON.stringify(carrinho);
-                        sessionStorage.setItem("Shopping", carrinho);
+                        localStorage.setItem("Shopping", carrinho);
                         carrinho = JSON.parse(carrinho);
 
                         $('.prodadd').fadeIn("fast");
@@ -214,7 +214,7 @@ $.get({
 
 // [CARRINHO] QUANTIDADE
 $(document).ready(function(){
-    var carrinho = sessionStorage.getItem('Shopping');
+    var carrinho = localStorage.getItem('Shopping');
 
     if(carrinho != null || carrinho != undefined){
         carrinho = JSON.parse(carrinho);
@@ -250,7 +250,7 @@ $('.lmpflt').on('click', function(){
 // [CARRINHO] BOTÃO 
 $(document).ready(function(){
     if(window.location.href.indexOf('/carrinho.php') != "-1"){
-        var listaprodutos = sessionStorage.getItem('Shopping');
+        var listaprodutos = localStorage.getItem('Shopping');
         listaprodutos = JSON.parse(listaprodutos);
         $('.carshop').remove();
 
@@ -275,7 +275,7 @@ $(document).ready(function(){
                 if(idprodcar == prodsel.id && prodIdx == idx){
                     var deleteproduct = listaprodutos.splice(prodIdx, 1);
                     var productlist = JSON.stringify(listaprodutos);
-                    sessionStorage.setItem("Shopping", productlist);
+                    localStorage.setItem("Shopping", productlist);
                     $('.carproduto').attr('data-idx', prodsel.idx);
                     
                     $('.proddel').fadeIn("fast");
@@ -284,7 +284,7 @@ $(document).ready(function(){
                     }, 1500);
 
                     if(listaprodutos.length == 0){
-                        sessionStorage.clear();
+                        localStorage.clear();
                     }
 
                 } else{
@@ -299,7 +299,7 @@ $(document).ready(function(){
         // [CARRINHO] AUMENTAR/DIMINUIR QUANTIDADE
         $(".add, .remove").on("click", function() {
             var qtd = parseInt($(this).parent().parent().find('.quantidadeproduto').text());
-            var carrinho = sessionStorage.getItem('Shopping');
+            var carrinho = localStorage.getItem('Shopping');
             var carIdx = $(this).parent().parent().attr('data-idx');
             carrinho = JSON.parse(carrinho);
       
@@ -309,7 +309,7 @@ $(document).ready(function(){
                         qtd++;
                         prodatualizar.quantidade++
                         carrinho = JSON.stringify(carrinho);
-                        sessionStorage.setItem('Shopping', carrinho);
+                        localStorage.setItem('Shopping', carrinho);
                     }
                 });
             }else{
@@ -322,7 +322,7 @@ $(document).ready(function(){
                         } 
                         prodatualizar.quantidade--;
                         carrinho = JSON.stringify(carrinho);
-                        sessionStorage.setItem('Shopping', carrinho);
+                        localStorage.setItem('Shopping', carrinho);
                     }
                 });
             }
@@ -335,7 +335,7 @@ $(document).ready(function(){
 
 // [CARRINHO] FINALIZAR COMPRA
 $(document).ready(function(){
-    var carrinho = sessionStorage.getItem('Shopping');
+    var carrinho = localStorage.getItem('Shopping');
     carrinho = JSON.parse(carrinho);
     if(window.location.href.indexOf('finalizar') != "-1"){
         var numped = Math.floor((Math.random() * 100000) + 1);
@@ -344,7 +344,7 @@ $(document).ready(function(){
 
 
         if(carrinho == null){
-            window.location.replace("/streetcult/src/carrinho.php");
+            window.location.replace("carrinho.php");
             console.log('Não achou nenhum produto e fez o redirect');
         } else{
             var pedidos = "";
@@ -352,7 +352,7 @@ $(document).ready(function(){
                 pedidos+= "<li><b style='color:#b51919'>Produto:</b> " + obj.nome + " <br><b style='color:#b51919'>Cor:</b> " + obj.cor + " <br><b style='color:#b51919'>Tamanho:</b> " + obj.tamanho  + " <br><b style='color:#b51919'>Quantidade:</b> " + obj.quantidade + "</li><br>";
             });
 
-            $('.pedido').val("<ul style='padding:15px 30px;color:#000000;background-color:#efefef'>" + pedidos + "</ul>");
+            $('.pedido').val("<ul style='padding:15px 30px 0;color:#000000;background-color:#efefef'>" + pedidos + "</ul>");
         }
 
         
@@ -368,7 +368,8 @@ $(document).ready(function(){
             .then(function(){ 
                 alert("Pedido enviado!");
             myform.find(".sendped").remove();
-            $('.envped').html("<a class='sendped' href='index.php'>VOLTAR PARA HOME</a>")
+            window.location.replace("index.php");
+            localStorage.clear();
             }, function(err) {
             alert("Erro ao enviar pedido!\r\n Response:\n " + JSON.stringify(err));
             myform.find("button").text("ENVIAR NOVAMENTE");
@@ -379,7 +380,7 @@ $(document).ready(function(){
 });
 
 $('.carfnz').find("button").on('click', function(){
-    var carrinho = sessionStorage.getItem('Shopping');
+    var carrinho = localStorage.getItem('Shopping');
 
     if(carrinho == null){
         alert('Adicione um item ao carrinho');

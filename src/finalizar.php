@@ -19,33 +19,33 @@
                         <ul class="userinfos">
                             <li>
                                 <label>Nome</label>
-                                <input type="text" name="user_nome"/>
+                                <input type="text" name="user_nome" required/>
                             </li>
                             <li>
                                 <label>Sobrenome</label>
-                                <input type="text" name="user_sobrenome"/>
+                                <input type="text" name="user_sobrenome" required/>
                             </li>
                             <li>
                                 <label>E-Mail</label>
-                                <input type="email" name="mail"/>
+                                <input type="email" name="mail" required/>
                             </li>
                             <li>
                                 <label>CPF</label>
-                                <input type="number" id="cpf" name="user_cpf"/>
+                                <input type="number" id="cpf" name="user_cpf" required/>
                             </li>
                             <li>
                                 <label>Celular</label>
-                                <input type="number" name="user_cel"/>
+                                <input type="number" name="user_cel" required/>
                             </li>
                         </ul>
                         <ul class="userend">
                             <li>
                                 <label>Endereço</label>
-                                <input type="text" name="end_rua"/>
+                                <input type="text" name="end_rua" required/>
                             </li>
                             <li>
                                 <label>Número</label>
-                                <input type="text" name="end_num"/>
+                                <input type="text" name="end_num" required/>
                             </li>
                             <li>
                                 <label>Complemento</label>
@@ -53,7 +53,7 @@
                             </li>
                             <li>
                                 <label>CEP</label>
-                                <input type="number" name="cep"/>
+                                <input type="number" name="cep" required/>
                             </li>
                         </ul>
                         <label>Pedido</label>
