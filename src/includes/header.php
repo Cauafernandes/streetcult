@@ -22,13 +22,7 @@
                             <li class="contato"><p>CONTATO</p></li>
                         </ul>
                     </nav>
-                    <div class="carrinho">
-                        <a href="carrinho.php" class="carshp">
-                            <span class="carqntd"></span>
-                            <i class="fas fa-shopping-cart caricon"></i>
-                            <p>MEU CARRINHO</p>
-                        </a>
-                    </div>
+                    <i class="fas fa-bars menumob"></i>
                     <div class="sclhdr">
                         <ul>
                             <li>
@@ -42,6 +36,13 @@
                                 </a>
                             </li>
                         </ul>
+                    </div>
+                    <div class="carrinho">
+                        <a href="carrinho.php" class="carshp">
+                            <span class="carqntd">0</span>
+                            <i class="fas fa-shopping-cart caricon"></i>
+                            <p>MEU CARRINHO</p>
+                        </a>
                     </div>
                 </div>
             </div>

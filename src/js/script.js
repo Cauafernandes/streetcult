@@ -212,9 +212,7 @@ $.get({
                         } else{
                             carrinho.push(produtocliente);
                         }
-                        
-                        $('.carqntd').show();
-                        $('.carqntd').html(carrinho.length);
+        
                         carrinho = JSON.stringify(carrinho);
                         localStorage.setItem("Shopping", carrinho);
                         carrinho = JSON.parse(carrinho);
@@ -223,6 +221,7 @@ $.get({
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
                         }, 1500);
+                        $('.carqntd').html(carrinho.length);
                     }
                 });
             });
@@ -238,11 +237,7 @@ $(document).ready(function(){
 
     if(carrinho != null || carrinho != undefined){
         carrinho = JSON.parse(carrinho);
-
-        $('.carqntd').show();
         $('.carqntd').html(carrinho.length);
-    } else{
-        $('.carqntd').hide();
     }
 });
 
@@ -526,7 +521,31 @@ $(document).ready(function(){
             autoplay: true,
             infinite:false,
             prevArrow: $('.prevnv'),
-            nextArrow: $('.nextnv')
+            nextArrow: $('.nextnv'),
+            responsive:[
+                {
+                    breakpoint: 780,
+                    settings: {
+                      slidesToShow: 3,
+                      slidesToScroll: 1,
+                      infinite: true,
+                    }
+                  },
+                  {
+                    breakpoint: 600,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 400,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                ] 
         });
     } else{
         $('.lancamentos').remove();
