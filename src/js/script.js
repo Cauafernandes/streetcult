@@ -228,7 +228,7 @@ $(document).ready(function(){
 
 // [MENU] ROLAGEM
 $('.scroll').on('click', function(){
-    $("html, body").animate({ scrollTop: 1400 }, 600);
+    $("html, body").animate({ scrollTop: 1380 }, 600);
     return false;
 });
 
