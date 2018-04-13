@@ -997,12 +997,11 @@ header{
       transition: 0.3s all;
 
       .produtoinfo{
-        background-color:#e8e8e8;
-        display:block;
+        background-color:#fff;
+        display:table;
         max-width:750px;
         width:100%;
-        height:500px;
-        margin:8% auto;
+        margin: 90px auto 0;
         border-radius:8px;
         position:relative;
         box-shadow: 1px 1px 35px #000;
@@ -1011,45 +1010,140 @@ header{
           text-align:center;
           color:#fff;
           font-size:40px;
-          background-color:#b51919;
-          border-bottom: 2px solid #9e1a1a;
+          background-image: url('../assets/img/camuflado2.jpg');
+          background-repeat: repeat;
+          border-bottom: 1px solid #000;
           padding:25px 0 10px;
           height:30px;
           border-radius:8px 8px 0 0;
         }
 
-        .infos{
-          margin:5px 10px;
+        .produtoimages{
+          display:table;
+          max-width:370px;
+          width:100%;
+          margin:0 auto;
 
-          span{
+          figure{
+            max-width:185px;
+            width:100%;
             float:left;
-            display:initial;
-            color:#000;
-            font-size:23px;
-          }
   
-          p{
-            font-size:23px;
-            display:table;
-            margin: 0 0 0 5px;
+            img{
+              max-width:185px!important;
+              width:100%;
+            }
           }
         }
 
-        figure{
-          float:left;
-          max-width:initial;
-          max-width:300px;
+        .prodinfo{
+          display:table;
           width:100%;
-          height:433px;
-          
 
-          img{
-            max-width:300px;
-            width:100%;
-            height:433px;
-            border-radius: 0 0 0 8px;
+          .info{
+            width:33.2%;
+            float:left;
+            padding:15px 0 30px;
+            color:#b51919;
+
+            h5, svg{
+              display:table;
+              margin:0 auto;
+              font-size:22px;
+            }
+
+            h5{
+              margin:8px auto 0;
+            }
+
+            svg{
+              color:#000;
+            }
+
+            p{
+              display:table;
+              margin:0 auto;
+              float:left;
+              color:#000;
+              font-weight: bold;
+              font-size:18px;
+            }
+
+            .marcaproduto{
+              display:table;
+              margin:0 auto;
+            }
+
+            select{
+              display:table;
+              margin:15px auto 0;
+              border:1px solid #000;
+              border-radius:4px;
+
+              &:focus { outline: none; }
+            }
+
+            .prodinformacoes{
+              display:table;
+              margin:15px auto;
+              li{
+                float:left;
+                border:none;
+                margin:0 5px;
+
+                .check{
+                  color:#1ab93e;
+                }
+              }
+            }
+          }
+
+          li:nth-child(2){
+            border-right:1px solid #ccc;
+            border-left:1px solid #ccc;
+          }
+        }
+
+        .btncomprar{
+          display:table;
+          margin: 0px auto 30px;
+          background-color:#b51919;
+          border:1px solid #b51919;
+          border-radius:4px;
+          color:#fff;
+          font-family: 'Yanone Kaffeesatz',sans-serif;
+          font-size:25px;
+          padding: 10px 80px 7px;
+          cursor:pointer;
+          -webkit-transition:0.5s all;
+          -webkit-transform: perspective(1px) translateZ(0);
+          transform: perspective(1px) translateZ(0);
+          box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+          -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+
+          svg{
+            margin: 0px 10px 2px 0px;
+            font-size:20px;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-transition-duration: 0.3s;
+            transition-duration: 0.3s;
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+          }
+
+          &:hover{
             background-color:#fff;
-            border-right:1px solid #000;
+            color:#b51919;
+            transition: 0.3s all;
+          }
+
+          &:hover svg, &:focus svg, &:active svg {
+            -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
           }
         }
 
@@ -1082,7 +1176,7 @@ header{
         border-color: #c3e6cb;
         border-radius: .25rem;
         padding: .75rem 1.25rem;
-        top:50px;
+        top:15px;
         right:0;
         left:0;
         margin: auto;
@@ -1132,6 +1226,8 @@ header{
         transform: rotate(360deg);
       }
     }
+
+    &:focus{ outline: none; }
   }
 }
 
@@ -1386,9 +1482,9 @@ footer{
     color: #b51919;
     font-size: 30px;
     position: absolute;
-    bottom: -30px;
+    bottom: -10px;
     left: 0;
-    padding: 20px 20px 20px 0px;
+    padding: 0 20px 0 0;
     background-color: #fff;
   }
 
@@ -1397,6 +1493,10 @@ footer{
     border-bottom:1px solid #000;
     width:100%;
   }
+}
+
+.infcomp{
+  padding:35px 0 0;
 }
 
 .slickpedido{
@@ -1623,11 +1723,15 @@ footer{
       input{
         margin:5px 0 0;
         padding:5px 5px;
-        border:1px solid #dedede;
+        border:1px solid #bbbbbb;
         border-radius:3px;
         width:100%;
 
         &:focus{ outline:none }
+
+        &::placeholder{
+          color:#d6d6d6;
+        }
       }
   
       li{
@@ -1655,9 +1759,9 @@ footer{
       padding:5px 20px;
       color:#fff;
       display:table;
-      margin:0 auto;
+      margin:50px auto 0;
       font-size:22px;
-      font-family: 'Yanone Kaffeesatz',sans-serif;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
       cursor:pointer;
       -webkit-transform: perspective(1px) translateZ(0);
       transform: perspective(1px) translateZ(0);
@@ -1676,6 +1780,8 @@ footer{
         background-color:#fff;
         color:#b51919;
       }
+
+      &:focus{ outline: none }
     }
 
     .sendped:hover svg, .sendped:focus svg, .sendped:active svg {
@@ -1744,9 +1850,4 @@ footer{
     }
   }
 }
-
-.inffnz{
-  padding:80px 0 0;
-}
-
 // [CARRINHO] FINALIZAR COMPRA FIM

@@ -153,7 +153,27 @@ $.get({
                 $('.nomeproduto').html(lista[id].nome);
                 $('.marcaproduto').html(lista[id].type);
                 $('.imageproduto').prop('src', lista[id].image);
+                $('.imageprodutocostas').prop('src', lista[id].imagecostas);
                 $('.btncomprar').attr('data-id', id);
+
+                if(lista[id].lancamento == true){
+                    $('.prodinformacoes').append('<li class="lancamentoproduto"><i class="fas fa-check check"></i>Lançamento</li>');
+
+                    if($('.lancamentoproduto').length == 2){
+                        $('.lancamentoproduto:last-child').remove();
+                    }
+
+                } else{
+                    $('.lancamentoproduto').remove();
+                }
+
+                if( lista[id].imagecostas == ''){
+                    $('.imageprodutocostas').parent().hide();
+                    $('.produtoimages').css('max-width', 'initial').css('width', 'initial');
+                } else{
+                    $('.imageprodutocostas').parent().show();
+                    $('.produtoimages').css('max-width', '370px').css('width', '100%');
+                }
 
                 $('.btncomprar').unbind('click').bind('click', function(){
                     var carrinho = localStorage.getItem('Shopping');
@@ -303,7 +323,7 @@ $(document).ready(function(){
             var carIdx = $(this).parent().parent().attr('data-idx');
             carrinho = JSON.parse(carrinho);
       
-            if($(this).attr('data-orientation')=='plus'){
+            if($(this).attr('data-orientation') == 'plus'){
                 carrinho.forEach((prodatualizar, idx) => {
                     if(carIdx == idx){
                         qtd++;
@@ -338,44 +358,48 @@ $(document).ready(function(){
     var carrinho = localStorage.getItem('Shopping');
     carrinho = JSON.parse(carrinho);
     if(window.location.href.indexOf('finalizar') != "-1"){
+
         var numped = Math.floor((Math.random() * 100000) + 1);
         var pedidocar;
-        $('.numpedido').val(numped);
 
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#cep').mask('00000-000', {reverse: true});
+        $('#cel').mask('(00) 00000-0000',);
+        $('.numpedido').val(numped);
 
         if(carrinho == null){
             window.location.replace("carrinho.php");
-            console.log('Não achou nenhum produto e fez o redirect');
+
         } else{
+            // [MAIL] GERAR PRODUTOS DO CARRINHO
             var pedidos = "";
             carrinho.forEach((obj, idx) => {
                 pedidos+= "<li><b style='color:#b51919'>Produto:</b> " + obj.nome + " <br><b style='color:#b51919'>Cor:</b> " + obj.cor + " <br><b style='color:#b51919'>Tamanho:</b> " + obj.tamanho  + " <br><b style='color:#b51919'>Quantidade:</b> " + obj.quantidade + "</li><br>";
             });
-
             $('.pedido').val("<ul style='padding:15px 30px 0;color:#000000;background-color:#efefef'>" + pedidos + "</ul>");
-        }
 
-        
 
-        var myform = $("form#infoscliente");
-        myform.submit(function(event){
-        event.preventDefault();
-        var service_id = "caua_fernandes";
-        var template_id = "streetcultcompras";
+            // [MAIL] ENVIAR E-MAIL
+            var myform = $("form#infoscliente");
+            myform.submit(function(event){
+            event.preventDefault();
+            var service_id = "caua_fernandes";
+            var template_id = "streetcultcompras";
 
-        myform.find(".sendped").text("Enviando...");
-        emailjs.sendForm(service_id,template_id,"infoscliente")
-            .then(function(){ 
-                alert("Pedido enviado!");
-            myform.find(".sendped").remove();
-            window.location.replace("index.php");
-            localStorage.clear();
-            }, function(err) {
-            alert("Erro ao enviar pedido!\r\n Response:\n " + JSON.stringify(err));
-            myform.find("button").text("ENVIAR NOVAMENTE");
+            myform.find(".sendped").text("Enviando...");
+            emailjs.sendForm(service_id,template_id,"infoscliente")
+                .then(function(){
+                    alert("Pedido enviado!");
+                myform.find(".sendped").remove();
+                window.location.replace("index.php");
+                localStorage.clear();
+                }, function(err) {
+                alert("Erro ao enviar pedido!\r\n Response:\n " + JSON.stringify(err));
+                myform.find("button").text("ENVIAR NOVAMENTE");
+                });
+            return false;
             });
-        return false;
-        });
+        }
     }
 });
 
@@ -385,7 +409,7 @@ $('.carfnz').find("button").on('click', function(){
     if(carrinho == null){
         alert('Adicione um item ao carrinho');
     } else{
-        window.location.replace("finalizar.php")
+        window.location.replace("finalizar.php");
     }
 });
 

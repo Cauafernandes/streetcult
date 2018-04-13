@@ -12,17 +12,17 @@
                 <ul class="autoplay">
                     <li>
                         <figure>
-                            <img src="assets/img/banner1.png" title="StreetCult" alt="Publicidade"/>
+                            <img src="assets/img/banner1.png" alt="Publicidade"/>
                         </figure>
                     </li>
                     <li>
                         <figure>
-                            <img src="assets/img/banner2.png" title="Chronic" alt="Publicidade"/>
+                            <img src="assets/img/banner2.png" alt="Publicidade"/>
                         </figure>
                     </li>
                     <li>
                         <figure>
-                            <img src="assets/img/banner3.png" title="Wanted" alt="Publicidade"/>
+                            <img src="assets/img/banner3.png" alt="Publicidade"/>
                         </figure>
                     </li>
                 </ul>
@@ -90,6 +90,44 @@
                             </div>
                             <div class="produtoinfo">
                                 <h4 class="nomeproduto">Camisa Chronic Arm Forter</h4>
+                                <div class="produtoimages">
+                                    <figure>
+                                        <img class="imageproduto" src="" alt=""/>
+                                    </figure>
+                                    <figure>
+                                        <img class="imageprodutocostas" src="" alt=""/>
+                                    </figure>
+                                </div>
+                                <ul class="prodinfo">
+                                    <li class="info">
+                                        <i class="fas fa-child"></i>
+                                        <h5>TAMANHO</h5>
+                                        <select class="tamanhoproduto">
+                                        </select>
+                                    </li>
+                                    <li class="info">
+                                        <i class="fas fa-paint-brush"></i>
+                                        <h5>CORES</h5>
+                                        <select class="coresproduto">
+                                        </select>
+                                    </li>
+                                    <li class="info">
+                                        <i class="fas fa-info"></i>
+                                        <h5>INFORMAÇÕES</h5>
+                                        <ul class="prodinformacoes">
+                                            <li>
+                                                <i class="fas fa-check check"></i><span class="marcaproduto"></span>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <button class="btncomprar" data-id=""><i class="fas fa-shopping-cart"></i>COMPRAR</button>
+                                <span class="close">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </div>
+                            <!-- <div class="produtoinfo">
+                                <h4 class="nomeproduto">Camisa Chronic Arm Forter</h4>
                                 <figure>
                                     <img class="imageproduto" src="assets/img/camisachronic.jpeg" alt="Produto"/>
                                 </figure>
@@ -106,14 +144,11 @@
                                 <div class="infos">
                                     <span>Marca:</span><p class="marcaproduto"></p>
                                 </div>
-                                <div class="infos">
-                                    <span>Quantidade:</span><p class="quantidadeproduto"></p>
-                                </div>
                                 <button class="btncomprar" data-id=""><i class="fas fa-shopping-cart"></i>COMPRAR</button>
                                 <span class="close">
                                     <i class="fas fa-times"></i>
                                 </span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <ul class="produtos">

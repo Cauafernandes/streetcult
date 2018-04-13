@@ -6,6 +6,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <div class="ttcar infcomp">
+                        <h3>INFORMAÇÕES DE COMPRA</h3>
+                        <span></span>
+                    </div>
                     <div class="inffnz">
                         <p>Todos os nossos produtos estão disponiveis também em nossa loja fisíca, perante pode se encontrar o produto em falta no estoque.</p>
                         <p>OBS: Toda compra feita pelo site será enviado um e-mail até o comprador para decidir formas de pagamento e dados de entrega.</p>
@@ -31,11 +35,11 @@
                             </li>
                             <li>
                                 <label>CPF</label>
-                                <input type="number" id="cpf" name="user_cpf" required/>
+                                <input type="text" id="cpf" placeholder="000.000.000-00" name="user_cpf" required/>
                             </li>
                             <li>
                                 <label>Celular</label>
-                                <input type="number" name="user_cel" required/>
+                                <input type="text" id="cel" placeholder="(00) 00000-0000" name="user_cel" required/>
                             </li>
                         </ul>
                         <ul class="userend">
@@ -49,19 +53,15 @@
                             </li>
                             <li>
                                 <label>Complemento</label>
-                                <input type="text" name="end_comp"/>
+                                <input type="text" placeholder="Apartamento 21" name="end_comp"/>
                             </li>
                             <li>
                                 <label>CEP</label>
-                                <input type="number" name="cep" required/>
+                                <input type="text" id="cep" placeholder="00000-000" name="cep" required/>
                             </li>
                         </ul>
-                        <label>Pedido</label>
-                        <ul class="caruser">
-                            <input type="hidden" class="pedido" name="pedido"/>
-                        </ul>
+                        <input type="hidden" class="pedido" name="pedido"/>
                         <input type="hidden" class="numpedido" name="numero_pedido">
-                        <br><br>
                         <div class="envped">
                             <button class="sendped">ENVIAR PEDIDO<i class="fas fa-arrow-right"></i></button>
                         </div>
