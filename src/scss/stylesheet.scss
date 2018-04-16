@@ -2029,3 +2029,76 @@ footer{
     display:none;
   }
 }
+
+//--------------------------------------------
+// [ADMIN] GERADOR DE PRODUTOS
+
+.gerarproduto{
+  padding: 30px 0 0;
+}
+
+.listagemprodutos{
+  margin:30px 0 0;
+  tr{
+    border:1px solid #ccc;
+    display:table;
+    width:100%;
+
+    th{
+      border-right:1px solid #ccc;
+
+      &:nth-child(1){
+        width:25px;
+      }
+
+      &:nth-child(2){
+        width:430px;
+      }
+      
+      &:nth-child(3){
+        width:300px;
+      }
+
+      &:nth-child(4){
+        width:150px;
+      }
+    }
+
+    td{
+      text-align:center;
+      border-right:1px solid #ccc;
+
+      figure{
+        max-width: 200px;
+        min-height: 225px;
+        max-height: 225px!important;
+        width: 100%;
+        margin: 0 auto;
+
+        img{
+          max-width: 200px;
+          min-height: 225px;
+          max-height: 225px!important;
+          width: 100%;
+        }
+      }
+
+      &:nth-child(1){
+        width:25px!important;
+      }
+
+      &:nth-child(2){
+        width: 430px!important;
+      }
+
+      &:nth-child(3){
+        width:300px;
+      }
+
+      &:nth-child(4){
+        width:150px;
+      }
+    }
+  }
+}
+
