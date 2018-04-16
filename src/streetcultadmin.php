@@ -15,14 +15,14 @@
                             <label>Nome do Produto</label>
                             <input type="text" placeholder="Camisa Chronic Sweet Girl"/>
                             <label>Cores</label>
-                            <input type="text" placeholder="Camisa Chronic Sweet Girl"/>
+                            <input type="text" placeholder="Azul,Branco,Preto,Vermelho"/>
                             <label>Tamanhos</label>
-                            <input type="text" placeholder="Camisa Chronic Sweet Girl"/>
+                            <input type="text" placeholder="GG,G,M,P,PP"/>
                             <label>Marca</label>
-                            <input type="text" placeholder="Camisa Chronic Sweet Girl"/>
+                            <input type="text" placeholder="Chronic"/>
                             <label>Imagens</label>
-                            <input type="text" placeholder="assets/img/*.jpeg -- IMAGE FRENTE"/>
-                            <input type="text" placeholder="assets/img/*.jpeg -- IMAGE COSTAS"/>
+                            <input type="text" value="assets/img/" placeholder="Frente"/>
+                            <input type="text" value="assets/img/" placeholder="Costas"/>
                             <button>GERAR</button>
                         </form>
                     </div>

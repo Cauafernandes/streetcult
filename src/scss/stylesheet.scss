@@ -1154,6 +1154,8 @@ header{
             -webkit-transform: rotate(20deg);
             transform: rotate(20deg);
           }
+
+          &:focus{ outline:none; }
         }
 
         .close{
@@ -2035,6 +2037,14 @@ footer{
 
 .gerarproduto{
   padding: 30px 0 0;
+
+  form{
+    label{
+      display:table;
+      clear:both;
+      width:100%;
+    }
+  }
 }
 
 .listagemprodutos{
