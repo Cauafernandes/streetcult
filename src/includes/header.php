@@ -13,7 +13,7 @@
                     </a>
                     <span class="ln"></span>
                     <nav>
-                        <ul class="testenav">
+                        <ul>
                             <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
                             <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
                             <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
@@ -22,7 +22,23 @@
                             <li class="contato"><p>CONTATO</p></li>
                         </ul>
                     </nav>
-                    <i class="fas fa-bars menumob"></i>
+                    <nav class="navmobile">
+                        <ul>
+                            <li>
+                                <h1>StreetCult</h1>
+                            </li>
+                            <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
+                            <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
+                            <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
+                            <li data-tag="bone, pochete, chaveiro" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
+                            <li class="lncmentos scrolllnc"><p>LANÇAMENTOS</p></li>
+                            <li class="contato"><p>CONTATO</p></li>
+                            <li class="menumobclose"><button>FECHAR</button></li>
+                        </ul>
+                    </nav>
+                    <span class="menumob">
+                        <i class="fas fa-bars"></i>
+                    </span>
                     <div class="sclhdr">
                         <ul>
                             <li>

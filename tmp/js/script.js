@@ -408,6 +408,15 @@ $('.carfnz').find("button").on('click', function(){
     }
 });
 
+$('.menumob').on('click', function(){
+    console.log('teste');
+    $('.navmobile').css('left', '0');
+
+    $('.menumobclose').on('click', function(){
+        $('.navmobile').css('left', '-120%');
+    });
+});
+
 //---------------------------------------------
 // VERIFICAÇÃO BOTÃO PRODUTOS
 

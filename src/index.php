@@ -66,13 +66,15 @@
                         <figure>
                             <img src="assets/img/icon.png" title="Logo" alt="Logo"/>
                         </figure>
-                        <h3>LANÇAMENTOS</h3>
-                        <span class="nextnv">
-                            <i class="fas fa-chevron-right"></i>
-                        </span>
+                        <h3>
                         <span class="prevnv">
                             <i class="fas fa-chevron-left"></i>
                         </span>
+                        LANÇAMENTOS
+                        <span class="nextnv">
+                            <i class="fas fa-chevron-right"></i>
+                        </span>
+                        </h3>
                     </div>
                     <ul class="lancamentos novpdslk">
                     </ul>
