@@ -24,13 +24,20 @@
                     </nav>
                     <nav class="navmobile">
                         <ul>
+<<<<<<< HEAD
                             <li class="menumobclose"><button><i class="fas fa-caret-left"></i>VOLTAR</button></li>
+=======
+                            <li>
+                                <h1>StreetCult</h1>
+                            </li>
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
                             <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
                             <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
                             <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
                             <li data-tag="bone, pochete, chaveiro" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
                             <li class="lncmentos scrolllnc"><p>LANÇAMENTOS</p></li>
                             <li class="contato"><p>CONTATO</p></li>
+                            <li class="menumobclose"><button>FECHAR</button></li>
                         </ul>
                     </nav>
                     <span class="menumob">

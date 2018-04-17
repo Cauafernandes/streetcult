@@ -410,10 +410,16 @@ $('.carfnz').find("button").on('click', function(){
 
 $('.menumob').on('click', function(){
     console.log('teste');
+<<<<<<< HEAD
     $('.navmobile').css('left', '0').css('transition', '0.5s all');
 
     $('.menumobclose').on('click', function(){
         console.log('fechei');
+=======
+    $('.navmobile').css('left', '0');
+
+    $('.menumobclose').on('click', function(){
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
         $('.navmobile').css('left', '-120%');
     });
 });

@@ -588,7 +588,10 @@ header{
       float:left;
       font-size: 35px;
       margin: 12px 0 0 10px;
+<<<<<<< HEAD
       cursor:pointer;
+=======
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
     }
 
     .navmobile{
@@ -597,16 +600,22 @@ header{
       width:100%;
       height:100%;
       left:-120%;
+<<<<<<< HEAD
       padding: 0 10px 0 0;
       background-color:#272727;
       border-right:1px solid #333;
       -webkit-transition:0.5s all;
+=======
+      background-color:#b51919;
+      border-right:1px solid #fff;
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
 
       ul{
         li{
           width:100%;
           float:initial;
           display: table;
+<<<<<<< HEAD
           background-color:#272727;
           margin:0;
           padding:5px 5px;
@@ -632,6 +641,12 @@ header{
             border:none;
             margin:0 0 15px 0;
           }
+=======
+          background-color:#ef3434;
+          margin:0;
+          padding:5px 5px;
+          border-bottom:1px solid #fff;
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
         }
       }
     }
@@ -1085,7 +1100,11 @@ header{
             float:left;
   
             img{
+<<<<<<< HEAD
               max-width:185px;
+=======
+              max-width:185px!important;
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
               width:100%;
             }
           }
@@ -1194,6 +1213,7 @@ header{
             background-color:#fff;
             color:#b51919;
             transition: 0.3s all;
+<<<<<<< HEAD
           }
 
           &:hover svg, &:focus svg, &:active svg {
@@ -1201,6 +1221,15 @@ header{
             transform: rotate(20deg);
           }
 
+=======
+          }
+
+          &:hover svg, &:focus svg, &:active svg {
+            -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
+          }
+
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
           &:focus{ outline:none; }
         }
 
@@ -2067,12 +2096,15 @@ footer{
   .inst-pR{
     display:none;
   }
+<<<<<<< HEAD
 
   .prodinfo{
     .info{
       width: 32.2%!important;
     }
   }
+=======
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
 }
 
 @media only screen and (max-width: 400px) {
@@ -2120,6 +2152,7 @@ footer{
         }
       }
     }
+<<<<<<< HEAD
 
     .prdts{
       .telaproduto{
@@ -2159,6 +2192,8 @@ footer{
         width:100%!important;
       }
     }
+=======
+>>>>>>> 10688a91ab227a328344ca247d10337c8b999e6f
   }
 }
 
