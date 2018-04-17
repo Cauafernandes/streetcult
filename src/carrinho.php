@@ -17,6 +17,9 @@
                     <div class="proddel">
                         <p>Produto removido.</p>
                     </div>
+                    <div class="carfnz">
+                        <button><i class="fas fa-check"></i>FINALIZAR COMPRA</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -47,11 +47,6 @@ $.get({
                 let doc = lista.find(Disponibility, {produto: tag});
                 console.log(tag);
 
-                if(doc == undefined){
-                    // $(produtos).html('<li>Nenhum produto encontrado.</li>');
-                    console.log('Nenhum produto encontrado.');
-                }
-
                 lista.forEach((obj, idx) => {
                 switch(classe){
                     case 'camisa':
@@ -87,11 +82,16 @@ $.get({
                     break;
                 }
             });
+
+            if($(".produtos").find('.produto').is(':visible') == false){
+                $(produtos).html('<li>Nenhum produto encontrado.</li>');
+            }
         });
 
         $('.lmpflt').unbind('click').bind('click', function(){
             $(produtos).find('li').remove();
             $('.lmpflt').css("display", "none");
+            $('#vmr').show();
             $('#category').html('PRODUTOS').removeClass('filtro');
 
             lista.forEach((obj, idx) => {
@@ -153,10 +153,30 @@ $.get({
                 $('.nomeproduto').html(lista[id].nome);
                 $('.marcaproduto').html(lista[id].type);
                 $('.imageproduto').prop('src', lista[id].image);
+                $('.imageprodutocostas').prop('src', lista[id].imagecostas);
                 $('.btncomprar').attr('data-id', id);
 
+                if(lista[id].lancamento == true){
+                    $('.prodinformacoes').append('<li class="lancamentoproduto"><i class="fas fa-check check"></i>Lançamento</li>');
+
+                    if($('.lancamentoproduto').length == 2){
+                        $('.lancamentoproduto:last-child').remove();
+                    }
+
+                } else{
+                    $('.lancamentoproduto').remove();
+                }
+
+                if( lista[id].imagecostas == ''){
+                    $('.imageprodutocostas').parent().hide();
+                    $('.produtoimages').css('max-width', 'initial').css('width', 'initial');
+                } else{
+                    $('.imageprodutocostas').parent().show();
+                    $('.produtoimages').css('max-width', '370px').css('width', '100%');
+                }
+
                 $('.btncomprar').unbind('click').bind('click', function(){
-                    var carrinho = sessionStorage.getItem('Shopping');
+                    var carrinho = localStorage.getItem('Shopping');
                     var selcorprod = $(".coresproduto option:selected").val();
                     var seltamprod = $(".tamanhoproduto option:selected").val();
                     var qtd = 1;
@@ -165,11 +185,9 @@ $.get({
 
                     if(carrinho == null || carrinho == undefined){
                         produtocliente = JSON.stringify(produtocliente);
-                        sessionStorage.setItem("Shopping", "[" + produtocliente + "]");
-                        var listaprodutos = sessionStorage.getItem('Shopping');
+                        localStorage.setItem("Shopping", "[" + produtocliente + "]");
+                        var listaprodutos = localStorage.getItem('Shopping');
                         listaprodutos = JSON.parse(listaprodutos);
-                        $('.carqntd').show();
-                        // $('.carqntd').html(carrinho.length);
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
@@ -179,6 +197,7 @@ $.get({
                         var deletarIdx = undefined;
                         var deletarProd = undefined;
                         var qtdNova = 1;
+
                         carrinho.forEach((prodatualizar, idx) => {
                             if(prodatualizar.id === produtocliente.id && prodatualizar.cor === produtocliente.cor && prodatualizar.tamanho === produtocliente.tamanho){
                                 prodatualizar.quantidade++;
@@ -187,28 +206,22 @@ $.get({
                             }
                         });
 
-
-                        console.log(deletarIdx)
                         if(!isNaN(deletarIdx)){
-                            carrinho = carrinho.slice(0, deletarIdx);
+                            carrinho = carrinho.splice(deletarIdx[0]);
                             produtocliente.quantidade = qtdNova;
-                            carrinho.push(produtocliente);
                         } else{
                             carrinho.push(produtocliente);
                         }
-
-                        console.log(carrinho)
-                        
-                        $('.carqntd').show();
-                        $('.carqntd').html(carrinho.length);
+        
                         carrinho = JSON.stringify(carrinho);
-                        sessionStorage.setItem("Shopping", carrinho);
+                        localStorage.setItem("Shopping", carrinho);
                         carrinho = JSON.parse(carrinho);
 
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
                         }, 1500);
+                        $('.carqntd').html(carrinho.length);
                     }
                 });
             });
@@ -217,54 +230,20 @@ $.get({
     }
 });
 
+
+// [CARRINHO] QUANTIDADE
 $(document).ready(function(){
-    var carrinho = sessionStorage.getItem('Shopping');
+    var carrinho = localStorage.getItem('Shopping');
 
     if(carrinho != null || carrinho != undefined){
         carrinho = JSON.parse(carrinho);
-
-        $('.carqntd').show();
         $('.carqntd').html(carrinho.length);
-    } else{
-        $('.carqntd').hide();
     }
 });
 
-
-// carrinho.forEach((prodatualizar, idx) => {
-//     if(idx != idx && prodatualizar.id === prodatualizar.id && prodatualizar.cor === prodatualizar.cor && prodatualizar.tamanho === prodatualizar.tamanho){
-//         prodatualizar = prodatualizar.quantidade++;
-//         var attprod = carrinho.slice(idx, carrinho);
-//         carrinho = JSON.stringify(attprod);
-//         console.log('PRODUCTLIST: ', carrinho);
-//         sessionStorage.setItem("Shopping", carrinho);
-//     }
-
-
-//     // listaprodutos.forEach((prodduplicado, index) => {
-
-//     //     if(idprodsel.id === prodduplicado.id && idprodsel.cor === prodduplicado.cor && idprodsel.tamanho === prodduplicado.tamanho){
-//     //         prodduplicado = idprodsel.quantidade++;
-//     //         var attprod = listaprodutos.slice(idx);
-//     //         var productlist = JSON.stringify(attprod);
-//     //         console.log('PRODUCTLIST: ', productlist);
-//     //         sessionStorage.setItem("Shopping", productlist);
-//     //     }
-//     // });
-// });
-
-
-
-
-
-
-
-
-
-
 // [MENU] ROLAGEM
 $('.scroll').on('click', function(){
-    $("html, body").animate({ scrollTop: 1400 }, 600);
+    $("html, body").animate({ scrollTop: 1380 }, 600);
     return false;
 });
 
@@ -276,6 +255,7 @@ $('.scrolllnc').on('click', function(){
 // [PRODUTO] LIMPAR FILTRO
 $('.type').on('click', function(){
     $('.produtos').find('li').remove();
+    $('#vmr').hide();
 });
 
 $('.lmpflt').on('click', function(){
@@ -285,74 +265,179 @@ $('.lmpflt').on('click', function(){
 // [CARRINHO] BOTÃO 
 $(document).ready(function(){
     if(window.location.href.indexOf('/carrinho.php') != "-1"){
-        var listaprodutos = sessionStorage.getItem('Shopping');
+        var listaprodutos = localStorage.getItem('Shopping');
         listaprodutos = JSON.parse(listaprodutos);
+        $('.carshop').remove();
 
         if(listaprodutos == null || listaprodutos == ''){
             $('.carrinhoprodutos,.slickpedido').html('Nenhum produto encontrado.');
+            $('.carrinhoprodutos').css('min-height','457px');
+        } else{
+            listaprodutos.forEach((idprodsel, idx) => {
+                $('<li class="carproduto" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
+                $('<li class="carslick" data-id='+ idprodsel.id +' data-idx='+ idx +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
+            });    
+            $('.carfnz').show();
         }
-
-        listaprodutos.forEach((idprodsel, idx) => {
-            $('<li class="carproduto" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure><h3>' + lista[idprodsel.id].nome + '</h3><p>'+ idprodsel.cor +'</p><p>'+ idprodsel.tamanho +'</p><p><span class="quantidadeproduto">' + idprodsel.quantidade + '</span></p><div class="qntarrow"><div class="arrow-up-count add" data-orientation="plus"></div><div class="arrow-down-count remove" data-orientation="minus"></div></div><p class="removeproduct"><i class="far fa-trash-alt"></i>REMOVER PRODUTO</p></li>').appendTo($('.carrinhoprodutos'));
-            $('<li class="carslick" data-id='+ idprodsel.id +'><figure><img src=' + lista[idprodsel.id].image + ' alt=""/></figure></li>').appendTo($('.slickpedido'));
-        });
 
         // [CARRINHO] REMOVER PRODUTO
         $('.removeproduct').on('click', function(){
             $(this).parent().remove();
             listaprodutos.forEach((prodsel, idx) => {
                 var idprodcar = $(this).parent().attr('data-id');
+                var prodIdx = $(this).parent().attr('data-idx');
 
-                if(idprodcar == prodsel.id && idx == idx){
-                    var deleteproduct = listaprodutos.splice(idx, 1);
-                    console.log('DELETE:', deleteproduct);
+                if(idprodcar == prodsel.id && prodIdx == idx){
+                    var deleteproduct = listaprodutos.splice(prodIdx, 1);
                     var productlist = JSON.stringify(listaprodutos);
-                    sessionStorage.setItem("Shopping", productlist);
+                    localStorage.setItem("Shopping", productlist);
+                    $('.carproduto').attr('data-idx', prodsel.idx);
+                    
                     $('.proddel').fadeIn("fast");
                     setTimeout(function(){
                         $('.proddel').fadeOut("slow");
                     }, 1500);
+
+                    if(listaprodutos.length == 0){
+                        localStorage.clear();
+                    }
+
+                } else{
+                    return;
                 }
             });
+            setTimeout(function(){
+                location.reload();
+            }, 800);
         });
 
         // [CARRINHO] AUMENTAR/DIMINUIR QUANTIDADE
         $(".add, .remove").on("click", function() {
             var qtd = parseInt($(this).parent().parent().find('.quantidadeproduto').text());
+            var carrinho = localStorage.getItem('Shopping');
+            var carIdx = $(this).parent().parent().attr('data-idx');
+            carrinho = JSON.parse(carrinho);
       
-            if($(this).attr('data-orientation')=='plus'){
-              qtd++;
+            if($(this).attr('data-orientation') == 'plus'){
+                carrinho.forEach((prodatualizar, idx) => {
+                    if(carIdx == idx){
+                        qtd++;
+                        prodatualizar.quantidade++
+                        carrinho = JSON.stringify(carrinho);
+                        localStorage.setItem('Shopping', carrinho);
+                    }
+                });
             }else{
-              qtd--;
+                carrinho.forEach((prodatualizar, idx) => {
+                    if(carIdx == idx){
+                        qtd--;
+                        if(qtd<1){
+                            qtd = 1;
+                            prodatualizar.quantidade = 2;
+                        } 
+                        prodatualizar.quantidade--;
+                        carrinho = JSON.stringify(carrinho);
+                        localStorage.setItem('Shopping', carrinho);
+                    }
+                });
             }
     
-            if(qtd<1) qtd = 1;
-                    
+            if(qtd<1) qtd = 1;                    
             $(this).parent().parent().find('.quantidadeproduto').text(qtd);
         });
     }
 });
 
+// [CARRINHO] FINALIZAR COMPRA
+$(document).ready(function(){
+    var carrinho = localStorage.getItem('Shopping');
+    carrinho = JSON.parse(carrinho);
+    if(window.location.href.indexOf('finalizar') != "-1"){
+
+        var numped = Math.floor((Math.random() * 100000) + 1);
+        var pedidocar;
+
+        $('#cpf').mask('000.000.000-00', {reverse: true});
+        $('#cep').mask('00000-000', {reverse: true});
+        $('#cel').mask('(00) 00000-0000',);
+        $('.numpedido').val(numped);
+
+        if(carrinho == null){
+            window.location.replace("carrinho.php");
+
+        } else{
+            // [MAIL] GERAR PRODUTOS DO CARRINHO
+            var pedidos = "";
+            carrinho.forEach((obj, idx) => {
+                pedidos+= "<li><b style='color:#b51919'>Produto:</b> " + obj.nome + " <br><b style='color:#b51919'>Cor:</b> " + obj.cor + " <br><b style='color:#b51919'>Tamanho:</b> " + obj.tamanho  + " <br><b style='color:#b51919'>Quantidade:</b> " + obj.quantidade + "</li><br>";
+            });
+            $('.pedido').val("<ul style='padding:15px 30px 0;color:#000000;background-color:#efefef'>" + pedidos + "</ul>");
+
+
+            // [MAIL] ENVIAR E-MAIL
+            var myform = $("form#infoscliente");
+            myform.submit(function(event){
+            event.preventDefault();
+            var service_id = "caua_fernandes";
+            var template_id = "streetcultcompras";
+
+            myform.find(".sendped").text("Enviando...");
+            emailjs.sendForm(service_id,template_id,"infoscliente")
+                .then(function(){
+                    alert("Pedido enviado!");
+                myform.find(".sendped").remove();
+                window.location.replace("index.php");
+                localStorage.clear();
+                }, function(err) {
+                alert("Erro ao enviar pedido!\r\n Response:\n " + JSON.stringify(err));
+                myform.find("button").text("ENVIAR NOVAMENTE");
+                });
+            return false;
+            });
+        }
+    }
+});
+
+$('.carfnz').find("button").on('click', function(){
+    var carrinho = localStorage.getItem('Shopping');
+
+    if(carrinho == null){
+        alert('Adicione um item ao carrinho');
+    } else{
+        window.location.replace("finalizar.php");
+    }
+});
+
+$('.menumob').on('click', function(){
+    console.log('teste');
+    $('.navmobile').css('left', '0').css('transition', '0.5s all');
+
+    $('.menumobclose').on('click', function(){
+        console.log('fechei');
+        $('.navmobile').css('left', '-120%');
+    });
+});
+
 //---------------------------------------------
-// VERIFICAÇÃO BOTÃO CUPONS
+// VERIFICAÇÃO BOTÃO PRODUTOS
 
-// $(document).ready(function() {
-//     if ($(".cupom-pR").length <= 6){
-//         $('#vmr').hide();
-//     } else {
-//         $('#vmr').show();
-//     }
-// });
+$(document).ready(function() {
+    if ($('.produtos').find(".produto").length <= 11){
+        $('#vmr').hide();
+    } else {
+        $('#vmr').show();
+    }
+});
 
 //---------------------------------------------
-// MOSTRAR OS CUPONS
+// MOSTRAR OS PRODUTOS
 
-// $(document).ready(function() {
-//     $('#vmr').on('click', function(){
-//         $('.cupom-pR:nth-child(1n+7)').css('display', 'table');
-//         $(this).parent().hide();
-//     });
-// });
+$(document).ready(function() {
+    $('#vmr').on('click', function(){
+        $('.produtos').find('.produto:nth-child(1n+13)').css('display', 'table');
+        $(this).hide();
+    });
+});
 
 //---------------------------------------------
 // FACEBOOK SCRIPT
@@ -401,11 +486,11 @@ $('.scrlltp').click(function(){
 
 $(window).on("scroll", function(){
     if(window.pageYOffset > 400){
-    $('.scrlltp').show();
+    $('.scrlltp').fadeIn('fast');
     } 
     
     if(window.pageYOffset < 400){
-    $('.scrlltp').hide();
+    $('.scrlltp').fadeOut('fast');
     }
 });
 
@@ -424,7 +509,7 @@ initInstagramFeed = (function(){
      url: "https://api.instagram.com/v1/users/" + igID + "/media/recent/?access_token=" + accessToken + '&count=' + count,
      success: function(data) {
          for (var i = 0; i < count; i++) {
-             $(".phtinst").append("<a target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a>");
+             $(".phtinst").append("<a class='fotoinst' target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a>");
          }
      },
      error: function(){
@@ -444,8 +529,33 @@ $(document).ready(function(){
             slidesToShow: 4,
             slidesToScroll: 2,
             autoplay: true,
+            infinite:false,
             prevArrow: $('.prevnv'),
-            nextArrow: $('.nextnv')
+            nextArrow: $('.nextnv'),
+            responsive:[
+                {
+                    breakpoint: 780,
+                    settings: {
+                      slidesToShow: 3,
+                      slidesToScroll: 1,
+                      infinite: true,
+                    }
+                  },
+                  {
+                    breakpoint: 600,
+                    settings: {
+                      slidesToShow: 2,
+                      slidesToScroll: 1
+                    }
+                  },
+                  {
+                    breakpoint: 400,
+                    settings: {
+                      slidesToShow: 1,
+                      slidesToScroll: 1
+                    }
+                  }
+                ] 
         });
     } else{
         $('.lancamentos').remove();
@@ -461,8 +571,4 @@ $(document).ready(function(){
         prevArrow: $('.prevnv'),
         nextArrow: $('.nextnv')
     });
-})
-
-// MASK
-
-$('#cpf').mask('000.000.000-00', {reverse: true});
+});

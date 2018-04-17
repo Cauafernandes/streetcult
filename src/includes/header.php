@@ -13,7 +13,7 @@
                     </a>
                     <span class="ln"></span>
                     <nav>
-                        <ul class="testenav">
+                        <ul>
                             <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
                             <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
                             <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
@@ -22,6 +22,20 @@
                             <li class="contato"><p>CONTATO</p></li>
                         </ul>
                     </nav>
+                    <nav class="navmobile">
+                        <ul>
+                            <li class="menumobclose"><button><i class="fas fa-caret-left"></i>VOLTAR</button></li>
+                            <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
+                            <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
+                            <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
+                            <li data-tag="bone, pochete, chaveiro" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
+                            <li class="lncmentos scrolllnc"><p>LANÇAMENTOS</p></li>
+                            <li class="contato"><p>CONTATO</p></li>
+                        </ul>
+                    </nav>
+                    <span class="menumob">
+                        <i class="fas fa-bars"></i>
+                    </span>
                     <div class="sclhdr">
                         <ul>
                             <li>
@@ -36,10 +50,13 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="carrinho.php" class="carshop">
-                        <span class="carqntd"></span>
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
+                    <div class="carrinho">
+                        <a href="carrinho.php" class="carshp">
+                            <span class="carqntd">0</span>
+                            <i class="fas fa-shopping-cart caricon"></i>
+                            <p>MEU CARRINHO</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
