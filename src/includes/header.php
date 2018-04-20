@@ -12,7 +12,7 @@
                         </div>
                     </a>
                     <span class="ln"></span>
-                    <nav>
+                    <nav class="menu">
                         <ul>
                             <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
                             <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
@@ -24,16 +24,21 @@
                     </nav>
                     <nav class="navmobile">
                         <ul>
-                            <li>
-                                <h1>StreetCult</h1>
-                            </li>
+                            <li class="menumobclose"><button><i class="fas fa-caret-left"></i>VOLTAR</button></li>
                             <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
                             <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
                             <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
                             <li data-tag="bone, pochete, chaveiro" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
                             <li class="lncmentos scrolllnc"><p>LANÇAMENTOS</p></li>
                             <li class="contato"><p>CONTATO</p></li>
-                            <li class="menumobclose"><button>FECHAR</button></li>
+                            <li>
+                                <a href="https://www.facebook.com.br/streetcult013" title="Facebook StreetCult" target="_blank">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="https://www.instagram.com/streetcult013/" title="Instagram StreetCult" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                     <span class="menumob">

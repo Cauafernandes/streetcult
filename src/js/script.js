@@ -170,9 +170,19 @@ $.get({
                 if( lista[id].imagecostas == ''){
                     $('.imageprodutocostas').parent().hide();
                     $('.produtoimages').css('max-width', 'initial').css('width', 'initial');
+
+                    if( $(window).width() < 400 ){
+                        console.log('entrei1');
+                        $('.produtoimages').css('width', '125px');
+                    }
                 } else{
                     $('.imageprodutocostas').parent().show();
                     $('.produtoimages').css('max-width', '370px').css('width', '100%');
+
+                    if( $(window).width() < 400 ){
+                        console.log('entrei2');
+                        $('.produtoimages').css('max-width', '240px').css('width', '100%');
+                    }
                 }
 
                 $('.btncomprar').unbind('click').bind('click', function(){
@@ -230,7 +240,6 @@ $.get({
     }
 });
 
-
 // [CARRINHO] QUANTIDADE
 $(document).ready(function(){
     var carrinho = localStorage.getItem('Shopping');
@@ -241,15 +250,37 @@ $(document).ready(function(){
     }
 });
 
-// [MENU] ROLAGEM
-$('.scroll').on('click', function(){
-    $("html, body").animate({ scrollTop: 1380 }, 600);
-    return false;
-});
+$(document).ready(function(){
+    // [DESKTOP] SCROLL MENU
+    if( $(window).width() > 500 ){
+        $('.scroll').on('click', function(){
+            $("html, body").animate({ scrollTop: $("#detect").offset().top -79 }, 600);
+            return false;
+        });
 
-$('.scrolllnc').on('click', function(){
-    $("html, body").animate({ scrollTop: 800 }, 600);
-    return false;
+        $('.scrolllnc').on('click', function(){
+            $("html, body").animate({ scrollTop: $("#detectlnc").offset().top -197 }, 600);
+            return false;
+        });
+    } 
+    // [MOBILE] SCROLL MENU
+    else{
+        $('.scroll').on('click', function(){
+            $('.navmobile').css('left', '-120%');
+            setTimeout(function(){
+                $("html, body").animate({ scrollTop: $("#detect").offset().top -65 }, 600);
+            }, 300);
+            return false;
+        });
+
+        $('.scrolllnc').on('click', function(){
+            $('.navmobile').css('left', '-120%');
+            setTimeout(function(){
+                $("html, body").animate({ scrollTop: $("#detectlnc").offset().top -85 }, 600);
+            }, 300);
+            return false;
+        });
+    }
 });
 
 // [PRODUTO] LIMPAR FILTRO
@@ -409,8 +440,7 @@ $('.carfnz').find("button").on('click', function(){
 });
 
 $('.menumob').on('click', function(){
-    console.log('teste');
-    $('.navmobile').css('left', '0');
+    $('.navmobile').css('left', '0').css('transition', '0.5s all');
 
     $('.menumobclose').on('click', function(){
         $('.navmobile').css('left', '-120%');
@@ -512,7 +542,7 @@ initInstagramFeed = (function(){
          }
      },
      error: function(){
-         console.log('Something went wrong', data);
+         console.log('Tem algo errado, atualize a página!', data);
      }
  });
 }());
@@ -532,28 +562,28 @@ $(document).ready(function(){
             prevArrow: $('.prevnv'),
             nextArrow: $('.nextnv'),
             responsive:[
-                {
+                    {
                     breakpoint: 780,
                     settings: {
-                      slidesToShow: 3,
-                      slidesToScroll: 1,
-                      infinite: true,
-                    }
-                  },
-                  {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        }
+                    },
+                    {
                     breakpoint: 600,
                     settings: {
-                      slidesToShow: 2,
-                      slidesToScroll: 1
-                    }
-                  },
-                  {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                        }
+                    },
+                    {
                     breakpoint: 400,
                     settings: {
-                      slidesToShow: 1,
-                      slidesToScroll: 1
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                        }
                     }
-                  }
                 ] 
         });
     } else{

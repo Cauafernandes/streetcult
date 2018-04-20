@@ -62,7 +62,7 @@
          <div class="row">
             <div class="col-12">
                 <div class="mn-pR">
-                    <div class="catpr">
+                    <div class="catpr" id="detectlnc">
                         <figure>
                             <img src="assets/img/icon.png" title="Logo" alt="Logo"/>
                         </figure>
@@ -80,12 +80,12 @@
                     </ul>
                 </div>
                 <div class="mn-pR">
-                    <div class="prdts">
+                    <div class="prdts" id="detect">
                         <figure>
                             <img src="assets/img/icon.png" title="Logo" alt="Logo"/>
+                            <span class="lmpflt">LIMPAR FILTRO</span>
                         </figure>
                         <h3 id="category">PRODUTOS</h3>
-                        <span class="lmpflt">LIMPAR FILTRO</span>
                         <div class="telaproduto">
                             <div class="prodadd">
                                 <p>Produto adicionado ao carrinho com sucesso.</p>
