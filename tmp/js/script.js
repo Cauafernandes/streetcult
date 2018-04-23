@@ -436,7 +436,30 @@ $(document).ready(function(){
 
 $('.scrlltp').click(function(){
     $("html, body").animate({ scrollTop: 0 }, 600);
-    return false;
+});
+
+$('.carfnz').find("button").on('click', function(){
+    var carrinho = localStorage.getItem('Shopping');
+
+    if(carrinho == null){
+        alert('Adicione um item ao carrinho');
+    } else{
+        window.location.replace("finalizar.php");
+    }
+});
+
+$('.menumob').on('click', function(){
+    console.log('teste');
+    $('.navmobile').css('left', '0').css('transition', '0.5s all');
+
+    $('.menumobclose').on('click', function(){
+        console.log('fechei');
+        $('.navmobile').css('left', '0');
+
+        $('.menumobclose').on('click', function(){
+            $('.navmobile').css('left', '-120%');
+        });
+    });
 });
 
 $(window).on("scroll", function(){

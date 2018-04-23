@@ -603,6 +603,12 @@ header{
       z-index: 5;
       background-color:#272727;
       -webkit-transition:0.5s all;
+      padding: 0 10px 0 0;
+      background-color:#272727;
+      border-right:1px solid #333;
+      -webkit-transition:0.5s all;
+      background-color:#b51919;
+      border-right:1px solid #fff;
 
       ul{
         height:100%;
@@ -629,6 +635,12 @@ header{
             font-size: 40px;
           }
 
+          background-color:#272727;
+          margin:0;
+          padding:5px 5px;
+          border-bottom:1px solid #333;
+          text-align:center;
+
           button{
             background-color: #c12d2d;
             border: 1px solid #c12d2d;
@@ -648,6 +660,13 @@ header{
           &:first-child{
             margin:0;
           }
+            border:none;
+            margin:0 0 15px 0;
+          }
+          background-color:#ef3434;
+          margin:0;
+          padding:5px 5px;
+          border-bottom:1px solid #fff;
         }
       }
     }
@@ -810,7 +829,6 @@ header{
       }
     }
   }
-}
 
 // [HEADER] FIM
 //-----------------------------------------------
@@ -1102,6 +1120,8 @@ header{
   
             img{
               max-width:185px;
+              max-width:185px;
+              max-width:185px!important;
               width:100%;
             }
           }
@@ -1211,6 +1231,11 @@ header{
             background-color:#fff;
             color:#b51919;
             transition: 0.3s all;
+          }
+
+          &:hover svg, &:focus svg, &:active svg {
+            -webkit-transform: rotate(20deg);
+            transform: rotate(20deg);
           }
 
           &:hover svg, &:focus svg, &:active svg {
@@ -1548,7 +1573,6 @@ footer{
 // [CARRINHO] INICIO
 
 .ttcar{
-  // padding:80px 0 0;
   margin: 50px 0;
   position:relative;
 
@@ -2142,6 +2166,12 @@ footer{
       }
     }
   }
+
+  .prodinfo{
+    .info{
+      width: 32.2%!important;
+    }
+  }
 }
 
 @media only screen and (max-width: 400px) {
@@ -2257,6 +2287,37 @@ footer{
           z-index:3;
           top:initial!important;
         }
+      }
+    }
+  }
+
+  .produtoinfo{
+    h4{
+      font-size: 29px!important;
+    }
+
+    .produtoimages{
+      figure{
+        max-width: 160px!important;
+
+        img{
+          max-width: 160px!important;
+        }
+      }
+    }
+
+    .prodinfo{
+      .info{
+        width: 49.6%!important;
+        border:none!important;
+      }
+
+      .info:first-child{
+        border-right:1px solid #ccc!important;
+      }
+
+      .info:last-child{
+        width:100%!important;
       }
     }
   }
