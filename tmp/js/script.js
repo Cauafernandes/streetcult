@@ -1,28 +1,9 @@
 console.log('Javascript Iniciado.');
 
 //---------------------------------------------
-// [FILTROS] SLICK
-
-$('.autoplay').slick({
-    dots: false,
-    arrows: true,
-    infinite: true,
-    speed: 1000,
-    autoplay: true,
-    fade: true,
-    cssEase: 'linear',
-    prevArrow: $('.prev'),
-    nextArrow: $('.next')
-});
-
-//---------------------------------------------
 // LANÇAMENTOS
 
 var lista;
-function Disponibility(obj1) {
-    return obj1.tag === this.produto;
-}
-
 $.get({
     url: "produtos.json",
     dataType: "json",
@@ -44,13 +25,10 @@ $.get({
                 $('#category').html(menu).addClass('filtro');
                 $('.lmpflt').fadeIn("slow");
 
-                let doc = lista.find(Disponibility, {produto: tag});
-                console.log(tag);
-
                 lista.forEach((obj, idx) => {
                 switch(classe){
                     case 'camisa':
-                        if(obj.produto == 'camisa'){
+                        if(obj.produto == 'camisa' || obj.produto == 'regata'){
                             $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
                             ProdutoInfo();
@@ -58,7 +36,7 @@ $.get({
                     break;
 
                     case 'bermuda':
-                        if(obj.produto == 'bermuda'){
+                        if(obj.produto == 'bermuda' || obj.produto == 'calca'){
                             $("<li class='produto view' data-id='"+ idx +"' data-type=" + obj.lancamento + "><figure class='frente'><img src='" + obj.image + "'/></figure><figure class='costas' style='display:none;'><img src='" + obj.imagecostas + "'/></figure><h3>" + obj.nome + "</h3><span class='lnc'>LANÇAMENTO</span></li>").appendTo(produtos);
                             photosNew();
                             ProdutoInfo();
@@ -172,15 +150,13 @@ $.get({
                     $('.produtoimages').css('max-width', 'initial').css('width', 'initial');
 
                     if( $(window).width() < 400 ){
-                        console.log('entrei1');
                         $('.produtoimages').css('width', '125px');
                     }
                 } else{
                     $('.imageprodutocostas').parent().show();
                     $('.produtoimages').css('max-width', '370px').css('width', '100%');
 
-                    if( $(window).width() < 400 ){
-                        console.log('entrei2');
+                    if( $(window).width() > 400 ){
                         $('.produtoimages').css('max-width', '240px').css('width', '100%');
                     }
                 }
@@ -240,60 +216,77 @@ $.get({
     }
 });
 
-// [CARRINHO] QUANTIDADE
-$(document).ready(function(){
-    var carrinho = localStorage.getItem('Shopping');
+//---------------------------------------------
+// [INDEX/ONPAGELOAD]
 
+$(document).ready(function(){
+    if(window.location.href.indexOf('/index.php') != "-1" || window.location.href == 'http://localhost:9090/streetcult/src/'){
+        // [DESKTOP] SCROLL MENU
+        if( $(window).width() > 500 ){
+            $('.scroll').on('click', function(){
+                $("html, body").animate({ scrollTop: $("#detect").offset().top -79 }, 600);
+                return false;
+            });
+
+            $('.scrolllnc').on('click', function(){
+                $("html, body").animate({ scrollTop: $("#detectlnc").offset().top -197 }, 600);
+                return false;
+            });
+        } 
+        // [MOBILE] SCROLL MENU
+        else{
+            $('.scroll').on('click', function(){
+                $('.navmobile').css('left', '-120%');
+                setTimeout(function(){
+                    $("html, body").animate({ scrollTop: $("#detect").offset().top -65 }, 600);
+                }, 300);
+                return false;
+            });
+
+            $('.scrolllnc').on('click', function(){
+                $('.navmobile').css('left', '-120%');
+                setTimeout(function(){
+                    $("html, body").animate({ scrollTop: $("#detectlnc").offset().top -85 }, 600);
+                }, 300);
+                return false;
+            });
+        }
+    }
+
+    // [PRODUTO] VERIFICAÇÃO PRODUTOS PAGINACAO
+    if ($('.produtos').find(".produto").length <= 11){
+        $('#vmr').hide();
+    } else {
+        $('#vmr').show();
+    }
+
+    // [PRODUTO] MOSTRAR OS PRODUTOS
+    $('#vmr').on('click', function(){
+        $('.produtos').find('.produto:nth-child(1n+13)').css('display', 'table');
+        $(this).hide();
+    });
+
+    // [PRODUTO] APLICAR FILTRO
+    $('.type').on('click', function(){
+        if ($('.produtos').find(".produto").length <= 11){
+            $('#vmr').hide();
+        } else {
+            $('#vmr').show();
+        }
+    });
+
+    // [CARRINHO] QUANTIDADE
+    var carrinho = localStorage.getItem('Shopping');
     if(carrinho != null || carrinho != undefined){
+        console.log('carrinho ', carrinho.length);
         carrinho = JSON.parse(carrinho);
         $('.carqntd').html(carrinho.length);
     }
 });
 
-$(document).ready(function(){
-    // [DESKTOP] SCROLL MENU
-    if( $(window).width() > 500 ){
-        $('.scroll').on('click', function(){
-            $("html, body").animate({ scrollTop: $("#detect").offset().top -79 }, 600);
-            return false;
-        });
+//---------------------------------------------
+// [CARRINHO]
 
-        $('.scrolllnc').on('click', function(){
-            $("html, body").animate({ scrollTop: $("#detectlnc").offset().top -197 }, 600);
-            return false;
-        });
-    } 
-    // [MOBILE] SCROLL MENU
-    else{
-        $('.scroll').on('click', function(){
-            $('.navmobile').css('left', '-120%');
-            setTimeout(function(){
-                $("html, body").animate({ scrollTop: $("#detect").offset().top -65 }, 600);
-            }, 300);
-            return false;
-        });
-
-        $('.scrolllnc').on('click', function(){
-            $('.navmobile').css('left', '-120%');
-            setTimeout(function(){
-                $("html, body").animate({ scrollTop: $("#detectlnc").offset().top -85 }, 600);
-            }, 300);
-            return false;
-        });
-    }
-});
-
-// [PRODUTO] LIMPAR FILTRO
-$('.type').on('click', function(){
-    $('.produtos').find('li').remove();
-    $('#vmr').hide();
-});
-
-$('.lmpflt').on('click', function(){
-    $('.produtos').find('.produto').remove();
-});
-
-// [CARRINHO] BOTÃO 
 $(document).ready(function(){
     if(window.location.href.indexOf('/carrinho.php') != "-1"){
         var listaprodutos = localStorage.getItem('Shopping');
@@ -376,15 +369,26 @@ $(document).ready(function(){
             if(qtd<1) qtd = 1;                    
             $(this).parent().parent().find('.quantidadeproduto').text(qtd);
         });
+
+        // [CARRINHO] FINALIZAR COMPRA
+        $('.carfnz').find("button").on('click', function(){
+            var carrinho = localStorage.getItem('Shopping');
+            if(carrinho == null){
+                alert('Adicione um item ao carrinho');
+            } else{
+                window.location.replace("finalizar.php");
+            }
+        });
     }
 });
 
+//---------------------------------------------
 // [CARRINHO] FINALIZAR COMPRA
-$(document).ready(function(){
-    var carrinho = localStorage.getItem('Shopping');
-    carrinho = JSON.parse(carrinho);
-    if(window.location.href.indexOf('finalizar') != "-1"){
 
+$(document).ready(function(){
+    if(window.location.href.indexOf('finalizar') != "-1"){
+        var carrinho = localStorage.getItem('Shopping');
+        carrinho = JSON.parse(carrinho);
         var numped = Math.floor((Math.random() * 100000) + 1);
         var pedidocar;
 
@@ -395,7 +399,6 @@ $(document).ready(function(){
 
         if(carrinho == null){
             window.location.replace("carrinho.php");
-
         } else{
             // [MAIL] GERAR PRODUTOS DO CARRINHO
             var pedidos = "";
@@ -403,7 +406,6 @@ $(document).ready(function(){
                 pedidos+= "<li><b style='color:#b51919'>Produto:</b> " + obj.nome + " <br><b style='color:#b51919'>Cor:</b> " + obj.cor + " <br><b style='color:#b51919'>Tamanho:</b> " + obj.tamanho  + " <br><b style='color:#b51919'>Quantidade:</b> " + obj.quantidade + "</li><br>";
             });
             $('.pedido').val("<ul style='padding:15px 30px 0;color:#000000;background-color:#efefef'>" + pedidos + "</ul>");
-
 
             // [MAIL] ENVIAR E-MAIL
             var myform = $("form#infoscliente");
@@ -429,42 +431,32 @@ $(document).ready(function(){
     }
 });
 
-$('.carfnz').find("button").on('click', function(){
-    var carrinho = localStorage.getItem('Shopping');
+//---------------------------------------------
+// ROLAGEM PRO TOPO
 
-    if(carrinho == null){
-        alert('Adicione um item ao carrinho');
-    } else{
-        window.location.replace("finalizar.php");
+$('.scrlltp').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
+    return false;
+});
+
+$(window).on("scroll", function(){
+    if(window.pageYOffset > 400){
+    $('.scrlltp').fadeIn('fast');
+    } 
+    
+    if(window.pageYOffset < 400){
+    $('.scrlltp').fadeOut('fast');
     }
 });
+
+//---------------------------------------------
+// [MOBILE] MENU
 
 $('.menumob').on('click', function(){
     $('.navmobile').css('left', '0').css('transition', '0.5s all');
 
     $('.menumobclose').on('click', function(){
         $('.navmobile').css('left', '-120%');
-    });
-});
-
-//---------------------------------------------
-// VERIFICAÇÃO BOTÃO PRODUTOS
-
-$(document).ready(function() {
-    if ($('.produtos').find(".produto").length <= 11){
-        $('#vmr').hide();
-    } else {
-        $('#vmr').show();
-    }
-});
-
-//---------------------------------------------
-// MOSTRAR OS PRODUTOS
-
-$(document).ready(function() {
-    $('#vmr').on('click', function(){
-        $('.produtos').find('.produto:nth-child(1n+13)').css('display', 'table');
-        $(this).hide();
     });
 });
 
@@ -506,24 +498,7 @@ $(document).ready(function() {
 // });
 
 //---------------------------------------------
-// ROLAGEM PARA O TOPO
-
-$('.scrlltp').click(function(){
-    $("html, body").animate({ scrollTop: 0 }, 600);
-    return false;
-});
-
-$(window).on("scroll", function(){
-    if(window.pageYOffset > 400){
-    $('.scrlltp').fadeIn('fast');
-    } 
-    
-    if(window.pageYOffset < 400){
-    $('.scrlltp').fadeOut('fast');
-    }
-});
-
-// THUMBNAIL
+// [INSTAGRAM] THUMBNAIL
 
 initInstagramFeed = (function(){
     var igID = '6139852857'; // StreetCult013 \\
@@ -547,7 +522,22 @@ initInstagramFeed = (function(){
  });
 }());
 
-// SLICK NOVIDADES
+//---------------------------------------------
+// [FILTROS] SLICK
+
+$('.autoplay').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    speed: 1000,
+    autoplay: true,
+    fade: true,
+    cssEase: 'linear',
+    prevArrow: $('.prev'),
+    nextArrow: $('.next')
+});
+
+// [NOVIDADES] SLICK
 
 $(document).ready(function(){
     var lancamentosver = $('.lancamentos').find('.lancamento').length;

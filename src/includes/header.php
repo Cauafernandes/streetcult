@@ -14,10 +14,10 @@
                     <span class="ln"></span>
                     <nav class="menu">
                         <ul>
-                            <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
-                            <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
-                            <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
-                            <li data-tag="bone, pochete, chaveiro" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
+                            <li data-tag="camisa" class="camisa type scroll"><p>CAMISAS</p></li>
+                            <li data-tag="bermuda" class="bermuda type scroll"><p>BERMUDAS</p></li>
+                            <li data-tag="mochila" class="mochila type scroll"><p>MOCHILAS</p></li>
+                            <li data-tag="bone" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
                             <li class="lncmentos scrolllnc"><p>LANÇAMENTOS</p></li>
                             <li class="contato"><p>CONTATO</p></li>
                         </ul>
@@ -25,10 +25,10 @@
                     <nav class="navmobile">
                         <ul>
                             <li class="menumobclose"><button><i class="fas fa-caret-left"></i>VOLTAR</button></li>
-                            <li data-tag="camisa, regata" class="camisa type scroll"><p>CAMISAS</p></li>
-                            <li data-tag="bermuda, calca" class="bermuda type scroll"><p>BERMUDAS</p></li>
-                            <li data-tag="mochila, pochete" class="mochila type scroll"><p>MOCHILAS</p></li>
-                            <li data-tag="bone, pochete, chaveiro" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
+                            <li data-tag="camisa" class="camisa type scroll"><p>CAMISAS</p></li>
+                            <li data-tag="bermuda" class="bermuda type scroll"><p>BERMUDAS</p></li>
+                            <li data-tag="mochila" class="mochila type scroll"><p>MOCHILAS</p></li>
+                            <li data-tag="bone" class="acessorios type scroll"><p>ACESSÓRIOS</p></li>
                             <li class="lncmentos scrolllnc"><p>LANÇAMENTOS</p></li>
                             <li class="contato"><p>CONTATO</p></li>
                             <li>

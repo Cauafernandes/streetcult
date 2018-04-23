@@ -599,6 +599,7 @@ header{
       height:100%;
       left:-120%;
       top:0;
+      bottom:0;
       z-index: 5;
       background-color:#272727;
       -webkit-transition:0.5s all;
@@ -2056,6 +2057,13 @@ footer{
     }
   }
 
+  .close{
+    &:hover{
+      transition: initial!important;
+      color: rgba(255,255,255,.44)!important;
+    }
+  }
+
   .sclhdr{
     display:none!important;
   }
@@ -2192,54 +2200,63 @@ footer{
     .prdts{
       .telaproduto{
         .produtoinfo{
-          margin: 0 auto!important;
-        }
-      }
-    }
-  }
-
-  .produtoinfo{
-    height: 100%;
-    border-radius: 0!important;
-
-    h4{
-      font-size: 29px!important;
-    }
-
-    .btncomprar{
-      margin: 20px auto 30px!important;
-    }
-
-    .produtoimages{
-      // width: 240px!important;
-      // max-width:initial!important;
+          height: 100%;
+          border-radius: 0;
+          margin: 0px auto 0;
       
-      figure{
-        max-width: 120px!important;
-        height: 120px!important;
-
-        img{
-          height: 120px!important;
+          h4{
+            font-size: 29px;
+            border-radius: 0;
+          }
+      
+          .btncomprar{
+            margin: 60px auto 30px!important;
+            padding: 18px 80px 15px;
+          }
+      
+          .produtoimages{
+            width: initial!important;
+            max-width:initial!important;
+            
+            figure{
+              max-width: 120px!important;
+              height: 145px!important;
+      
+              img{
+                height: 145px!important;
+              }
+            }
+          }
+      
+          .prodinfo{
+            .info{
+              width: 49.6%!important;
+              border:none!important;
+      
+              svg{
+                margin: 0 70px;
+              }
+            }
+      
+            .info:first-child{
+              border-right:1px solid #ccc!important;
+            }
+      
+            .info:last-child{
+              display:none;
+            }
+          }
         }
-      }
-    }
 
-    .prodinfo{
-      .info{
-        width: 49.6%!important;
-        border:none!important;
-
-        svg{
-          margin: 0 70px!important;
+        .prodadd{
+          max-width: 260px;
+          font-size: 19px;
+          bottom:0!important;
+          padding:.75rem 0;
+          max-width:initial;
+          z-index:3;
+          top:initial!important;
         }
-      }
-
-      .info:first-child{
-        border-right:1px solid #ccc!important;
-      }
-
-      .info:last-child{
-        display:none;
       }
     }
   }
