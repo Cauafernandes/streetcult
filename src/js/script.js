@@ -157,7 +157,7 @@ $.get({
                     $('.produtoimages').css('max-width', '370px').css('width', '100%');
 
                     if( $(window).width() > 400 ){
-                        $('.produtoimages').css('max-width', '240px').css('width', '100%');
+                        $('.produtoimages').css('max-width', '370px').css('width', '100%');
                     }
                 }
 
@@ -527,7 +527,7 @@ initInstagramFeed = (function(){
     var igID = '6139852857'; // StreetCult013 \\
     var igClientID = '1aaecad4dc7a4e65b2c9e85dcfdb4fbb';
     var igClientSecret = '6c50e0ca84ff49eea9452eef0f1c9241';
-    var count = 18; // Número de fotos || MÁX: 20 \\
+    var count = 3; // Número de fotos || MÁX: 20 \\
     var accessToken = '6139852857.1aaecad.2f3878b935de435dba34b99d675c189d';
  $.ajax({
      type: "GET",
@@ -536,7 +536,7 @@ initInstagramFeed = (function(){
      url: "https://api.instagram.com/v1/users/" + igID + "/media/recent/?access_token=" + accessToken + '&count=' + count,
      success: function(data) {
          for (var i = 0; i < count; i++) {
-             $(".phtinst").append("<a class='fotoinst' target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a>");
+             $(".instaphotos").append("<li><a class='fotoinst' target='_blank' href='" + data.data[i].link +"'><img src='" + data.data[i].images.thumbnail.url +"' /><span></span></a></li>");
          }
      },
      error: function(){
@@ -564,7 +564,6 @@ $('.autoplay').slick({
 
 $(document).ready(function(){
     var lancamentosver = $('.lancamentos').find('.lancamento').length;
-
     if(lancamentosver != 0){
         $('.novpdslk').slick({
             arrows:true,

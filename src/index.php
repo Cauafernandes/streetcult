@@ -12,17 +12,17 @@
                 <ul class="autoplay">
                     <li>
                         <figure>
-                            <img src="assets/img/banner1.png" alt="Publicidade"/>
+                            <img src="assets/img/banners/banner-1.png" alt="Publicidade"/>
                         </figure>
                     </li>
                     <li>
                         <figure>
-                            <img src="assets/img/banner2.png" alt="Publicidade"/>
+                            <img src="assets/img/banners/banner-2.png" alt="Publicidade"/>
                         </figure>
                     </li>
                     <li>
                         <figure>
-                            <img src="assets/img/banner3.png" alt="Publicidade"/>
+                            <img src="assets/img/banners/banner-3.png" alt="Publicidade"/>
                         </figure>
                     </li>
                 </ul>
@@ -157,14 +157,21 @@
                     </ul>
                     <button id="vmr"><i class="fas fa-sync"></i>CARREGAR MAIS</button>
                 </div>
-                <div class="inst-pR">
-                    <div class="phtinst">
-                        <div class="lkinst">
-                            <a class="strtlnk" href="https://www.instagram.com/streetcult013/">
-                                @streetcult013
-                            </a>
-                        </div>
-                    </div>
+                <div class="instagram-pR">
+                    <h3>CONHEÇA NOSSO INSTAGRAM</h3>
+                    <a href="https://www.instagram.com/streetcult013/" target="_blank" title="Instagram">
+                        <figure>
+                            <img src="assets/img/instaiphone.png" alt="StreetCult Instagram"/>
+                        </figure>
+                        <figure>
+                            <img src="assets/img/instagalaxy.png" alt="StreetCult Instagram"/>
+                        </figure>
+                        <figure>
+                            <img src="assets/img/instawindowsphone.png" alt="StreetCult Instagram"/>
+                        </figure>
+                        <ul class="instaphotos">
+                        </ul>
+                    </a>
                 </div>
             </div>
          </div>

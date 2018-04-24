@@ -157,7 +157,7 @@ $.get({
                     $('.produtoimages').css('max-width', '370px').css('width', '100%');
 
                     if( $(window).width() > 400 ){
-                        $('.produtoimages').css('max-width', '240px').css('width', '100%');
+                        $('.produtoimages').css('max-width', '370px').css('width', '100%');
                     }
                 }
 

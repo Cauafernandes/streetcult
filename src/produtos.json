@@ -8,32 +8,8 @@
         "type": "Chronic",
         "quantidade": "0",
         "lancamento": false,
-        "image": "assets/img/bonechronic.jpeg",
-        "imagecostas": "assets/img/bonechroniclado.jpeg"
-    },
-    {
-        "nome": "Boné Chronic Floral Azul",
-        "cor": "Azul",
-        "tamanho": "U",
-        "produto": "bone",
-        "tag": "acessorios",
-        "type": "Chronic",
-        "quantidade": "0",
-        "lancamento": true,
-        "image": "assets/img/bonechronic2.jpeg",
-        "imagecostas": "assets/img/bonechronic2lado.jpeg"
-    },
-    {
-        "nome": "Camisa Chronic AK Ninguem Guenta",
-        "cor": "Azul,Preto,Branco,Vermelho",
-        "tamanho": "GG, G, M, P",
-        "produto": "camisa",
-        "tag": "camisa",
-        "type": "Chronic",
-        "quantidade": "0",
-        "lancamento": false,
-        "image": "assets/img/camisachronic7.jpeg",
-        "imagecostas": "assets/img/camisachronic7costas.jpeg"
+        "image": "assets/img/produtos/chronic/bone/1/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/bone/1/costas.jpeg"
     },
     {
         "nome": "Camisa Chronic Sem Vacilo",
@@ -44,31 +20,55 @@
         "type": "Chronic",
         "quantidade": "0",
         "lancamento": false,
-        "image": "assets/img/camisachronic.jpeg",
-        "imagecostas": "assets/img/camisachroniccostas.jpeg"
+        "image": "assets/img/produtos/chronic/camisa/1/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/1/costas.jpeg"
     },
     {
-        "nome": "Camisa Chronic Biggie Skull",
+        "nome": "Camisa Chronic NGT Big",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG,G,M,P",
+        "produto": "camisa",
+        "tag": "camisa",
+        "type": "Chronic",
+        "quantidade": "0",
+        "lancamento": false,
+        "image": "assets/img/produtos/chronic/camisa/2/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/2/costas.jpeg"
+    },
+    {
+        "nome": "Camisa Chronic Arm Chronic",
         "cor": "Azul,Preto,Branco,Vermelho",
         "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
         "quantidade": "0",
-        "lancamento": false,
-        "image": "assets/img/camisachronic2.jpeg",
-        "imagecostas": "assets/img/camisachronic2costas.jpeg"
+        "lancamento": true,
+        "image": "assets/img/produtos/chronic/camisa/3/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/3/costas.jpeg"
     },
     {
-        "nome": "Meia Chronic Head Shop",
+        "nome": "Camisa Chronic Benjamin Money",
         "cor": "Azul,Preto,Branco,Vermelho",
-        "tamanho": "U",
-        "produto": "meia",
-        "tag": "acessorios",
+        "tamanho": "GG, G, M, P",
+        "produto": "camisa",
+        "tag": "camisa",
         "type": "Chronic",
         "quantidade": "0",
         "lancamento": true,
-        "image": "assets/img/meiachronic.png",
+        "image": "assets/img/produtos/chronic/camisa/4/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/4/costas.jpeg"
+    },
+    {
+        "nome": "Chronic Shouder Bag Camuflado",
+        "cor": "Camuflado",
+        "tamanho": "U",
+        "produto": "pochete",
+        "tag": "mochilas, acessorios",
+        "type": "Chronic",
+        "quantidade": "0",
+        "lancamento": false,
+        "image": "assets/img/produtos/chronic/mochila/1/frente.jpeg",
         "imagecostas": ""
     },
     {
@@ -80,43 +80,55 @@
         "type": "Chronic",
         "quantidade": "0",
         "lancamento": true,
-        "image": "assets/img/camisachronic3.jpeg",
-        "imagecostas": "assets/img/camisachronic3costas.jpeg"
+        "image": "assets/img/produtos/chronic/camisa/5/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/5/costas.jpeg"
     },
     {
-        "nome": "Camisa Chronic Benjamin Money",
+        "nome": "Camisa Chronic Biggie Skull",
         "cor": "Azul,Preto,Branco,Vermelho",
         "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
-        "type": "Chronic",
-        "quantidade": "0",
-        "lancamento": true,
-        "image": "assets/img/camisachronic5.jpeg",
-        "imagecostas": "assets/img/camisachronic5costas.jpeg"
-    },
-    {
-        "nome": "Camisa Chronic Arm Chronic",
-        "cor": "Azul,Preto,Branco,Vermelho",
-        "tamanho": "GG, G, M, P",
-        "produto": "camisa",
-        "tag": "camisa",
-        "type": "Chronic",
-        "quantidade": "0",
-        "lancamento": true,
-        "image": "assets/img/camisachronic4.jpeg",
-        "imagecostas": "assets/img/camisachronic4costas.jpeg"
-    },
-    {
-        "nome": "Chronic Shouder Bag Camuflado",
-        "cor": "Camuflado",
-        "tamanho": "U",
-        "produto": "pochete",
-        "tag": "mochilas, acessorios",
         "type": "Chronic",
         "quantidade": "0",
         "lancamento": false,
-        "image": "assets/img/pochetechronic.jpeg",
+        "image": "assets/img/produtos/chronic/camisa/6/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/6/costas.jpeg"
+    },
+    {
+        "nome": "Boné Chronic Floral Azul",
+        "cor": "Azul",
+        "tamanho": "U",
+        "produto": "bone",
+        "tag": "acessorios",
+        "type": "Chronic",
+        "quantidade": "0",
+        "lancamento": true,
+        "image": "assets/img/produtos/chronic/bone/2/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/bone/2/costas.jpeg"
+    },
+    {
+        "nome": "Camisa Chronic Sweet Girl",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "GG,G,M,P",
+        "produto": "camisa",
+        "tag": "camisa",
+        "type": "Chronic",
+        "quantidade": "0",
+        "lancamento": true,
+        "image": "assets/img/produtos/chronic/camisa/7/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/7/costas.jpeg"
+    },
+    {
+        "nome": "Meia Chronic Head Shop",
+        "cor": "Azul,Preto,Branco,Vermelho",
+        "tamanho": "U",
+        "produto": "meia",
+        "tag": "acessorios",
+        "type": "Chronic",
+        "quantidade": "0",
+        "lancamento": true,
+        "image": "assets/img/produtos/chronic/meia/1/frente.png",
         "imagecostas": ""
     },
     {
@@ -128,31 +140,19 @@
         "type": "Chronic",
         "quantidade": "0",
         "lancamento": false,
-        "image": "assets/img/bermudachronic1.jpeg",
-        "imagecostas": "assets/img/bermudachronic1costas.jpeg"
+        "image": "assets/img/produtos/chronic/bermuda/1/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/bermuda/1/costas.jpeg"
     },
     {
-        "nome": "Camisa Chronic Sweet Girl",
+        "nome": "Camisa Chronic AK Ninguem Guenta",
         "cor": "Azul,Preto,Branco,Vermelho",
-        "tamanho": "GG,G,M,P",
-        "produto": "camisa",
-        "tag": "camisa",
-        "type": "Chronic",
-        "quantidade": "0",
-        "lancamento": true,
-        "image": "assets/img/camisachronic8.jpeg",
-        "imagecostas": "assets/img/camisachronic8costas.jpeg"
-    },
-    {
-        "nome": "Camisa Chronic NGT Big",
-        "cor": "Azul,Preto,Branco,Vermelho",
-        "tamanho": "GG,G,M,P",
+        "tamanho": "GG, G, M, P",
         "produto": "camisa",
         "tag": "camisa",
         "type": "Chronic",
         "quantidade": "0",
         "lancamento": false,
-        "image": "assets/img/camisachronic9.jpeg",
-        "imagecostas": "assets/img/camisachronic9costas.jpeg"
+        "image": "assets/img/produtos/chronic/camisa/8/frente.jpeg",
+        "imagecostas": "assets/img/produtos/chronic/camisa/8/costas.jpeg"
     }
 ]
