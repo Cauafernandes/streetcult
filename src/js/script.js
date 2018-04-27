@@ -172,8 +172,7 @@ $.get({
                     if(carrinho == null || carrinho == undefined){
                         produtocliente = JSON.stringify(produtocliente);
                         localStorage.setItem("Shopping", "[" + produtocliente + "]");
-                        var listaprodutos = localStorage.getItem('Shopping');
-                        listaprodutos = JSON.parse(listaprodutos);
+                        carrinho = JSON.parse(carrinho);
                         $('.prodadd').fadeIn("fast");
                         setTimeout(function(){
                             $('.prodadd').fadeOut("slow");
@@ -529,7 +528,7 @@ initInstagramFeed = (function(){
     var igID = '6139852857'; // StreetCult013 \\
     var igClientID = '1aaecad4dc7a4e65b2c9e85dcfdb4fbb';
     var igClientSecret = '6c50e0ca84ff49eea9452eef0f1c9241';
-    var count = 3; // Número de fotos || MÁX: 20 \\
+    var count = 1; // Número de fotos || MÁX: 20 \\
     var accessToken = '6139852857.1aaecad.2f3878b935de435dba34b99d675c189d';
  $.ajax({
      type: "GET",

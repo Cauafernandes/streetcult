@@ -159,21 +159,17 @@
                     </ul>
                     <button id="vmr"><i class="fas fa-sync"></i>CARREGAR MAIS</button>
                 </div>
-                <div class="instagram-pR">
-                    <h3>CONHEÇA NOSSO INSTAGRAM</h3>
+                <div class="midias-pR">
+                    <h3>MÍDIAS SOCIAIS</h3>
                     <a href="https://www.instagram.com/streetcult013/" target="_blank" title="Instagram">
                         <figure>
                             <img src="assets/img/instaiphone.png" alt="StreetCult Instagram"/>
                         </figure>
-                        <figure>
-                            <img src="assets/img/instagalaxy.png" alt="StreetCult Instagram"/>
-                        </figure>
-                        <figure>
-                            <img src="assets/img/instawindowsphone.png" alt="StreetCult Instagram"/>
-                        </figure>
                         <ul class="instaphotos">
                         </ul>
                     </a>
+                    <div class="fb-page facebookinfo" data-href="https://www.facebook.com/streetcult013/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/streetcult013/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/streetcult013/">StreetCult 013</a></blockquote></div>
+                    <div id="fb-root"></div>
                 </div>
             </div>
          </div>
@@ -182,10 +178,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="contato-pR">
-                        <div class="fb-page" data-href="https://www.facebook.com/streetcult013/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/streetcult013/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/streetcult013/">StreetCult 013</a></blockquote></div>
+                        <h2>CONTATO</h2>
                     </div>
-                    <div id="fb-root"></div>
-                    <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
                 </div>
             </div>
         </div>

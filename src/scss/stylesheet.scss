@@ -437,7 +437,7 @@ p{
   margin:0;
 } 
 
-//FIM NORMALIZE
+// FIM NORMALIZE
 //-----------------------------------------------
 // COMECO CONTAINER/COL
 
@@ -890,6 +890,7 @@ header{
 .mn-pR{
   margin:30px 0 0;
   width:100%;
+  border-bottom: 1px solid #e6e6e6;
 
   .catpr{
     width:100%;
@@ -1329,6 +1330,10 @@ header{
 
     &:focus{ outline: none; }
   }
+
+  &:first-child{
+    border:none;
+  }
 }
 
 .open{
@@ -1381,16 +1386,18 @@ header{
   }
 }
 
-.instagram-pR{
+.midias-pR{
+  display:table;
+  width:100%;
   a{
     position:relative;
-    width: 100%;
     display: table;
-    
+    margin: 0 100px;
+    float:left;
+
     figure{
       float:left;
       display:table;
-      margin: 0 100px;
   
       img{
         max-width:210px;
@@ -1405,6 +1412,8 @@ header{
         width:100%;
 
         a{
+          width:100%;
+          margin:0;
           img{
             width:100%;
           }
@@ -1412,30 +1421,8 @@ header{
 
         &:first-child{
           max-width: 184px;
-          left: 113px;
+          left: 13px;
           top: 71px;
-        }
-
-        &:nth-child(2){
-          max-width: 198px;
-          left: 516px;
-          top: 88px;
-
-          a{
-            img{
-              height: 204px;
-            }
-          }
-        }
-
-        &:nth-child(3){
-          max-width: 187px;
-          right: 114px;
-          top: 62px;
-
-          img{
-            height: 155px;
-          }
         }
       }
     }
@@ -1450,81 +1437,21 @@ header{
   }
 }
 
-.inst-pR{
-  max-width:1230px;
-  width:100%;
-  margin:30px 0 15px;
+.contato-pR{
+  border-top:1px solid #e6e6e6;
+  margin:30px 0;
 
-  .phtinst{
-    position:relative;
-    width:100%;
-    height:600px;
+  h2{
+    margin:30px auto 0;
+    font-size:34px;
+    display:table;
+    color:#000;
+    font-family: 'Montserrat';
+  }
 
-    .fotoinst{
-      position:relative;
-      display:table;
-      float:left;
-      max-width: 205px;
-      width: 100%;
-      height: 200px;
-
-      img{
-        max-width: 205px;
-        width: 100%;
-        height: 200px;
-        display: table;
-      }
-
-      span{
-        max-width: 205px;
-        width: 100%;
-        height: 200px;
-        position:absolute;
-        background-color:#000;
-        opacity:0.5;
-        display:table;
-        top:0;
-        left:0;
-        -webkit-transition:0.8s all;
-
-        &:hover{
-          opacity:0;
-          transition:0.8s all;
-        }
-      }
-    }
-
-    .lkinst{
-      position:absolute;
-      display:table;
-      background-color:#fff;
-      border-radius:15px; 
-      max-width:500px;
-      width:100%;
-      left: 27%;
-      top:125px;
-      margin: auto;
-      z-index:3;
-      padding:30px;
-      box-shadow:0px 0px 30px #000;
-      background-image: url('../assets/img/monkey2.png');
-      background-size: 5%;
-      background-repeat: repeat;
-
-      .strtlnk{
-        display:table;
-        border:2px dashed #ccc;
-        margin:0 auto;
-        background-color:#fff;
-        padding:10px 20px;
-
-        &:hover{
-          background-color:#ccc;
-          transition: 0.3s all;
-          cursor:pointer;
-        }
-      }
-    }
+  .facebookinfo{
+    float:left;
+    margin: 50px 15px;
   }
 }
 
@@ -1535,12 +1462,13 @@ header{
 footer{
   background-color:#000;
   padding:3px;
-  color:#9a9a9a;
+  color:#fff;
   margin-top:50px;
 
   h5{
     display:table;
-    margin:0 auto;
+    text-align: center;
+    width:100%;
     font-size:11px;
     font-weight:100;
     font-family: "Lato",sans-serif;
@@ -1634,7 +1562,6 @@ footer{
 }
 
 .fb_iframe_widget{
-  margin:0 auto;
   display:table!important;
 }
 
