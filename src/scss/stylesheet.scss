@@ -947,6 +947,7 @@ header{
       position:relative;
       margin: 30px 10px;
       cursor:pointer;
+      display:table;
 
       h3{
         display:table;
@@ -1389,10 +1390,10 @@ header{
     figure{
       float:left;
       display:table;
-      margin: 0 55px;
+      margin: 0 100px;
   
       img{
-        max-width:300px;
+        max-width:210px;
       }
     }
 
@@ -1410,24 +1411,30 @@ header{
         }
 
         &:first-child{
-          max-width:262px;
-          left:74px;
-          top:102px;
+          max-width: 184px;
+          left: 113px;
+          top: 71px;
         }
 
         &:nth-child(2){
-          max-width: 283px;
-          left: 474px;
-          top: 126px;
+          max-width: 198px;
+          left: 516px;
+          top: 88px;
+
+          a{
+            img{
+              height: 204px;
+            }
+          }
         }
 
         &:nth-child(3){
-          max-width: 262px;
-          right:76px;
-          top:89px;
+          max-width: 187px;
+          right: 114px;
+          top: 62px;
 
           img{
-            height: 215px;
+            height: 155px;
           }
         }
       }
@@ -1438,7 +1445,7 @@ header{
     display:table;
     font-size:38px;
     color:#000;
-    margin:30px auto;
+    margin:55px auto;
     font-family: 'Montserrat';
   }
 }

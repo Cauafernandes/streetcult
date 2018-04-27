@@ -128,6 +128,7 @@
                                     <i class="fas fa-times"></i>
                                 </span>
                             </div>
+
                             <!-- <div class="produtoinfo">
                                 <h4 class="nomeproduto">Camisa Chronic Arm Forter</h4>
                                 <figure>
@@ -151,6 +152,7 @@
                                     <i class="fas fa-times"></i>
                                 </span>
                             </div> -->
+
                         </div>
                     </div>
                     <ul class="produtos">
@@ -179,6 +181,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <div class="contato-pR">
+                        <div class="fb-page" data-href="https://www.facebook.com/streetcult013/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/streetcult013/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/streetcult013/">StreetCult 013</a></blockquote></div>
+                    </div>
+                    <div id="fb-root"></div>
+                    <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
                 </div>
             </div>
         </div>

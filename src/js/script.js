@@ -486,39 +486,41 @@ $('.menumob').on('click', function(){
 //---------------------------------------------
 // FACEBOOK SCRIPT
 
-// FB.init({
-//     appId: '504091833259869',
-//     xfbml: true,
-//     version: 'v2.5'
-//   });
+FB.init({
+    appId: '230269184387096',
+    xfbml: true,
+    version: 'v2.12'
+  });
 
-// (function(d, s, id) {
-//     var js, fjs = d.getElementsByTagName(s)[0];
-//     if (d.getElementById(id)) return;
-//     js = d.createElement(s); js.id = id;
-//     js.src = 'https://connect.facebook.net/pt_BR/all.js#xfbml=1&version=v2.5&appId=504091833259869&autoLogAppEvents=1';
-//     fjs.parentNode.insertBefore(js, fjs);
-// }(document, 'script', 'facebook-jssdk'));
+(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/pt_BR/all.js#xfbml=1&version=v2.5&appId=230269184387096&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
-// function checkLoginState() {
-//     FB.getLoginStatus(function(response) {
-//         statusChangeCallback(response);
-//         console.log(response)
-//     });
-// }
+function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+        console.log(response)
+    });
+}
 
-// // PEGANDO USUÁRIO NO LOAD DA PAGE
-// FB.getLoginStatus(function(response){
-//     console.log('Verificando conexão');
-//     if (response.authResponse) {
-//         FB.api('/me', function(response) {
-//             console.log('Bem vindo, ' + response.name + '.')
-//         }); 
-//     } else {
-//         console.log('Não houve uma conexão.')
-//         return;
-//     }
-// });
+// PEGANDO USUÁRIO NO LOAD DA PAGE
+FB.getLoginStatus(function(response){
+    console.log('Verificando conexão');
+    if (response.authResponse) {
+        FB.api('/me', function(response) {
+            console.log('Bem vindo, ' + response.name + '.')
+        }); 
+    } else {
+        console.log('Não houve uma conexão.')
+        $('.telafacebook').css('left', '0');
+        localStorage.setItem("Facebook", false);
+        return;
+    }
+});
 
 //---------------------------------------------
 // [INSTAGRAM] THUMBNAIL
@@ -540,7 +542,7 @@ initInstagramFeed = (function(){
          }
      },
      error: function(){
-         console.log('Tem algo errado, atualize a página!', data);
+         console.log('ERROR: atualize a página!', data);
      }
  });
 }());
